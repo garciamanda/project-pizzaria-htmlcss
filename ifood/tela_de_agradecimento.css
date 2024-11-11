@@ -1,0 +1,27 @@
+body{
+    background-color:rgb(238, 102, 102);
+}
+h2{
+   color: bisque;
+}
+.container{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+}
+#back-button{
+    background-color: rgb(158, 86, 86);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+
+
+}

@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b9b7b7;
+}
+
+.container {
+    max-width: 400px;
+    margin: 200px auto 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.1);
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border: none;
+    display: block;
+    width: 200%;
+    padding: 10px;
+    background-color: white;
+    color: #000000;
+    border-radius: 50px;
+    cursor: pointer;
+    
+}
+
+div i {
+    color: #110f0f;
+    font-size: 23px;
+    position: relative;
+   
+}
+button {
+    border: none;
+    width: 20%;
+    padding: 10px;
+    background-color: white;
+    color: #000000;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.form-group input {
+    display: flex;
+    align-items: center;
+    /* Restante das propriedades existentes */
+}
+
+.icon {
+    margin-left: 5px;
+    transition: border-color 0.3s ease-in-out;
+    border: none;
+}
+
+.icon:hover {
+    border-color: red;
+}
+
+
+button:hover {
+    background-color: rgb(255, 85, 85);
+    background-color: 2px solid red;
+    transition: all 1.0s ease;
+    box-shadow: #1b1a1a 0px 2px 2px 0px;
+}
