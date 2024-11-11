@@ -105,7 +105,7 @@ header #logo img {
 }
 
 .home {
-  background-image: linear-gradient(rgba(29, 29, 29, 0.9), rgba(29, 29, 29, 0.9)), url('/Teste/images/bg.jpeg');
+  background-image: linear-gradient(rgba(29, 29, 29, 0.9), rgba(29, 29, 29, 0.9)), url('/project2/images/bg.jpeg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

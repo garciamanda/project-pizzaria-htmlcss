@@ -11,11 +11,11 @@ if (isset($_POST['submit'])) {
   $email = $_POST['email'];
   $senha = $_POST['senha'];
 
-  
+
   if (isset($_FILES['avatar'])) {
     $arquivo = $_FILES['avatar'];
 
-    
+
     if ($arquivo['error']) {
       die("Erro ao enviar o arquivo");
     }
@@ -25,18 +25,18 @@ if (isset($_POST['submit'])) {
     $novoNome = uniqid();
     $extensao = strtolower(pathinfo($nomeArquivo, PATHINFO_EXTENSION));
 
-    
+
     if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {
       die("Extensão inválida");
     }
 
     $path = $pasta . $novoNome . "." . $extensao;
 
-    
+
     $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
 
     if ($deu_certo) {
-      
+
       $result = mysqli_query($conexao, "INSERT INTO usuarios (nome, email, senha, avatar) VALUES ('$nome', '$email', '$senha', '$path')");
 
       if (!$result) {
@@ -75,19 +75,19 @@ if (isset($_POST['submit'])) {
 <body>
 
   <header class="header">
-      <div class="logo" id="logo">
-        <img src="images/logo.png" alt="">
-      </div>
+    <div class="logo" id="logo">
+      <img src="images/logo.png" alt="">
+    </div>
 
-      <input type="checkbox" id="check">
-      <label for="check" class="menu">
-        <i class='bx bx-menu' id="menu-icon"></i>
-        <i class='bx bx-x' id="close-icon"></i>
-      </label>
+    <input type="checkbox" id="check">
+    <label for="check" class="menu">
+      <i class='bx bx-menu' id="menu-icon"></i>
+      <i class='bx bx-x' id="close-icon"></i>
+    </label>
 
-      <nav class="navbar">
-        <a href="#home" style="--i:0">Home</a>
-        <a href="#footer" style="--i:4">Contatos</a>
+    <nav class="navbar">
+      <a href="#home" style="--i:0">Home</a>
+      <a href="#footer" style="--i:4">Contatos</a>
 
       <?php if (isset($_SESSION['email'])): ?>
         <!-- Exibe o avatar e nome do usuário logado -->
@@ -330,7 +330,7 @@ if (isset($_POST['submit'])) {
   <main class="carda-comum">
     <section class="reme" id="reme">
       <h1>Cardápio</h1>
-      <div class="reme-content">        
+      <div class="reme-content">
         <hr>
         <p>Pizzas</p>
         <hr>
@@ -411,9 +411,9 @@ if (isset($_POST['submit'])) {
         <div class="carrinho">
           <div class="carrinho-text">
             <p>Carrinho</p>
+          </div>
+
         </div>
-        
-      </div>
     </section>
   </main>
 
