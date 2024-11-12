@@ -36,14 +36,14 @@ if (isset($_POST['submit'])) {
     $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
 
     if ($deu_certo) {
-
       $result = mysqli_query($conexao, "INSERT INTO usuarios (nome, email, senha, avatar) VALUES ('$nome', '$email', '$senha', '$path')");
 
-      if (!$result) {
+      if ($result) {
+        $_SESSION['email'] = $email;
+        $_SESSION['avatar'] = $path; // Salva o caminho do avatar na sessão
+      } else {
         die("Erro ao salvar no banco de dados: " . mysqli_error($conexao));
       }
-    } else {
-      die("Erro ao mover o arquivo");
     }
   }
 }
@@ -90,19 +90,16 @@ if (isset($_POST['submit'])) {
       <a href="#footer" style="--i:4">Contatos</a>
 
       <?php if (isset($_SESSION['email'])): ?>
-        <!-- Exibe o avatar e nome do usuário logado -->
         <div class="user-info">
-          <img src="images/avatars/<?php echo $_SESSION['avatar']; ?>" alt="Avatar" class="avatar">
-          <span><?php echo $_SESSION['email']; ?></span>
+          <img height="50" src="<?php echo $_SESSION['avatar']; ?>" alt="Avatar">
+          <?php echo $_SESSION['email']; ?>
         </div>
-        <!-- Esconde o botão de login -->
         <style>
           #btnLogin-popup {
             display: none;
           }
         </style>
       <?php else: ?>
-        <!-- Botão de login visível se não estiver logado -->
         <button id="btnLogin-popup" class="btnLogin-popup"><i class='bx bx-user'></i>Login</button>
       <?php endif; ?>
       <?php if (isset($_SESSION['email'])): ?>
