@@ -418,9 +418,9 @@ if (isset($_POST['submit'])) {
     <div class="footer" id="footer">
 
       <div class="footer-logo">
-        <i id="logo-whatsapp" class='bx bxl-whatsapp'></i>
-        <i class='bx bxl-facebook'></i>
-        <i class='bx bxl-instagram'></i>
+        <i class='bx bxl-whatsapp' style='color:#0e0e0e'  ></i>
+        <i class='bx bxl-instagram' style='color:#0e0e0e' ></i>
+        <i class='bx bxl-facebook' style='color:#0e0e0e' ></i>
       </div>
     </div>
   </footer>

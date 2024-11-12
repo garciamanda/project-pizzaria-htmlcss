@@ -28,6 +28,7 @@
   --dark-gray: #333;
   --gray: #959595;
   --blue: #56c5db;
+  --inst: linear-gradient(45deg, #f9a8d4, #d32f2f, #ffb74d, #25D366);
 }
 
 
@@ -228,7 +229,6 @@ header #logo img {
 
 footer {
   background-color: var(--red2);
-  color: var(--white);
   height: 5rem;
   display: flex;
   align-items: center;
@@ -241,10 +241,12 @@ footer {
   font-size: 3rem;
 }
 
-.footer-logo i:hover {
-  color: var(--white);
+.footer-logo i.bx.bxl-whatsapp:hover {
+  color: #25D366 !important;
   cursor: pointer;
 }
+
+
 
 ::-webkit-scrollbar {
   width: 1.3rem;
