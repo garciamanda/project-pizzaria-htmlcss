@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 
       if ($result) {
         $_SESSION['email'] = $email;
-        $_SESSION['avatar'] = $path; // Salva o caminho do avatar na sessão
+        $_SESSION['avatar'] = $path;
       } else {
         die("Erro ao salvar no banco de dados: " . mysqli_error($conexao));
       }
@@ -90,9 +90,9 @@ if (isset($_POST['submit'])) {
       <a href="#footer" style="--i:4">Contatos</a>
 
       <?php if (isset($_SESSION['email'])): ?>
-        <div class="user-info">
+        <div class="user-info" >
           <img height="50" src="<?php echo $_SESSION['avatar']; ?>" alt="Avatar">
-          <?php echo $_SESSION['email']; ?>
+          <!-- <?php echo $_SESSION['email']; ?> -->
         </div>
         <style>
           #btnLogin-popup {
