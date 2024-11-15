@@ -5,6 +5,8 @@ document.getElementById('btnpedido').addEventListener('click', function () {
   document.getElementById('tranding').scrollIntoView({ behavior: 'smooth' });
 })
 
+
+
 // Slide
 var TrandingSlider = new Swiper('.tranding-slider', {
   effect: 'coverflow',
@@ -56,6 +58,9 @@ function openModal() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+
+  // openPopupSettings();
+
   const wrapper = document.querySelector(".wrapper");
   const loginLink = document.querySelector(".login-link");
   const registerLink = document.querySelector(".register-link");
@@ -198,3 +203,40 @@ window.addEventListener('click', function(event) {
     registerPopup.style.display = 'none';
   }
 });
+
+
+// popup de perfil de usuário
+// para utilizar basta colocar o nome da função la em cima no DomContentLoaded
+
+function openPopupSettings() {
+  const avatar = document.querySelector('.user-info img');
+  const profilePopup = document.getElementById('profile-popup');
+  const closePopup = document.getElementById('close-popup');
+
+  if (avatar) {
+    avatar.addEventListener('click', () => {
+      profilePopup.style.display = 'flex';
+    });
+  }
+
+  if (closePopup) {
+    closePopup.addEventListener('click', () => {
+      profilePopup.style.display = 'none';
+    });
+  }
+
+  window.addEventListener('click', (event) => {
+    if (event.target === profilePopup) {
+      profilePopup.style.display = 'none';
+    }
+  });
+}
+
+// sla
+
+
+
+function openMenu() {
+  let subMenu = document.getElementById("subMenu");
+  subMenu.classList.toggle("open-menu");
+}

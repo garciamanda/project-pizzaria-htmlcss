@@ -5,7 +5,7 @@ session_start();
 
 
 if (isset($_POST['submit'])) {
-  include_once('config.php');
+  include 'config.php';
 
   $nome = $_POST['nome'];
   $email = $_POST['email'];
@@ -36,13 +36,16 @@ if (isset($_POST['submit'])) {
     $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
 
     if ($deu_certo) {
-      $result = mysqli_query($conexao, "INSERT INTO usuarios (nome, email, senha, avatar) VALUES ('$nome', '$email', '$senha', '$path')");
+      $stmt = $conexao->prepare("INSERT INTO usuarios (nome, email, senha, avatar) VALUES (?, ?, ?, ?)");
+      $stmt->bind_param("ssss", $nome, $email, $senha, $path);
+      $stmt->execute();
 
-      if ($result) {
+      if ($stmt->affected_rows > 0) {
         $_SESSION['email'] = $email;
         $_SESSION['avatar'] = $path;
+        $_SESSION['nome'] = $nome;
       } else {
-        die("Erro ao salvar no banco de dados: " . mysqli_error($conexao));
+        die("Erro ao salvar no banco de dados: " . $conexao->error);
       }
     }
   }
@@ -90,8 +93,8 @@ if (isset($_POST['submit'])) {
       <a href="#footer" style="--i:4">Contatos</a>
 
       <?php if (isset($_SESSION['email'])): ?>
-        <div class="user-info" >
-          <img height="50" src="<?php echo $_SESSION['avatar']; ?>" alt="Avatar">
+        <div class="user-info">
+          <img height="50" src="<?php echo $_SESSION['avatar']; ?>" alt="Avatar" onclick="openMenu()" >
           <!-- <?php echo $_SESSION['email']; ?> -->
         </div>
         <style>
@@ -102,12 +105,50 @@ if (isset($_POST['submit'])) {
       <?php else: ?>
         <button id="btnLogin-popup" class="btnLogin-popup"><i class='bx bx-user'></i>Login</button>
       <?php endif; ?>
-      <?php if (isset($_SESSION['email'])): ?>
+      <!-- <?php if (isset($_SESSION['email'])): ?>
         <a href="sair.php" class="logout-btn">Sair</a>
-      <?php endif; ?>
+      <?php endif; ?> -->
+
+
+      <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+          <div class="user-info">
+            <img height="50" src="<?php echo $_SESSION['avatar']; ?>" alt="Avatar">
+            <h3>Amanda Vitoria</h3>
+          </div>
+          <hr>
+
+          <a href="#" class="sub-menu-link">
+            <i class='bx bx-cog' style='color:#020202'  ></i>
+            <p>Configurações</p>
+            <span>></span>
+          </a>
+          <a href="#" class="sub-menu-link">
+            <i class='bx bxs-user' style='color:#020202'  ></i>
+            <p>Editar Perfil</p>
+            <span>></span>
+          </a>
+          <a href="#" class="sub-menu-link">
+            <i class='bx bxs-help-circle' style='color:#020202'  ></i>
+            <p>Ajuda</p>
+            <span>></span>
+          </a>
+          <a href="sair.php" class="sub-menu-link">
+            <i class='bx bx-log-out' style='color:#020202'  ></i>
+            <p>Sair</p>
+            <span>></span>
+          </a>
+        </div>
+      </div>
 
     </nav>
+
+    
+
   </header>
+
+  
+
   <main>
 
     <section class="home" id="home">
@@ -418,9 +459,9 @@ if (isset($_POST['submit'])) {
     <div class="footer" id="footer">
 
       <div class="footer-logo">
-        <i class='bx bxl-whatsapp' style='color:#0e0e0e'  ></i>
-        <i class='bx bxl-instagram' style='color:#0e0e0e' ></i>
-        <i class='bx bxl-facebook' style='color:#0e0e0e' ></i>
+        <i class='bx bxl-whatsapp' style='color:#0e0e0e'></i>
+        <i class='bx bxl-instagram' style='color:#0e0e0e'></i>
+        <i class='bx bxl-facebook' style='color:#0e0e0e'></i>
       </div>
     </div>
   </footer>
@@ -483,11 +524,49 @@ if (isset($_POST['submit'])) {
 
 
 
+
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="./js/script.js"></script>
   <script type="text/javascript" src="./js/cep.js"></script>
 </body>
+
+<!-- popup settings perfil -->
+<!-- <div id="profile-popup" class="profile-popup">
+    <div class="popup-content">
+      <span id="close-popup" class="close-popup">&times;</span>
+      <h3>
+       <?php if (isset($_SESSION['nome'])): ?>
+        Olá, <?php echo htmlspecialchars($_SESSION['nome']); ?>
+      <?php else: ?>
+        Olá, Usuário
+      <?php endif; ?>
+    </h3>
+
+
+    <div class="notification-section">
+      <p><strong>Ative as notificações</strong></p>
+      <p>Acompanhe de perto o andamento dos seus pedidos, promoções e novidades.</p>
+      <a href="#" class="activate-link">Ativar</a>
+    </div>
+
+
+    <ul class="menu-options">
+      <li><i class="icon-chat"></i> Chats</li>
+      <li><i class="icon-orders"></i> Pedidos</li>
+      <li><i class="icon-coupons"></i> Meus Cupons</li>
+      <li><i class="icon-favorites"></i> Favoritos</li>
+      <li><i class="icon-payment"></i> Pagamento</li>
+      <li><i class="icon-loyalty"></i> Fidelidade</li>
+      <li><i class="icon-help"></i> Ajuda</li>
+      <li><i class="icon-data"></i> Meus dados</li>
+      <li><i class="icon-security"></i> Segurança</li>
+      <li><a href="sair.php" class="logout-btn"><i class='bx bx-log-out'></i>Sair</a></li>
+    </ul>
+  </div>
+</div> -->
+
+
 
 </html>

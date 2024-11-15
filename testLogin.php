@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
 
-    include_once('config.php');
+    include 'config.php';
 
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -15,12 +15,14 @@ if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
         unset($_SESSION['avatar']);
+        unset($_SESSION['nome']);
         header('Location: index.php');
     } else {
         $user = mysqli_fetch_assoc($result);
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
-        $_SESSION['avatar'] = $user['avatar']; // Salvar avatar na sessão
+        $_SESSION['avatar'] = $user['avatar'];
+        $_SESSION['nome'] = $user['nome'];
         header('Location: index.php');
     }
 } else {
