@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
       die("Erro ao enviar o arquivo");
     }
 
-    $pasta = "uploads/";
+    $pasta = "../uploads/";
     $nomeArquivo = $arquivo['name'];
     $novoNome = uniqid();
     $extensao = strtolower(pathinfo($nomeArquivo, PATHINFO_EXTENSION));
@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fody Slider</title>
+  <title>Pizzaria Al Volo</title>
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -114,23 +114,39 @@ if (isset($_POST['submit'])) {
         <div class="sub-menu">
           <div class="user-info">
             <img height="50" src="<?php echo $_SESSION['avatar']; ?>" alt="Avatar">
-            <h3>Amanda Vitoria</h3>
+            <h3>
+              <?php if (isset($_SESSION['nome'])): ?>
+                Olá, <?php echo htmlspecialchars($_SESSION['nome']);?>!
+              <?php else: ?>
+                Olá, Usuário
+              <?php endif; ?>
+            </h3>
           </div>
           <hr>
 
-          <a href="#" class="sub-menu-link">
+          <a href="dadoscadastrais.php" class="sub-menu-link">
             <i class='bx bx-cog' style='color:#020202'  ></i>
-            <p>Configurações</p>
+            <p>Meus dados</p>
             <span>></span>
           </a>
           <a href="#" class="sub-menu-link">
             <i class='bx bxs-user' style='color:#020202'  ></i>
-            <p>Editar Perfil</p>
+            <p>Segurança</p>
             <span>></span>
           </a>
           <a href="#" class="sub-menu-link">
             <i class='bx bxs-help-circle' style='color:#020202'  ></i>
             <p>Ajuda</p>
+            <span>></span>
+          </a>
+          <a href="#" class="sub-menu-link">
+            <i class='bx bx-notepad' style='color:#020202'  ></i>
+            <p>Pedidos</p>
+            <span>></span>
+          </a>
+          <a href="#" class="sub-menu-link">
+            <i class='bx bx-credit-card' style='color:#020202'  ></i>
+            <p>Pagamentos</p>
             <span>></span>
           </a>
           <a href="sair.php" class="sub-menu-link">
@@ -153,7 +169,7 @@ if (isset($_POST['submit'])) {
 
     <section class="home" id="home">
       <div class="home-content">
-        <h1>Pizzaria Comeu Morreu </h1>
+        <h1>Pizzaria Al Volo </h1>
         <h2>Venha conhecer nossa pizzaria</h2>
         <div class="btn">
           <button class="btnpedido" id="btnpedido">Peça Agora</button>

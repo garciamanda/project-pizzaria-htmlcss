@@ -292,6 +292,16 @@ h3 {
   flex-direction: row;
 }
 
+.home-content {
+  position: relative;
+  max-width: 600px;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .home-content button {
   background: #fff;
   color: var(--primary);
