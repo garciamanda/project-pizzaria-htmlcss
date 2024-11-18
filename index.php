@@ -10,46 +10,54 @@ if (isset($_POST['submit'])) {
   $nome = $_POST['nome'];
   $email = $_POST['email'];
   $senha = $_POST['senha'];
+  $confirmSenha = $_POST['confirm-password'];
 
+  if (empty($nome) || empty($email) || empty($senha) || empty($confirmSenha)) {
+    die("Preencha todos os campos.");
+  }
 
-  if (isset($_FILES['avatar'])) {
+  if ($senha !== $confirmSenha) {
+    die("As senhas não coincidem.");
+  }
+
+  $avatar = null; // Define um avatar padrão como null
+
+  if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
     $arquivo = $_FILES['avatar'];
-
-
-    if ($arquivo['error']) {
-      die("Erro ao enviar o arquivo");
-    }
-
-    $pasta = "../uploads/";
+    $pastaAbsoluta = __DIR__ . "/uploads/";
+    $pastaRelativa = "uploads/";
     $nomeArquivo = $arquivo['name'];
     $novoNome = uniqid();
     $extensao = strtolower(pathinfo($nomeArquivo, PATHINFO_EXTENSION));
 
-
-    if ($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg") {
-      die("Extensão inválida");
+    if ($extensao !== "jpg" && $extensao !== "png" && $extensao !== "jpeg") {
+      die("Extensão inválida.");
     }
 
-    $path = $pasta . $novoNome . "." . $extensao;
+    $pathAbsoluto = $pastaAbsoluta . $novoNome . "." . $extensao;
+    $pathRelativo = $pastaRelativa . $novoNome . "." . $extensao;
 
-
-    $deu_certo = move_uploaded_file($arquivo["tmp_name"], $path);
-
-    if ($deu_certo) {
-      $stmt = $conexao->prepare("INSERT INTO usuarios (nome, email, senha, avatar) VALUES (?, ?, ?, ?)");
-      $stmt->bind_param("ssss", $nome, $email, $senha, $path);
-      $stmt->execute();
-
-      if ($stmt->affected_rows > 0) {
-        $_SESSION['email'] = $email;
-        $_SESSION['avatar'] = $path;
-        $_SESSION['nome'] = $nome;
-      } else {
-        die("Erro ao salvar no banco de dados: " . $conexao->error);
-      }
+    if (!move_uploaded_file($arquivo["tmp_name"], $pathAbsoluto)) {
+      die("Erro ao salvar o arquivo.");
     }
+
+    $avatar = $pathRelativo; // Define o caminho do avatar
+  }
+
+  $stmt = $conexao->prepare("INSERT INTO usuarios (nome, senha, email, avatar) VALUES (?, ?, ?, ?)");
+  $stmt->bind_param("ssss", $nome, $senha, $email, $avatar);
+
+  if ($stmt->execute()) {
+    $_SESSION['email'] = $email;
+    $_SESSION['nome'] = $nome;
+    $_SESSION['avatar'] = $avatar; // Salva o avatar na sessão
+    echo "Usuário registrado com sucesso!";
+  } else {
+    die("Erro ao salvar no banco de dados: " . $stmt->error);
   }
 }
+
+
 ?>
 
 
@@ -94,8 +102,13 @@ if (isset($_POST['submit'])) {
 
       <?php if (isset($_SESSION['email'])): ?>
         <div class="user-info">
-          <img height="50" src="<?php echo $_SESSION['avatar']; ?>" alt="Avatar" onclick="openMenu()" >
-          <!-- <?php echo $_SESSION['email']; ?> -->
+          <?php if (!empty($_SESSION['avatar']) && file_exists($_SESSION['avatar'])): ?>
+            <!-- Exibe o avatar do usuário -->
+            <img height="50" src="<?php echo htmlspecialchars($_SESSION['avatar']); ?>" alt="Avatar" onclick="openMenu()">
+          <?php else: ?>
+            <!-- Exibe um ícone padrão caso não tenha avatar -->
+            <i class="bx bxs-user-circle" style="font-size: 50px;" onclick="openMenu()"></i>
+          <?php endif; ?>
         </div>
         <style>
           #btnLogin-popup {
@@ -105,6 +118,7 @@ if (isset($_POST['submit'])) {
       <?php else: ?>
         <button id="btnLogin-popup" class="btnLogin-popup"><i class='bx bx-user'></i>Login</button>
       <?php endif; ?>
+
       <!-- <?php if (isset($_SESSION['email'])): ?>
         <a href="sair.php" class="logout-btn">Sair</a>
       <?php endif; ?> -->
@@ -113,10 +127,16 @@ if (isset($_POST['submit'])) {
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
           <div class="user-info">
-            <img height="50" src="<?php echo $_SESSION['avatar']; ?>" alt="Avatar">
+            <?php if (!empty($_SESSION['avatar']) && file_exists($_SESSION['avatar'])): ?>
+              <!-- Exibe o avatar do usuário -->
+              <img height="50" src="<?php echo htmlspecialchars($_SESSION['avatar']); ?>" alt="Avatar">
+            <?php else: ?>
+              <!-- Exibe um ícone padrão se não houver avatar -->
+              <i class="bx bx-user-circle" style="font-size: 50px; color: #333;"></i>
+            <?php endif; ?>
             <h3>
               <?php if (isset($_SESSION['nome'])): ?>
-                Olá, <?php echo htmlspecialchars($_SESSION['nome']);?>!
+                Olá, <?php echo htmlspecialchars($_SESSION['nome']); ?>!
               <?php else: ?>
                 Olá, Usuário
               <?php endif; ?>
@@ -125,45 +145,46 @@ if (isset($_POST['submit'])) {
           <hr>
 
           <a href="dadoscadastrais.php" class="sub-menu-link">
-            <i class='bx bx-cog' style='color:#020202'  ></i>
+            <i class='bx bx-cog' style='color:#020202'></i>
             <p>Meus dados</p>
             <span>></span>
           </a>
           <a href="#" class="sub-menu-link">
-            <i class='bx bxs-user' style='color:#020202'  ></i>
+            <i class='bx bx-lock-alt' style='color:#020202'></i>
             <p>Segurança</p>
             <span>></span>
           </a>
           <a href="#" class="sub-menu-link">
-            <i class='bx bxs-help-circle' style='color:#020202'  ></i>
+            <i class='bx bxs-help-circle' style='color:#020202'></i>
             <p>Ajuda</p>
             <span>></span>
           </a>
           <a href="#" class="sub-menu-link">
-            <i class='bx bx-notepad' style='color:#020202'  ></i>
+            <i class='bx bx-notepad' style='color:#020202'></i>
             <p>Pedidos</p>
             <span>></span>
           </a>
           <a href="#" class="sub-menu-link">
-            <i class='bx bx-credit-card' style='color:#020202'  ></i>
+            <i class='bx bx-credit-card' style='color:#020202'></i>
             <p>Pagamentos</p>
             <span>></span>
           </a>
           <a href="sair.php" class="sub-menu-link">
-            <i class='bx bx-log-out' style='color:#020202'  ></i>
+            <i class='bx bx-log-out' style='color:#020202'></i>
             <p>Sair</p>
             <span>></span>
           </a>
         </div>
       </div>
 
+
     </nav>
 
-    
+
 
   </header>
 
-  
+
 
   <main>
 

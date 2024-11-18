@@ -161,12 +161,12 @@ if ($result->num_rows > 0) {
                     <input type="email" class="form-control" name="email" value="<?= $user['email'] ?>">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">New Password</label>
+                    <label class="form-label">Nova Senha</label>
                     <input type="password" class="form-control" name="new_password" placeholder="Enter new password">
                 </div>
     
                 <div class="mb-3">
-                    <label class="form-label">Confirm New Password</label>
+                    <label class="form-label">Confirme Nova Senha</label>
                     <input type="password" class="form-control" name="confirm_password" placeholder="Confirm new password">
                 </div>
     
