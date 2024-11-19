@@ -73,7 +73,7 @@ header #logo img {
 
 .user-info img {
     width: 60px;
-    height: 50px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;

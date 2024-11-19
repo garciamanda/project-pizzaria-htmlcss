@@ -46,7 +46,6 @@ if ($result->num_rows > 0) {
   <link rel="stylesheet" type="text/css" href="./css/dadoscadastrais.css">
   <link rel="icon" type="image/png" href="images/icon.png">
   <link rel="icon" href="images/icon.ico">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -133,11 +132,11 @@ if ($result->num_rows > 0) {
 
     <main class="main-content">
     
-        <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="container">
     
-            <form class="shadow w-450 p-3" action="php/edit.php" method="post" enctype="multipart/form-data">
+            <form class="" action="php/edit.php" method="post" enctype="multipart/form-data">
     
-                <h4 class="display-4  fs-1">Edit Profile</h4><br>
+                <h4 class="">Edit Profile</h4><br>
                 <!-- error -->
                 <?php if (isset($_GET['error'])) { ?>
                     <div class="alert alert-danger" role="alert">
