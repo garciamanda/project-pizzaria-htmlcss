@@ -1023,7 +1023,7 @@ body {
   word-wrap: break-word;
 }
 
-/* Fixar o carrinho à direita da página */
+/*  */
 .cart-container {
   width: 300px;
   border: 1px solid #e0e0e0;
@@ -1031,19 +1031,13 @@ body {
   font-family: Arial, sans-serif;
 
   /* Posicionamento fixo à direita */
-  /*position: fixed;*/ 
+  position: fixed;
   top: 25rem;/* Define uma distância do topo para iniciar o carrinho */
   right: 20rem;/* Ajuste conforme necessário */
+  transition: transform 0.3s ease;
 }
 
 
-/* Container Principal */
-.cart-container {
-  width: 300px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-}
 
 /* Cabeçalho do Carrinho */
 .cart-header {
