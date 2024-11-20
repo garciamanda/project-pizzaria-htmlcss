@@ -484,7 +484,7 @@ if (isset($_POST['submit'])) {
       </div>
       <!-- começo carrinho-->
 
-      <div class="mega-carrinho">
+      <!-- <div class="mega-carrinho">
         <div class="cart-container">
           <div class="cart-header">
             <span>Cart (1 item)</span>
@@ -510,7 +510,7 @@ if (isset($_POST['submit'])) {
             <p class="secure-checkout">🔒 Secure Checkout</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- fim carrinho-->
     </section>

@@ -16,23 +16,25 @@ $avatar = $old_avatar;
 
 if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
     $arquivo = $_FILES['avatar'];
-    $pasta = "../uploads/";
+    $pastaAbsoluta = __DIR__ . "/../uploads/"; 
+    $pastaRelativa = "uploads/"; 
     $nomeArquivo = $arquivo['name'];
     $novoNome = uniqid();
     $extensao = strtolower(pathinfo($nomeArquivo, PATHINFO_EXTENSION));
 
     if (in_array($extensao, ['jpg', 'png', 'jpeg'])) {
-        $path = $pasta . $novoNome . "." . $extensao;
-        if (move_uploaded_file($arquivo["tmp_name"], $path)) {
-            $avatar = $path;
+        $pathAbsoluto = $pastaAbsoluta . $novoNome . "." . $extensao;
+        $pathRelativo = $pastaRelativa . $novoNome . "." . $extensao;
 
-            
+        if (move_uploaded_file($arquivo["tmp_name"], $pathAbsoluto)) {
+            $avatar = $pathRelativo; 
             if ($old_avatar != "../uploads/default.png") {
-                unlink($old_avatar);
+                unlink(__DIR__ . "/../" . $old_avatar);
             }
         }
     }
 }
+
 
 
 $new_password = $_POST['new_password'];

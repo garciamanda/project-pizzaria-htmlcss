@@ -40,9 +40,91 @@ html {
 
 body {
     color: var(--black);
-    font-size: 1.6rem;
     background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
+
+.container {
+    margin-top: 6rem;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"]{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.avatar-div{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.avatar-div img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.btn{
+    width: 100%;
+    padding: 10px;
+    background-color: #c00e0e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover{
+    background-color: #a50c0c;
+}
+
+.link-home{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #a50c0c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-home:hover{
+    text-decoration: underline;
+}
+
+.user-info i {
+    cursor: pointer;
+}
+
 
 header {
     position: fixed;
@@ -199,12 +281,5 @@ header #logo img {
     transform: scaleX(1);
 }
 
-.main-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+
 
