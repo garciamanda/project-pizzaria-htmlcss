@@ -482,37 +482,35 @@ if (isset($_POST['submit'])) {
           </div>
         </div>
       </div>
-      <!-- começo carrinho-->
+      <div class="siderbar" id="siderbar">
+        <div class="sidebar-close">
+          <i class='bx bx-x' id="close-icon"></i>
+          <div class="cart-menu">
+            <h3>Meu Carrinho</h3>
+            <div class="cart-items">teste 1</div>
 
-      <!-- <div class="mega-carrinho">
-        <div class="cart-container">
-          <div class="cart-header">
-            <span>Cart (1 item)</span>
-            <span class="close-btn">&times;</span>
-          </div>
-
-          <div class="cart-item">
-            Vazio
-          </div>
-
-          <div class="cart-summary">
-            <button class="CartBtn">
-              <span class="IconContainer">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)"
-                  class="cart">
-                  <path
-                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
-                  </path>
-                </svg>
-              </span>
-              <p class="text">Add to Cart</p>
-            </button>
-            <p class="secure-checkout">🔒 Secure Checkout</p>
+            <div class="siderbar-footer">
+              <div class="total-amount">
+                <h5>Total</h5>
+                <div class="cart-total">R$0.00</div>
+              </div>
+              <button class="CartBtn">
+                <span class="IconContainer">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)"
+                    class="cart">
+                    <path
+                      d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                    </path>
+                  </svg>
+                </span>
+                <p class="text">Finalizar Compra</p>
+              </button>
+            </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
-      <!-- fim carrinho-->
+
     </section>
   </main>
 
@@ -556,6 +554,15 @@ if (isset($_POST['submit'])) {
           <p style="margin: 15px;">OU</p>
           <hr>
         </div>
+        <div class="login-icon">
+          <button class="login-btn google">
+            <img src="images/google-icon.png" alt="Google Icon">
+            Login com Google</button>
+
+          <button class="login-btn facebook">
+            <img src="images/face-icon.png" alt="Facebook Icon">
+            Login com Facebook</button>
+        </div>
       </form>
     </div>
   </div>
@@ -585,7 +592,7 @@ if (isset($_POST['submit'])) {
 
 
 
-
+  <script type="text/javascript" src="./js/carrinho.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
