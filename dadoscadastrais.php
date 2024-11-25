@@ -84,7 +84,7 @@ if ($result->num_rows > 0) {
                 <button id="btnLogin-popup" class="btnLogin-popup"><i class='bx bx-user'></i>Login</button>
             <?php endif; ?>
 
-            
+
 
 
             <div class="sub-menu-wrap" id="subMenu">
@@ -168,6 +168,19 @@ if ($result->num_rows > 0) {
                     </div>
                 <?php } ?>
                 <div class="mb-3">
+                    <div class="avatar-div">
+                        <input id="avatar-input" type="file" name="avatar" style="display: none;">
+                        <label for="avatar-input" class="avatar-overlay">
+                            <div class="avatar-content">
+                                <i class="fas fa-camera"></i>
+                                <span>ADICIONAR FOTO DO PERFIL</span>
+                            </div>
+                        </label>
+                        <img src="<?= $user['avatar'] ?>" alt="Avatar" class="avatar-image">
+                    </div>
+                    <input type="hidden" name="old_avatar" value="<?= $user['avatar'] ?>">
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Usuário</label>
                     <input type="text" class="form-control" name="nome" value="<?= $user['nome'] ?>">
                 </div>
@@ -178,23 +191,13 @@ if ($result->num_rows > 0) {
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nova Senha</label>
-                    <input type="password" class="form-control" name="new_password" placeholder="Enter new password">
+                    <input type="password" class="form-control" name="new_password" placeholder="Insira a nova senha">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Confirme Nova Senha</label>
                     <input type="password" class="form-control" name="confirm_password"
-                        placeholder="Confirm new password">
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Foto de Perfil</label>
-                    <input type="file" class="form-control" name="avatar">
-                    <div class="avatar-div">
-                        <img src="<?= $user['avatar'] ?>" class="rounded-circle" style="width: 70px">
-                    </div>
-
-                    <input type="hidden" name="old_avatar" value="<?= $user['avatar'] ?>">
+                        placeholder="Confirme a nova senha">
                 </div>
 
 

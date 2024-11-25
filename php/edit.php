@@ -36,20 +36,17 @@ if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
 }
 
 
-
 $new_password = $_POST['new_password'];
 $confirm_password = $_POST['confirm_password'];
+$hashed_password = null; 
 
 if (!empty($new_password)) {
     if ($new_password === $confirm_password) {
-        
         $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
     } else {
         header("Location: ../dadoscadastrais.php?error=As senhas não coincidem.");
         exit();
     }
-} else {
-    $hashed_password = null; 
 }
 
 
