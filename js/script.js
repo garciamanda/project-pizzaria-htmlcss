@@ -234,9 +234,18 @@ function openPopupSettings() {
 
 // sla
 
+document.addEventListener("scroll", function() {   
+  const fixed = (y) => 
+  `
+    position: fixed;
+    top: ${y}px;
+  `
 
+  const cartContainer = document.querySelector(".cart-container");
+  const reme = document.querySelector(".reme");
 
-function openMenu() {
-  let subMenu = document.getElementById("subMenu");
-  subMenu.classList.toggle("open-menu");
-}
+  const remePosition = reme.offsetTop;
+  const ScrollPosition = window.scrollY;
+
+  if (ScrollPosition >= remePosition) cartContainer.style += fixed(ScrollPosition + 150)
+});

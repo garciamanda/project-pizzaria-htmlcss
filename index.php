@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+
+
+
 if (isset($_POST['submit'])) {
   include 'config.php';
 
@@ -9,18 +12,15 @@ if (isset($_POST['submit'])) {
   $senha = $_POST['senha'];
   $confirmSenha = $_POST['confirm-password'];
 
-
   if (empty($nome) || empty($email) || empty($senha) || empty($confirmSenha)) {
     die("Preencha todos os campos.");
   }
-
 
   if ($senha !== $confirmSenha) {
     die("As senhas não coincidem.");
   }
 
-  $avatar = null;
-
+  $avatar = null; // Define um avatar padrão como null
 
   if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
     $arquivo = $_FILES['avatar'];
@@ -37,25 +37,15 @@ if (isset($_POST['submit'])) {
     $pathAbsoluto = $pastaAbsoluta . $novoNome . "." . $extensao;
     $pathRelativo = $pastaRelativa . $novoNome . "." . $extensao;
 
-    if (is_uploaded_file($arquivo["tmp_name"])) {
-      if (move_uploaded_file($arquivo["tmp_name"], $pathAbsoluto)) {
-        echo "Arquivo salvo com sucesso!";
-      } else {
-        die("Erro ao salvar arquivo: " . error_get_last()['message']);
-      }
-    } else {
-      die("Arquivo temporário não encontrado.");
+    if (!move_uploaded_file($arquivo["tmp_name"], $pathAbsoluto)) {
+      die("Erro ao salvar o arquivo.");
     }
 
-    $avatar = $pathRelativo;
+    $avatar = $pathRelativo; // Define o caminho do avatar
   }
 
-
-  $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
-
-
   $stmt = $conexao->prepare("INSERT INTO usuarios (nome, senha, email, avatar) VALUES (?, ?, ?, ?)");
-  $stmt->bind_param("ssss", $nome, $senha_hash, $email, $avatar);
+  $stmt->bind_param("ssss", $nome, $senha, $email, $avatar);
 
   if ($stmt->execute()) {
     $_SESSION['email'] = $email;
@@ -66,8 +56,9 @@ if (isset($_POST['submit'])) {
     die("Erro ao salvar no banco de dados: " . $stmt->error);
   }
 }
-?>
 
+
+?>
 
 
 <!DOCTYPE html>
@@ -93,21 +84,6 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-
-  <!--PreLoader-->
-  <div id="preloader">
-
-    <div id="status">&nbsp;</div>
-    <div class="loader">
-
-      <span class="carregando"></span>
-      <span class="title">Carregando...</span>
-
-    </div>
-
-  </div>
-  <!--PreLoader-->
-
 
   <header class="header">
     <div class="logo" id="logo">
@@ -423,12 +399,7 @@ if (isset($_POST['submit'])) {
 
   </main>
 
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Conteúdo do modal</p>
-    </div>
-  </div>
+
 
 
   <main class="carda-comum">
@@ -511,7 +482,7 @@ if (isset($_POST['submit'])) {
           </div>
         </div>
       </div>
-
+      
       <div class="cart">
         <div class="cart-container">
           <div class="cart-header">
@@ -540,6 +511,9 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
 
+    </section>
+  </main>
+
   <footer>
     <div class="footer" id="footer">
 
@@ -551,9 +525,9 @@ if (isset($_POST['submit'])) {
     </div>
   </footer>
 
+  <!-- Login popup -->
 
-
-
+  <!-- Popup de Login -->
   <div id="loginPopup" class="popup">
     <div class="popup-content">
       <span class="close" data-close="login">&times;</span>
@@ -593,7 +567,7 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
 
-
+  <!-- Popup de Registro -->
   <div id="registerPopup" class="popup">
     <div class="popup-content">
       <span class="close" data-close="register">&times;</span>
@@ -614,19 +588,52 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
 
+  <!-- Login popup end -->
 
 
 
-  <script type="text/javascript" src="./js/modal.js"></script>
   <script type="text/javascript" src="./js/carrinho.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="./js/script.js"></script>
   <script type="text/javascript" src="./js/cep.js"></script>
-  <script src="./js/popup.js"></script>
 </body>
 
+<!-- popup settings perfil -->
+<!-- <div id="profile-popup" class="profile-popup">
+    <div class="popup-content">
+      <span id="close-popup" class="close-popup">&times;</span>
+      <h3>
+       <?php if (isset($_SESSION['nome'])): ?>
+        Olá, <?php echo htmlspecialchars($_SESSION['nome']); ?>
+      <?php else: ?>
+        Olá, Usuário
+      <?php endif; ?>
+    </h3>
+
+
+    <div class="notification-section">
+      <p><strong>Ative as notificações</strong></p>
+      <p>Acompanhe de perto o andamento dos seus pedidos, promoções e novidades.</p>
+      <a href="#" class="activate-link">Ativar</a>
+    </div>
+
+
+    <ul class="menu-options">
+      <li><i class="icon-chat"></i> Chats</li>
+      <li><i class="icon-orders"></i> Pedidos</li>
+      <li><i class="icon-coupons"></i> Meus Cupons</li>
+      <li><i class="icon-favorites"></i> Favoritos</li>
+      <li><i class="icon-payment"></i> Pagamento</li>
+      <li><i class="icon-loyalty"></i> Fidelidade</li>
+      <li><i class="icon-help"></i> Ajuda</li>
+      <li><i class="icon-data"></i> Meus dados</li>
+      <li><i class="icon-security"></i> Segurança</li>
+      <li><a href="sair.php" class="logout-btn"><i class='bx bx-log-out'></i>Sair</a></li>
+    </ul>
+  </div>
+</div> -->
 
 
 
