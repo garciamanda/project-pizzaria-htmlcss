@@ -512,9 +512,7 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
 
-      <!-- começo carrinho-->
-
-      <div class="mega-carrinho">
+      <div class="cart">
         <div class="cart-container">
           <div class="cart-header">
             <span>Cart (1 item)</span>
@@ -541,23 +539,6 @@ if (isset($_POST['submit'])) {
           </div>
         </div>
       </div>
-
-      <!-- fim carrinho-->
-
-      <!-- pop up carrinho-->
-      <div class="modal-carrinho">
-        <div class="modal">
-          <h1>oi</h1>
-          <div class="bts-carinho">
-            <button class="FecharModal" onclick="closeModal()">fechar</button>
-          </div>
-
-        </div>
-      </div>
-      <!--fim pop up-->
-
-    </section>
-  </main>
 
   <footer>
     <div class="footer" id="footer">
