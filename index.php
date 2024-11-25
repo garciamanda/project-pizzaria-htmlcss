@@ -511,6 +511,18 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
 
+      <!-- pop up carrinho-->
+      <div class="modal-carrinho">
+        <div class="modal">
+          <h1>oi</h1>
+          <div class="bts-carinho">
+            <button class="FecharModal" onclick="closeModal()">fechar</button>
+          </div>
+          
+        </div>
+      </div>
+      <!--fim pop up-->
+
     </section>
   </main>
 
