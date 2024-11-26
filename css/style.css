@@ -24,7 +24,7 @@
   --red: #e50914;
   --yellow: #ebe711;
   --black: #141414;
-  --red2: #a50c0c;
+  --red2: #890000;
   --light-gray: #5a4747;
   --dark-gray: #333;
   --gray: #959595;
@@ -910,53 +910,13 @@ body {
   border-radius: 15px;
 }
 
-.login-icon { 
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  width: 47.8%;
-
-}
-
-.login-btn { 
-  display: flex; 
-  align-items: center; 
-  padding: 10px 20px; 
-  border: none; 
-  border-radius: 20px; 
-  font-size: 16px;
-  cursor: pointer;
-}
-.login-btn img { 
-   margin-right: 10px;
-   width: 25px; 
-   height: 25px;
-   border-radius: 30px;
-}
-
-.google { 
-  background-color: #4285F4; 
-  color: white; 
-} 
-
-.facebook { 
-  background-color: #3B5998; 
-  color: white; 
-}
-
-
-
-
 #loginup {
   text-align: center;
   margin-top: 100px;
 }
 
-#form_login {
-  margin-top: 30px;
+#form_login{
+  margin-top: 20px;
 }
 
 #logo-login img {
@@ -991,8 +951,8 @@ body {
   margin-top: 10px;
 }
 
-#btn_login1 {
-  margin-top: 60px;
+#btn_login1{
+  margin-top: 20px;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -1027,6 +987,46 @@ body {
 
 }
 
+.login-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 47.8%;
+
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn img {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 30px;
+}
+
+.google {
+  background-color: #4285F4;
+  color: white;
+}
+
+.facebook {
+  background-color: #3B5998;
+  color: white;
+}
+
+
+
 /* Botão de fechar (X) */
 .close {
   position: absolute;
@@ -1052,7 +1052,82 @@ body {
   font-size: 14px;
 }
 
+#showLoginForm {
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/*Tela de registro*/
+#registro {
+  text-align: center;
+  margin-top: 105px;
+}
+
+#logo-registro img {
+  width: 93px;
+  height: 90px;
+}
+
+#logo-registro{
+  background-color: #a50c0c;
+  margin-top: 5px;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#usuario-reg,
+#senha-reg,
+#conf-reg,
+#email-reg {
+  width: 70%;
+  height: 38px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  border: solid 1px rgba(128, 128, 128, 0.007);
+  background-color: #00000008;
+  border-radius: 5px;
+  text-indent: 20px;
+}
+
+#avatar{
+  width: 70%;
+  height: 38px;
+  position: relative;
+  padding-left: 5rem;
+  left: 50%;
+  transform: translate(-50%);
+  border: solid 1px rgba(128, 128, 128, 0.007);
+  background-color: #00000008;
+  border-radius: 5px;
+  text-indent: 20px;
+}
+
+#registroform input[type="text"],
+#registroform input[type="email"],
+#registroform input[type="password"],
+#registroform input[type="file"]{
+  margin-top: 5px;
+}
+
+#registroform {
+  margin-top: 20px;
+}
+
+
 #showRegisterForm:hover {
+  color: darkblue;
+}
+
+#showLoginForm:hover {
   color: darkblue;
 }
 

@@ -31,17 +31,6 @@ var TrandingSlider = new Swiper('.tranding-slider', {
 });
 
 
-function openModal() {
-  const modal = document.getElementById('modal-container')
-  modal.classList.add('mostrar')
-
-  modal.addEventListener('click', (e) => {
-    if (e.target.id == 'modal-container' || e.target.id == "fechar") {
-      modal.classList.remove('mostrar')
-      localStorage.fechaModal = 'modal-container'
-    }
-  })
-}
 
 //login 
 
@@ -110,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-  
+
     renderCart();
   }
 
@@ -156,11 +145,11 @@ trendingSlides.forEach((slide) => {
     const foodPrice = slide.querySelector('.food-price').textContent;
     const foodName = slide.querySelector('.food-name').textContent;
 
-  
+
     const cartItem = document.createElement('li');
     cartItem.textContent = `${foodName} - ${foodPrice}`;
 
-  
+
     document.getElementById('cart-items').appendChild(cartItem);
   });
 });
@@ -170,22 +159,28 @@ const loginBtn = document.getElementById('btnLogin-popup');
 const loginPopup = document.getElementById('loginPopup');
 const registerPopup = document.getElementById('registerPopup');
 const showRegisterFormBtn = document.getElementById('showRegisterForm');
+const showLoginFormBtn = document.getElementById('showLoginForm');
 const closeButtons = document.querySelectorAll('.close');
 
 // Função para abrir o popup de login
-loginBtn.addEventListener('click', function() {
+loginBtn.addEventListener('click', function () {
   loginPopup.style.display = 'block';
 });
 
 // Função para abrir o popup de registro quando clicar em "Registrar-se" no popup de login
-showRegisterFormBtn.addEventListener('click', function() {
+showRegisterFormBtn.addEventListener('click', function () {
   loginPopup.style.display = 'none';
   registerPopup.style.display = 'block';
 });
 
+showLoginFormBtn.addEventListener('click', function () {
+  registerPopup.style.display = 'none';
+  loginPopup.style.display = 'block';
+})
+
 // Função para fechar os popups
 closeButtons.forEach(button => {
-  button.addEventListener('click', function(event) {
+  button.addEventListener('click', function (event) {
     const popupToClose = event.target.getAttribute('data-close');
     if (popupToClose === 'login') {
       loginPopup.style.display = 'none';
@@ -196,7 +191,7 @@ closeButtons.forEach(button => {
 });
 
 // Fechar os popups se o usuário clicar fora deles
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
   if (event.target == loginPopup) {
     loginPopup.style.display = 'none';
   } else if (event.target == registerPopup) {
@@ -234,15 +229,17 @@ function openPopupSettings() {
 
 // sla
 
-document.addEventListener("scroll", function() {   
-  const fixed = (y) => 
-  `
+
+document.addEventListener("scroll", function () {
+  const fixed = (y) =>
+    `
     position: fixed;
     top: ${y}px;
   `
 
   const cartContainer = document.querySelector(".cart-container");
   const reme = document.querySelector(".reme");
+
 
   const remePosition = reme.offsetTop;
   const ScrollPosition = window.scrollY;

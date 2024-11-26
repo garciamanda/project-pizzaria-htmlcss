@@ -176,7 +176,15 @@ if ($result->num_rows > 0) {
                                 <span>ADICIONAR FOTO DO PERFIL</span>
                             </div>
                         </label>
-                        <img src="<?= $user['avatar'] ?>" alt="Avatar" class="avatar-image">
+
+                        <?php if (!empty($user['avatar'])): ?>
+                            <!-- Exibe a imagem do avatar se estiver disponível -->
+                            <img src="<?= $user['avatar'] ?>" alt="Avatar" class="avatar-image">
+                        <?php else: ?>
+                            <!-- Exibe um ícone padrão se o avatar não estiver disponível -->
+                            <i class="fas fa-user-circle avatar-icon"></i>
+                        <?php endif; ?>
+
                     </div>
                     <input type="hidden" name="old_avatar" value="<?= $user['avatar'] ?>">
                 </div>

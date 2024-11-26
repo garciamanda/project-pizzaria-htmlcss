@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-
-
-
 if (isset($_POST['submit'])) {
   include 'config.php';
 
@@ -12,15 +9,18 @@ if (isset($_POST['submit'])) {
   $senha = $_POST['senha'];
   $confirmSenha = $_POST['confirm-password'];
 
+
   if (empty($nome) || empty($email) || empty($senha) || empty($confirmSenha)) {
     die("Preencha todos os campos.");
   }
+
 
   if ($senha !== $confirmSenha) {
     die("As senhas não coincidem.");
   }
 
-  $avatar = null; // Define um avatar padrão como null
+  $avatar = null;
+
 
   if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
     $arquivo = $_FILES['avatar'];
@@ -37,15 +37,25 @@ if (isset($_POST['submit'])) {
     $pathAbsoluto = $pastaAbsoluta . $novoNome . "." . $extensao;
     $pathRelativo = $pastaRelativa . $novoNome . "." . $extensao;
 
-    if (!move_uploaded_file($arquivo["tmp_name"], $pathAbsoluto)) {
-      die("Erro ao salvar o arquivo.");
+    if (is_uploaded_file($arquivo["tmp_name"])) {
+      if (move_uploaded_file($arquivo["tmp_name"], $pathAbsoluto)) {
+        echo "Arquivo salvo com sucesso!";
+      } else {
+        die("Erro ao salvar arquivo: " . error_get_last()['message']);
+      }
+    } else {
+      die("Arquivo temporário não encontrado.");
     }
 
-    $avatar = $pathRelativo; // Define o caminho do avatar
+    $avatar = $pathRelativo;
   }
 
+
+  $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
+
+
   $stmt = $conexao->prepare("INSERT INTO usuarios (nome, senha, email, avatar) VALUES (?, ?, ?, ?)");
-  $stmt->bind_param("ssss", $nome, $senha, $email, $avatar);
+  $stmt->bind_param("ssss", $nome, $senha_hash, $email, $avatar);
 
   if ($stmt->execute()) {
     $_SESSION['email'] = $email;
@@ -56,10 +66,7 @@ if (isset($_POST['submit'])) {
     die("Erro ao salvar no banco de dados: " . $stmt->error);
   }
 }
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -482,7 +489,7 @@ if (isset($_POST['submit'])) {
           </div>
         </div>
       </div>
-      
+
       <div class="cart">
         <div class="cart-container">
           <div class="cart-header">
@@ -518,7 +525,7 @@ if (isset($_POST['submit'])) {
           <div class="bts-carinho">
             <button class="FecharModal" onclick="closeModal()">fechar</button>
           </div>
-          
+
         </div>
       </div>
       <!--fim pop up-->
@@ -539,7 +546,7 @@ if (isset($_POST['submit'])) {
 
   <!-- Login popup -->
 
-  <!-- Popup de Login -->
+  <!-- Popup Login -->
   <div id="loginPopup" class="popup">
     <div class="popup-content">
       <span class="close" data-close="login">&times;</span>
@@ -579,23 +586,33 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
 
-  <!-- Popup de Registro -->
+  <!-- Popup Register -->
+
   <div id="registerPopup" class="popup">
     <div class="popup-content">
       <span class="close" data-close="register">&times;</span>
-      <h2>Registro</h2><br>
-      <form enctype="multipart/form-data" action="index.php" method="POST">
-        <label for="nome">Usuário:</label>
-        <input type="text" id="new-username" name="nome" required><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="new-password" name="senha" required><br><br>
-        <label for="confirm-password">Confirme a Senha:</label>
-        <input type="password" id="confirm-password" name="confirm-password" required><br><br>
-        <label for="avatar">Avatar</label>
-        <input type="file" id="avatar" name="avatar"><br><br>
-        <input type="submit" value="Registrar" name="submit">
+      <div class="logo" id="logo-registro">
+        <img src="images/logo.png" alt="">
+      </div>
+      <h2 id="registro">Registro</h2>
+      <form id="registroform" action="index.php" method="POST">
+        <label for="nome"></label>
+        <input type="text" id="usuario-reg" name="nome" placeholder="Usuario" required><br><br>
+
+        <label for="email"></label>
+        <input type="email" id="email-reg" name="email" placeholder="Email" required><br><br>
+
+        <label for="senha"></label>
+        <input type="password" id="senha-reg" name="senha" placeholder="Senha"><br><br>
+
+        <label for="conf-reg"></label>
+        <input type="password" id="conf-reg" name="confirm-password" placeholder="Confirme sua senha" required><br><br>
+
+        <div id="btn_login1">
+          <button type="submit" id="btn_login2" name="submit">Registrar-se</button>
+          <p id="easter-egg">.</p>
+          <p>Já tem uma conta? <button type="button" id="showLoginForm">Login</button></p>
+        </div>
       </form>
     </div>
   </div>
@@ -603,8 +620,7 @@ if (isset($_POST['submit'])) {
   <!-- Login popup end -->
 
 
-
-  <script type="text/javascript" src="./js/carrinho.js"></script>
+  <script type="text/javascript" src="./js/popup.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
@@ -612,40 +628,6 @@ if (isset($_POST['submit'])) {
   <script type="text/javascript" src="./js/cep.js"></script>
 </body>
 
-<!-- popup settings perfil -->
-<!-- <div id="profile-popup" class="profile-popup">
-    <div class="popup-content">
-      <span id="close-popup" class="close-popup">&times;</span>
-      <h3>
-       <?php if (isset($_SESSION['nome'])): ?>
-        Olá, <?php echo htmlspecialchars($_SESSION['nome']); ?>
-      <?php else: ?>
-        Olá, Usuário
-      <?php endif; ?>
-    </h3>
-
-
-    <div class="notification-section">
-      <p><strong>Ative as notificações</strong></p>
-      <p>Acompanhe de perto o andamento dos seus pedidos, promoções e novidades.</p>
-      <a href="#" class="activate-link">Ativar</a>
-    </div>
-
-
-    <ul class="menu-options">
-      <li><i class="icon-chat"></i> Chats</li>
-      <li><i class="icon-orders"></i> Pedidos</li>
-      <li><i class="icon-coupons"></i> Meus Cupons</li>
-      <li><i class="icon-favorites"></i> Favoritos</li>
-      <li><i class="icon-payment"></i> Pagamento</li>
-      <li><i class="icon-loyalty"></i> Fidelidade</li>
-      <li><i class="icon-help"></i> Ajuda</li>
-      <li><i class="icon-data"></i> Meus dados</li>
-      <li><i class="icon-security"></i> Segurança</li>
-      <li><a href="sair.php" class="logout-btn"><i class='bx bx-log-out'></i>Sair</a></li>
-    </ul>
-  </div>
-</div> -->
 
 
 
