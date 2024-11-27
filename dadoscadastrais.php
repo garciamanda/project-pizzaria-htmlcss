@@ -153,7 +153,7 @@ if ($result->num_rows > 0) {
 
             <form class="" action="php/edit.php" method="post" enctype="multipart/form-data">
 
-                <h2 class="">Edit Profile</h2><br>
+                <h2 class="">Editar Perfil</h2><br>
                 <!-- error -->
                 <?php if (isset($_GET['error'])) { ?>
                     <div class="alert alert-danger" role="alert">

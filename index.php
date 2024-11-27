@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 
     if (is_uploaded_file($arquivo["tmp_name"])) {
       if (move_uploaded_file($arquivo["tmp_name"], $pathAbsoluto)) {
-        echo "Arquivo salvo com sucesso!";
+        
       } else {
         die("Erro ao salvar arquivo: " . error_get_last()['message']);
       }
@@ -61,7 +61,6 @@ if (isset($_POST['submit'])) {
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $nome;
     $_SESSION['avatar'] = $avatar; // Salva o avatar na sessão
-    echo "Usuário registrado com sucesso!";
   } else {
     die("Erro ao salvar no banco de dados: " . $stmt->error);
   }

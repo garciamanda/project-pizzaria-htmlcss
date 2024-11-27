@@ -95,11 +95,7 @@ form input[type="file"]{
     border: 2px solid #ccc;
 }
 
-/* Avatar */
 
-i.fas.fa-user-circle.avatar-icon{
-    
-}
 
 .avatar-overlay {
     position: absolute;
@@ -172,8 +168,10 @@ i.fas.fa-user-circle.avatar-icon{
     text-decoration: underline;
 }
 
-.user-info i {
+.user-info i.bx.bxs-user-circle {
     cursor: pointer;
+    border-radius: 50%; /* Borda semelhante à imagem */
+    background: #f0f0f0; /* Fundo para parecer com a ausência de imagem */
 }
 
 
@@ -332,5 +330,17 @@ header #logo img {
     transform: scaleX(1);
 }
 
+i.fas.fa-user-circle.avatar-icon {
+    font-size: 120px; /* Tamanho do ícone */
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid #ccc; /* Borda semelhante à imagem */
+    background: #f0f0f0; /* Fundo para parecer com a ausência de imagem */
+    text-align: center;
+    line-height: 120px; /* Alinha o ícone verticalmente */
+}
 
 

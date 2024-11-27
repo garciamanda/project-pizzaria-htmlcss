@@ -46,32 +46,6 @@ var TrandingSlider = new Swiper('.tranding-slider', {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-
-  // openPopupSettings();
-
-  const wrapper = document.querySelector(".wrapper");
-  const loginLink = document.querySelector(".login-link");
-  const registerLink = document.querySelector(".register-link");
-  const iconClose = document.querySelector(".icon-close");
-
-  registerLink.addEventListener("click", () => {
-    wrapper.classList.add("active");
-  });
-
-  loginLink.addEventListener("click", () => {
-    wrapper.classList.remove("active");
-  });
-
-  wrapper.classList.add("active-popup");
-
-
-
-  iconClose.addEventListener("click", () => {
-    wrapper.classList.remove("active-popup");
-    window.location.href = "index.html";
-  });
-});
 
 
 
@@ -79,80 +53,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  const addToCartButtons = document.querySelectorAll('.button-hover-background');
-  const cartItemsList = document.getElementById('cart-items');
-  const cartTotalSpan = document.getElementById('cart-total');
-
-  let cartItems = [];
-
-  function addToCart(productTitle, productPrice) {
-    const existingItem = cartItems.find(item => item.title === productTitle);
-
-    if (existingItem) {
-      existingItem.quantity++;
-    } else {
-      cartItems.push({
-        title: productTitle,
-        price: productPrice,
-        quantity: 1
-      });
-    }
 
 
-    renderCart();
-  }
-
-
-  function renderCart() {
-    cartItemsList.innerHTML = '';
-
-    cartItems.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = `${item.title} x ${item.quantity} - R$${(item.price * item.quantity).toFixed(2)}`;
-      cartItemsList.appendChild(li);
-    });
-
-    updateCartTotal();
-  }
-
-  function updateCartTotal() {
-    const total = cartItems.reduce((accumulator, item) => accumulator + (item.price * item.quantity), 0);
-    cartTotalSpan.textContent = `R$${total.toFixed(2)}`;
-  }
-
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      const productContainer = this.closest('.movie-product');
-      const productTitle = productContainer.querySelector('.product-title').textContent;
-      const productPrice = parseFloat(productContainer.querySelector('.product-price').textContent.replace('R$', ''));
-
-      addToCart(productTitle, productPrice);
-    });
-  });
-});
 
 
 //
 
 
-const trendingSlides = document.querySelectorAll('.tranding-slide');
+// const trendingSlides = document.querySelectorAll('.tranding-slide');
 
 
-trendingSlides.forEach((slide) => {
-  slide.addEventListener('click', () => {
+// trendingSlides.forEach((slide) => {
+//   slide.addEventListener('click', () => {
 
-    const foodPrice = slide.querySelector('.food-price').textContent;
-    const foodName = slide.querySelector('.food-name').textContent;
-
-
-    const cartItem = document.createElement('li');
-    cartItem.textContent = `${foodName} - ${foodPrice}`;
+//     const foodPrice = slide.querySelector('.food-price').textContent;
+//     const foodName = slide.querySelector('.food-name').textContent;
 
 
-    document.getElementById('cart-items').appendChild(cartItem);
-  });
-});
+//     const cartItem = document.createElement('li');
+//     cartItem.textContent = `${foodName} - ${foodPrice}`;
+
+
+//     document.getElementById('cart-items').appendChild(cartItem);
+//   });
+// });
 
 // Selecionando os elementos do DOM
 const loginBtn = document.getElementById('btnLogin-popup');
