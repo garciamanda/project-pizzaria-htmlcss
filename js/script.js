@@ -246,3 +246,8 @@ document.addEventListener("scroll", function () {
 
   if (ScrollPosition >= remePosition) cartContainer.style += fixed(ScrollPosition + 150)
 });
+
+function openMenu() {
+  let subMenu = document.getElementById("subMenu");
+  subMenu.classList.toggle("open-menu");
+}

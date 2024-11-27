@@ -417,78 +417,86 @@ if (isset($_POST['submit'])) {
         <p>Pizzas</p>
         <hr>
       </div>
-      <div class="Spacing">
-        <div class="food-box">
-          <div class="food-text">
-            <h2>Carne</h2>
-          </div>
-          <div class="food-img">
-            <img src="images/pizza(1).jpg" alt="Food">
+
+      <div class="cardapio">
+        <!-- Começo do produto -->
+        <div class="cardapio-content">
+          <img
+            src="./images/pizza(8).jpeg"
+            alt="Pizza de Chocolate"
+            class="img-cardapio" />
+
+          <div class="detalhes">
+            <p class="nome-cardapio">Pizza de Chocolate</p>
+            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis nobis alias praesentium dolorum voluptatibus.</p>
+
+            <div class="preco">
+              <p class="preco-cardapio">R$ 30.25</p>
+            </div>
           </div>
         </div>
-        <div class="food-box">
-          <div class="food-text">
-            <h2>Cogumelo</h2>
-          </div>
-          <div class="food-img">
-            <img src="images/pizza(2).jpg" alt="Food">
+        <!-- Fim do produto -->
+
+        <!-- Começo do produto -->
+        <div class="cardapio-content">
+          <img
+            src="./images/pizza(6).jpg"
+            alt="4 Queijos"
+            class="img-cardapio" />
+
+          <div class="detalhes">
+            <p class="nome-cardapio">Pizza de Calabresa</p>
+            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis nobis alias praesentium dolorum voluptatibus.</p>
+
+            <div class="preco">
+              <p class="preco-cardapio">R$ 30.25</p>
+            </div>
           </div>
         </div>
+        <!-- Fim do produto -->
+
+        <!-- Começo do produto -->
+        <div class="cardapio-content">
+          <img
+            src="./images/pizza(1).jpg"
+            alt="Pizza de Carne"
+            class="img-cardapio" />
+
+          <div class="detalhes">
+            <p class="nome-cardapio">Pizza de Carne</p>
+            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis nobis alias praesentium dolorum voluptatibus.</p>
+
+            <div class="preco">
+              <p class="preco-cardapio">R$ 30.25</p>
+
+            </div>
+          </div>
+        </div>
+        <!-- Fim do produto -->
+
+        <!-- Começo do produto -->
+        <div class="cardapio-content">
+          <img
+            src="./images/pizza(5).jpg"
+            alt="Pizza de Sla"
+            class="img-cardapio" />
+
+          <div class="detalhes">
+            <p class="nome-cardapio">Pizza de Sla</p>
+            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis nobis alias praesentium dolorum voluptatibus.</p>
+
+            <div class="preco">
+              <p class="preco-cardapio">R$ 30.25</p>
+
+            </div>
+          </div>
+        </div>
+        <!-- Fim do produto -->
       </div>
-      <div class="Spacing">
-        <div class="food-box">
-          <div class="food-text">
-            <h2>Mussarela</h2>
-          </div>
-          <div class="food-img">
-            <img src="images/pizza(3).jpg" alt="Food">
-          </div>
-        </div>
-        <div class="food-box">
-          <div class="food-text">
-            <h2>Abacaxi</h2>
-          </div>
-          <div class="food-img">
-            <img src="images/pizza(4).jpg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="Spacing">
-        <div class="food-box">
-          <div class="food-text">
-            <h2>bacon</h2>
-          </div>
-          <div class="food-img">
-            <img src="images/pizza(5).jpg" alt="">
-          </div>
-        </div>
-        <div class="food-box">
-          <div class="food-text">
-            <h2>Calabresa</h2>
-          </div>
-          <div class="food-img">
-            <img src="images/pizza(6).jpg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="Spacing">
-        <div class="food-box">
-          <div class="food-text">
-            <h2>Brocolis</h2>
-          </div>
-          <div class="food-img">
-            <img src="images/pizza(7).jpg" alt="">
-          </div>
-        </div>
-        <div class="food-box">
-          <div class="food-text">
-            <h2>chocolate</h2>
-          </div>
-          <div class="food-img">
-            <img src="images/pizza(8).jpeg" alt="">
-          </div>
-        </div>
-      </div>
+
+
+
+
 
       <div class="cart">
         <div class="cart-container">
@@ -497,8 +505,8 @@ if (isset($_POST['submit'])) {
             <span class="close-btn">&times;</span>
           </div>
 
-          <div class="cart-item">
-            Vazio
+          <div id="cart-items">
+            <div class="cart-item">Vazio</div>
           </div>
 
           <div class="cart-summary">

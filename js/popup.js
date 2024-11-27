@@ -1,4 +1,4 @@
-const foodBoxes = document.querySelectorAll('.food-box');
+const foodBoxes = document.querySelectorAll('.cardapio-content');
 const modal = document.querySelector('.modal-carrinho');
 
 foodBoxes.forEach(box => {

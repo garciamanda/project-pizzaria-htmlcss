@@ -95,6 +95,12 @@ form input[type="file"]{
     border: 2px solid #ccc;
 }
 
+/* Avatar */
+
+i.fas.fa-user-circle.avatar-icon{
+    
+}
+
 .avatar-overlay {
     position: absolute;
     top: 0;
