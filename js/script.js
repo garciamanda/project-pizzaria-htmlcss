@@ -1,9 +1,28 @@
 
 // Scroll
 
+const buttons = document.querySelectorAll('.btn_feedback');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.classList.contains('btn_active')) {
+        button.classList.remove('btn_active');
+      } else {
+
+        buttons.forEach(btn => btn.classList.remove('btn_active'));
+
+        button.classList.add('btn_active');
+      }
+    });
+  });
+
+
 document.getElementById('btnpedido').addEventListener('click', function () {
   document.getElementById('tranding').scrollIntoView({ behavior: 'smooth' });
 })
+
+
+
 
 
 

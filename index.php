@@ -39,7 +39,6 @@ if (isset($_POST['submit'])) {
 
     if (is_uploaded_file($arquivo["tmp_name"])) {
       if (move_uploaded_file($arquivo["tmp_name"], $pathAbsoluto)) {
-        
       } else {
         die("Erro ao salvar arquivo: " . error_get_last()['message']);
       }
@@ -104,7 +103,7 @@ if (isset($_POST['submit'])) {
 
     <nav class="navbar">
       <a href="#home" style="--i:0">Home</a>
-      <a href="#footer" style="--i:4">Contatos</a>
+      <a href="contatos.php" style="--i:4">Contatos</a>
 
       <?php if (isset($_SESSION['email'])): ?>
         <div class="user-info">
@@ -239,7 +238,7 @@ if (isset($_POST['submit'])) {
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide">
               <div class="tranding-slide-img">
-                <img src="images/tranding-food-2.png" alt="Tranding">
+                <img src="images/pizza8.webp" alt="Tranding">
               </div>
               <div class="tranding-slide-content">
                 <h1 class="food-price">R$36</h1>
@@ -264,7 +263,7 @@ if (isset($_POST['submit'])) {
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide">
               <div class="tranding-slide-img">
-                <img src="images/tranding-food-3.png" alt="Tranding">
+                <img src="images/pizza7.webp" alt="Tranding">
               </div>
               <div class="tranding-slide-content">
                 <h1 class="food-price">R$40</h1>
@@ -289,7 +288,7 @@ if (isset($_POST['submit'])) {
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide">
               <div class="tranding-slide-img">
-                <img src="images/tranding-food-4.png" alt="Tranding">
+                <img src="images/pizzas10.png" alt="Tranding">
               </div>
               <div class="tranding-slide-content">
                 <h1 class="food-price">R$15</h1>
@@ -314,7 +313,7 @@ if (isset($_POST['submit'])) {
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide">
               <div class="tranding-slide-img">
-                <img src="images/tranding-food-5.png" alt="Tranding">
+                <img src="images/pizza5.avif" alt="Tranding">
               </div>
               <div class="tranding-slide-content">
                 <h1 class="food-price">$15</h1>
@@ -339,7 +338,7 @@ if (isset($_POST['submit'])) {
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide">
               <div class="tranding-slide-img">
-                <img src="images/tranding-food-6.png" alt="Tranding">
+                <img src="images/jardineira-delicioso.jpg" alt="Tranding">
               </div>
               <div class="tranding-slide-content">
                 <h1 class="food-price">R$42</h1>
@@ -364,7 +363,7 @@ if (isset($_POST['submit'])) {
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide">
               <div class="tranding-slide-img">
-                <img src="images/tranding-food-7.png" alt="Tranding">
+                <img src="images/107608847.avif" alt="Tranding">
 
               </div>
               <div class="tranding-slide-content">
@@ -528,11 +527,21 @@ if (isset($_POST['submit'])) {
       <!-- pop up carrinho-->
       <div class="modal-carrinho">
         <div class="modal">
-          <h1>oi</h1>
-          <div class="bts-carinho">
-            <button class="FecharModal" onclick="closeModal()">fechar</button>
-          </div>
+          <div class="modal-content">
+            <div class="modal-image">
+              <img class="modal-pizzas" src="./images/pizza(8).jpeg" alt="Pizza">
+            </div>
 
+            <div class="produtos-modal">
+              <h2>produtos</h2>
+              <hr>
+              <p>adicione itens ao carrinho</p>
+              <div class="spacer"></div>
+              <div class="bts-carinho">
+                <button class="FecharModal" onclick="closeModal()">enviar para o carrinho</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!--fim pop up-->
