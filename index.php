@@ -1,6 +1,13 @@
 <?php
 session_start();
 
+$mostrarPopup = isset($_SESSION['registro_sucesso']) && $_SESSION['registro_sucesso'];
+
+// Limpa a sessão após exibir o popup
+if ($mostrarPopup) {
+  unset($_SESSION['registro_sucesso']);
+}
+
 if (isset($_POST['submit'])) {
   include 'config.php';
 
@@ -60,6 +67,8 @@ if (isset($_POST['submit'])) {
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $nome;
     $_SESSION['avatar'] = $avatar; // Salva o avatar na sessão
+    $_SESSION['registro_sucesso'] = true;
+    header("Location: index.php");
   } else {
     die("Erro ao salvar no banco de dados: " . $stmt->error);
   }
@@ -103,7 +112,7 @@ if (isset($_POST['submit'])) {
 
     <nav class="navbar">
       <a href="#home" style="--i:0">Home</a>
-      <a href="contatos.php" style="--i:4">Contatos</a>
+      <a href="contatos.php" style="--i:4">Feedback</a>
 
       <?php if (isset($_SESSION['email'])): ?>
         <div class="user-info">
@@ -419,14 +428,12 @@ if (isset($_POST['submit'])) {
       <div class="cardapio">
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img
-            src="./images/pizza(8).jpeg"
-            alt="Pizza de Chocolate"
-            class="img-cardapio" />
+          <img src="./images/pizza(8).jpeg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Chocolate</p>
-            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis nobis alias praesentium dolorum voluptatibus.</p>
+            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis
+              nobis alias praesentium dolorum voluptatibus.</p>
 
             <div class="preco">
               <p class="preco-cardapio">R$ 30.25</p>
@@ -437,14 +444,12 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img
-            src="./images/pizza(6).jpg"
-            alt="4 Queijos"
-            class="img-cardapio" />
+          <img src="./images/pizza(6).jpg" alt="4 Queijos" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Calabresa</p>
-            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis nobis alias praesentium dolorum voluptatibus.</p>
+            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis
+              nobis alias praesentium dolorum voluptatibus.</p>
 
             <div class="preco">
               <p class="preco-cardapio">R$ 30.25</p>
@@ -455,14 +460,12 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img
-            src="./images/pizza(1).jpg"
-            alt="Pizza de Carne"
-            class="img-cardapio" />
+          <img src="./images/pizza(1).jpg" alt="Pizza de Carne" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Carne</p>
-            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis nobis alias praesentium dolorum voluptatibus.</p>
+            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis
+              nobis alias praesentium dolorum voluptatibus.</p>
 
             <div class="preco">
               <p class="preco-cardapio">R$ 30.25</p>
@@ -474,14 +477,12 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img
-            src="./images/pizza(5).jpg"
-            alt="Pizza de Sla"
-            class="img-cardapio" />
+          <img src="./images/pizza(5).jpg" alt="Pizza de Sla" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Sla</p>
-            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis nobis alias praesentium dolorum voluptatibus.</p>
+            <p class="descricao-cardapio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel reiciendis
+              nobis alias praesentium dolorum voluptatibus.</p>
 
             <div class="preco">
               <p class="preco-cardapio">R$ 30.25</p>
@@ -545,6 +546,20 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
       <!--fim pop up-->
+
+      <!-- Popup  Opcional-->
+      <div id="popup" class="popup-overlay <?php echo $mostrarPopup ? 'active' : ''; ?>">
+        <div class="popup-contents">
+          <h2>Deseja adicionar um avatar?</h2>
+          <p>Você pode adicionar um avatar agora ou fazer isso mais tarde.</p>
+          <div class="popup-buttons">
+            <button id="addNow">Adicionar Agora</button>
+            <button id="addLater">Fazer Depois</button>
+          </div>
+        </div>
+      </div>
+      <!-- Fim popup -->
+
 
     </section>
   </main>

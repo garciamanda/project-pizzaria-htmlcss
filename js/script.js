@@ -3,18 +3,34 @@
 
 const buttons = document.querySelectorAll('.btn_feedback');
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      if (button.classList.contains('btn_active')) {
-        button.classList.remove('btn_active');
-      } else {
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (button.classList.contains('btn_active')) {
+      button.classList.remove('btn_active');
+    } else {
 
-        buttons.forEach(btn => btn.classList.remove('btn_active'));
+      buttons.forEach(btn => btn.classList.remove('btn_active'));
 
-        button.classList.add('btn_active');
-      }
-    });
+      button.classList.add('btn_active');
+    }
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const addNowButton = document.getElementById("addNow");
+  const addLaterButton = document.getElementById("addLater");
+
+  addNowButton.addEventListener("click", function () {
+      window.location.href = "dadoscadastrais.php";
+      popup.style.display = "none";
+  });
+
+  
+  addLaterButton.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+});
+
 
 
 document.getElementById('btnpedido').addEventListener('click', function () {
@@ -51,32 +67,6 @@ var TrandingSlider = new Swiper('.tranding-slider', {
 
 
 
-//login 
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   var loginButton = document.getElementById('btnLogin-popup');
-//   loginButton.addEventListener('click', function () {
-//       window.location.href = 'login.html';
-//   });
-// });
-
-// login
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
 
 
 // const trendingSlides = document.querySelectorAll('.tranding-slide');

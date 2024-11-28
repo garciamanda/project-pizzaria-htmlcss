@@ -23,9 +23,9 @@
     </label>
 
     <nav class="navbar">
-      <a href="index.html" target="
+      <a href="index.php" target="
       " style="--i:0">Home</a>
-      <a href="#footer" style="--i:4">Contatos</a>
+      <a href="#footer" style="--i:4">Feedback</a>
       <button id="btnLogin-popup" class="btnLogin-popup">Login</button>
     </nav>
   </header>
