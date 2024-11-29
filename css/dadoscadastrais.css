@@ -45,6 +45,14 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: linear-gradient(to bottom, #890000, #cd121c);
+
+    
+}
+
+main{
+    height: 86.5vh;
+    display: flex;
 }
 
 .container {
@@ -54,6 +62,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 400px;
+    height: 67vh;
 }
 h2{
     text-align: center;
@@ -159,7 +168,7 @@ form input[type="file"]{
     text-align: center;
     margin-top: 10px;
     font-size: 15px;
-    color: #a50c0c;
+    color: #cd121c;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -185,7 +194,7 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-    background: var(--red2);
+
 }
 
 header #logo img {
@@ -342,5 +351,4 @@ i.fas.fa-user-circle.avatar-icon {
     text-align: center;
     line-height: 120px; /* Alinha o ícone verticalmente */
 }
-
 

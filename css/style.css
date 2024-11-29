@@ -90,8 +90,8 @@ header #logo img {
 
 .sub-menu-wrap {
   position: absolute;
-  top: 100%;
-  right: 10%;
+  top: 68%;
+  right: 7%;
   width: 350px;
   max-height: 0px;
   overflow: hidden;
@@ -106,6 +106,10 @@ header #logo img {
   background: #fff;
   padding: 20px;
   margin: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
 }
 
 .user-info {
@@ -428,32 +432,19 @@ footer {
   background-color: var(--red2);
   height: 5rem;
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
   padding: 0 5rem;
 }
 
-.footer-logo i {
-  color: var(--black);
-  font-size: 3rem;
+footer a{
+  text-decoration: none;
+  color: #fff;
 }
 
-.footer-logo i.bx.bxl-whatsapp:hover {
-  color: #25D366 !important;
-  cursor: pointer;
+footer p {
+  color: #fff;
 }
-
-.footer-logo i.bx.bxl-instagram:hover {
-  color: #E1306C !important;
-  cursor: pointer;
-}
-
-
-.footer-logo i.bx.bxl-facebook:hover {
-  color: #0866ff !important;
-  cursor: pointer;
-}
-
 
 ::-webkit-scrollbar {
   width: 1.3rem;

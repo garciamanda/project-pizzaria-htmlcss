@@ -1,198 +1,270 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-* {
+
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: white;
-    background: #ccc;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-
-
-.btn a{
+    list-style-type: none;
     text-decoration: none;
-    color: white;
+
 }
 
-.wrapper {
-    position: relative;
-    width: 400px;
-    height: 440px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .5);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transform: scale(0);
-    transition: transform .5s ease, height .2s ease;
+
+
+:root {
+    --primary: #f58a26;
+    --white: #ffffff;
+    --bg: #f5f5f5;
+    --red: #e50914;
+    --yellow: #ebe711;
+    --black: #141414;
+    --red2: #890000;
+    --light-gray: #5a4747;
+    --dark-gray: #333;
+    --gray: #959595;
+    --blue: #56c5db;
+    --inst: linear-gradient(45deg, #f9a8d4, #d32f2f, #ffb74d, #25D366);
 }
 
-.wrapper.active-popup {
-    transform: scale(1);
-}
-
-.wrapper.active {
-    height: 520px;
-}
-
-.wrapper .form-box {
-    width: 100%;
-    padding: 40px;
-}
-
-.wrapper .form-box.login {
-    transition: transform .18s ease;
-    transform: translateX(0);
-}
-
-.wrapper.active .form-box.login {
-    transition: none;
-    transform: translateX(-400px);
-}
-
-.wrapper .form-box.register {
-    position: absolute;
-    transition: none;
-    transform: translateX(400px);
-}
-
-.wrapper.active .form-box.register {
-    transition: transform .18s ease;
-    transform: translateX(0);
-}
-
-.wrapper .icon-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45px;
-    height: 45px;
-    background: #b60202;
-    font-size: 2em;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 20px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.form-box h2 {
-    font-size: 2rem;
-    color: #b60202;
-    text-align: center;
-}
-
-.input-box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    border-bottom: 2px solid #162938;
-    margin: 30px 0;
-}
-
-.input-box label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    font-size: 1em;
-    color: #b60202;
-    font-weight: 500;
-    pointer-events: none;
-    transition: .5s;
-}
-
-.input-box input:focus~label,
-.input-box input:valid~label {
-    top: -5px;
-}
-
-.input-box input {
-    width: 100%;
+.home {
+    background-image: linear-gradient(rgba(29, 29, 29, 0.9), rgba(29, 29, 29, 0.9)), url('/project2/images/bg.jpeg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-weight: 600;
-    padding: 0 35px 0 5px;
+    width: 100%;
+    min-height: 100vh;
+    
 }
 
-.input-box .icon {
-    position: absolute;
-    right: 8px;
-    font-size: 1.2em;
-    color: #000000;
-    line-height: 57px;
-}
 
-.remember-forgot {
-    font-size: .9em;
-    color: #000;
-    font-weight: 500;
-    margin: -15px 0 15px;
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 100px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    background: var(--red2);
 }
 
-.remember-forgot label input {
-    accent-color: #000;
-    margin-right: 3px;
+header #logo img {
+    width: 110px;
+    border-radius: 50%;
+    margin-left: -4rem;
 }
 
-.remember-forgot a {
-    color: #000;
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.user-info i.bx.bxs-user-circle {
+    cursor: pointer;
+    border-radius: 50%;
+    /* Borda semelhante à imagem */
+    background: #f0f0f0;
+    /* Fundo para parecer com a ausência de imagem */
+}
+
+
+
+.user-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-right: 18px;
+
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 68%;
+    right: 7%;
+    width: 350px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu {
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info i {
+    cursor: pointer;
+    margin-left: 10px;
+
+}
+
+.user-info h3 {
+    font-weight: 500;
+}
+
+.sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+
+
+.sub-menu-link {
+    display: flex;
+    align-items: center;
     text-decoration: none;
+    color: #525252;
+    padding-right: 23px;
+    margin: 12px 0;
 }
 
-.remember-forgot a:hover {
-    text-decoration: underline;
+.sub-menu-link p {
+    width: 100%;
+    color: #525252;
+}
+
+.sub-menu-link i {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link span {
+    font-size: 22px;
+    transition: transform 0.5s;
+    color: #525252;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+    font-weight: 600;
+
+}
+
+#check {
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+
+.navbar a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.btn button {
+    width: 230px;
+    height: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #ffc506;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 700;
+    margin-top: 2rem;
+    transition: all 400ms ease-in;
 }
 
 .btn {
-    width: 100%;
-    height: 45px;
-    background: #b60202;
-    border: none;
+    width: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
     outline: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.1em;
     color: #fff;
     font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
 }
 
-.login-register {
-    font-size: .9em;
-    color: #000;
-    text-align: center;
-    font-weight: 500;
-    margin: 25px 0 10px;
+.btnLogin-popup:hover {
+    background: #fff;
+    color: #162938;
 }
 
-.login-register p a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 600;
+
+.btnLogin-popup i.bx.bx-user {
+    margin-right: 20px;
 }
 
-.login-register p a:hover {
-    text-decoration: underline;
+#btnLogin-popup i.bx-user:hover {
+    color: rgba(22, 41, 56, 1);
+    /* Alterando para a cor rgba */
 }

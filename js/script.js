@@ -160,6 +160,17 @@ function openPopupSettings() {
   });
 }
 
+// Função para verificar parâmetros na URL
+function getURLParameter(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+// Verificar o parâmetro e abrir o popup de login
+if (getURLParameter('showLogin') === '1') {
+  document.getElementById('loginPopup').style.display = 'block';
+}
+
+
 // sla
 
 

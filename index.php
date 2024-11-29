@@ -425,6 +425,8 @@ if (isset($_POST['submit'])) {
         <hr>
       </div>
 
+      <h3 class="cardapio-title">Pizzas Mais Pedidas</h3>
+
       <div class="cardapio">
         <!-- Começo do produto -->
         <div class="cardapio-content">
@@ -491,6 +493,7 @@ if (isset($_POST['submit'])) {
           </div>
         </div>
         <!-- Fim do produto -->
+
       </div>
 
 
@@ -565,13 +568,11 @@ if (isset($_POST['submit'])) {
   </main>
 
   <footer>
-    <div class="footer" id="footer">
 
-      <div class="footer-logo">
-        <i class='bx bxl-whatsapp' style='color:#0e0e0e'></i>
-        <i class='bx bxl-instagram' style='color:#0e0e0e'></i>
-        <i class='bx bxl-facebook' style='color:#0e0e0e'></i>
-      </div>
+    <div class="footer" id="footer">
+      <p>© 2024 Pizzaria Al Volo. Todos os direitos reservados.</p>
+      <p><a href="termosdeuso.html">Termos de Uso</a></p>
+      <p><a href="politica.html">Política de Privacidade</a></p>
     </div>
   </footer>
 
@@ -647,6 +648,8 @@ if (isset($_POST['submit'])) {
       </form>
     </div>
   </div>
+
+
 
   <!-- Login popup end -->
 

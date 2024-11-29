@@ -62,7 +62,7 @@ if ($result->num_rows > 0) {
 
         <nav class="navbar">
             <a href="index.php" style="--i:0">Home</a>
-            <a href="#footer" style="--i:4">Contatos</a>
+            <a href="contatos.php" style="--i:4">Feedback</a>
 
             <?php if (isset($_SESSION['email'])): ?>
                 <div class="user-info">
@@ -210,8 +210,8 @@ if ($result->num_rows > 0) {
 
 
 
-                <button type="submit" class="btn">Update</button>
-                <a href="index.php" class="link-home">Home</a>
+                <button type="submit" class="btn">Salvar os dados</button>
+                <a href="index.php" class="link-home">Voltar</a>
             </form>
         </div>
     </main>

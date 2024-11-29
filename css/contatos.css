@@ -55,23 +55,34 @@ body {
   background: var(--bg);
 }
 
-main {
-  height: 86.5vh;
-  display: flex;
+
+.sessao {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+
   display: flex;
   background: linear-gradient(to bottom, #890000, #cd121c);
   /* Gradiente do vermelho claro para o vermelho escuro */
 }
 
+
+
 /* Sessão Feedback */
 
 #sessaofeedback {
-  height: 76vh; /* Mantém a altura da seção */
-  width: 40%; /* Mantém a largura da seção */
+  margin-top: 12rem;
+  height: 76vh;
+  /* Mantém a altura da seção */
+  width: 40%;
+  /* Mantém a largura da seção */
   display: flex;
-  flex-direction: column; /* Alinha os itens verticalmente */
-  justify-content: space-between; /* Espaça o conteúdo igualmente */
-  align-items: center; /* Centraliza horizontalmente */
+  flex-direction: column;
+  /* Alinha os itens verticalmente */
+  justify-content: space-between;
+  /* Espaça o conteúdo igualmente */
+  align-items: center;
+  /* Centraliza horizontalmente */
 }
 
 
@@ -83,6 +94,7 @@ h1 {
 }
 
 #enviarfeedback {
+  margin-top: 13rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,6 +150,7 @@ h1 {
   background-color: #a72020;
 }
 
+
 #pos:hover,
 #neg:hover,
 #sug:hover {
@@ -147,9 +160,9 @@ h1 {
 }
 
 .btn_active {
-  background-color: #a72020; 
+  background-color: #a72020;
   color: white;
-  transform: translateY(0); 
+  transform: translateY(0);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -159,7 +172,7 @@ form {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 #nome,
@@ -246,6 +259,7 @@ footer {
 }
 
 header {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -254,13 +268,106 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 99;
-  background: var(--red2);
 }
 
 header #logo img {
   width: 110px;
   border-radius: 50%;
   margin-left: -4rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+
+
+.user-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  margin-right: 15px;
+
+}
+
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 350px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+  max-height: 500px;
+}
+
+.sub-menu {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info h3 {
+  font-weight: 500;
+}
+
+.sub-menu hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  padding-right: 23px;
+  margin: 12px 0;
+}
+
+.sub-menu-link p {
+  width: 100%;
+  color: #525252;
+}
+
+.sub-menu-link i {
+  width: 40px;
+  background: #e5e5e5;
+  border-radius: 50%;
+  padding: 8px;
+  margin-right: 15px;
+}
+
+.sub-menu-link span {
+  font-size: 22px;
+  transition: transform 0.5s;
+  color: #525252;
+}
+
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+  font-weight: 600;
+
 }
 
 #check {
@@ -283,7 +390,7 @@ header #logo img {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .navbar a::after {
@@ -304,6 +411,25 @@ header #logo img {
   transform-origin: left;
   transform: scaleX(1);
 }
+
+i.fas.fa-user-circle.avatar-icon {
+  font-size: 120px;
+  /* Tamanho do ícone */
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  /* Borda semelhante à imagem */
+  background: #f0f0f0;
+  /* Fundo para parecer com a ausência de imagem */
+  text-align: center;
+  line-height: 120px;
+  /* Alinha o ícone verticalmente */
+}
+
+
 
 .home {
   background-image: linear-gradient(rgba(29, 29, 29, 0.9), rgba(29, 29, 29, 0.9)), url(/images/bg.jpeg);
@@ -390,25 +516,7 @@ header #logo img {
   justify-content: center;
 }
 
-.btnLogin-popup {
-  width: 130px;
-  height: 50px;
-  background: transparent;
-  border: 2px solid #fff;
-  outline: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1.1em;
-  color: #fff;
-  font-weight: 500;
-  margin-left: 40px;
-  transition: .5s;
-}
 
-.btnLogin-popup:hover {
-  background: #fff;
-  color: #162938;
-}
 
 .heading {
   font-size: 80px;
@@ -498,3 +606,298 @@ header #logo img {
 }
 
 
+.btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: .5s;
+}
+
+.btnLogin-popup:hover {
+  background: #fff;
+  color: #162938;
+}
+
+
+.btnLogin-popup i.bx.bx-user {
+  margin-right: 20px;
+}
+
+#btnLogin-popup i.bx-user:hover {
+  color: rgba(22, 41, 56, 1);
+  /* Alterando para a cor rgba */
+}
+
+/* Estilo do popup (igual para login e registro) */
+.popup {
+  display: none;
+  /* Escondido por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Conteúdo do popup */
+.popup-content {
+  background-color: rgb(252, 245, 245);
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #b1afaf;
+  width: 50vw;
+  height: 62vh;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 15px;
+}
+
+#loginup {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#form_login {
+  margin-top: 20px;
+}
+
+#logo-login img {
+  width: 93px;
+  height: 90px;
+}
+
+#logo-login {
+  background-color: #a50c0c;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#username,
+#password {
+  width: 70%;
+  height: 38px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: solid 1px rgba(128, 128, 128, 0.007);
+  background-color: #00000008;
+  border-radius: 5px;
+  text-indent: 20px;
+}
+
+#password {
+  margin-top: 10px;
+}
+
+#btn_login1 {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#easter-egg {
+  color: white;
+}
+
+#btn_login2 {
+  width: 50%;
+  height: 38px;
+  background-color: #a50c0c;
+  color: white;
+  border: solid 1px rgba(128, 128, 128, 0.007);
+  border-radius: 20px;
+  cursor: pointer;
+
+}
+
+#loginc_redes {
+  display: flex;
+}
+
+#loginc_redes>hr {
+  width: 24vw;
+  height: 1px;
+  margin-top: 23px;
+  color: #00000042;
+
+}
+
+.login-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 47.8%;
+
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn img {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 30px;
+}
+
+.google {
+  background-color: #4285F4;
+  color: white;
+}
+
+.facebook {
+  background-color: #3B5998;
+  color: white;
+}
+
+
+
+/* Botão de fechar (X) */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+}
+
+/* Botão "Registrar-se" dentro do popup de login */
+#showRegisterForm {
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#showLoginForm {
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/*Tela de registro*/
+#registro {
+  text-align: center;
+  margin-top: 105px;
+}
+
+#logo-registro img {
+  width: 93px;
+  height: 90px;
+}
+
+#logo-registro {
+  background-color: #a50c0c;
+  margin-top: 5px;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#usuario-reg,
+#senha-reg,
+#conf-reg,
+#email-reg {
+  width: 70%;
+  height: 38px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  border: solid 1px rgba(128, 128, 128, 0.007);
+  background-color: #00000008;
+  border-radius: 5px;
+  text-indent: 20px;
+}
+
+#avatar {
+  width: 70%;
+  height: 38px;
+  position: relative;
+  padding-left: 5rem;
+  left: 50%;
+  transform: translate(-50%);
+  border: solid 1px rgba(128, 128, 128, 0.007);
+  background-color: #00000008;
+  border-radius: 5px;
+  text-indent: 20px;
+}
+
+#registroform input[type="text"],
+#registroform input[type="email"],
+#registroform input[type="password"],
+#registroform input[type="file"] {
+  margin-top: 5px;
+}
+
+#registroform {
+  margin-top: 20px;
+}
+
+
+#showRegisterForm:hover {
+  color: darkblue;
+}
+
+#showLoginForm:hover {
+  color: darkblue;
+}
+
+i.fas.fa-user-circle.avatar-icon {
+  font-size: 120px; /* Tamanho do ícone */
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 2px solid #ccc; /* Borda semelhante à imagem */
+  background: #f0f0f0; /* Fundo para parecer com a ausência de imagem */
+  text-align: center;
+  line-height: 120px; /* Alinha o ícone verticalmente */
+}
+
+.user-info i.bx.bxs-user-circle {
+  cursor: pointer;
+  border-radius: 50%; /* Borda semelhante à imagem */
+  background: #f0f0f0; /* Fundo para parecer com a ausência de imagem */
+}
