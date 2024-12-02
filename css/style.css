@@ -1051,6 +1051,24 @@ body {
   z-index: 1;
 }
 
+
+
+.ingredientes-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+
+.ingrediente-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .modal {
   background-color: rgb(255, 255, 255);
   border-radius: 10px 10px 10px 10px;
@@ -1524,7 +1542,7 @@ body {
 
 #find-button:hover {
   transform: translateY(-3px);
-} 
+}
 
 .icon {
   font-size: 20px;
@@ -1532,7 +1550,7 @@ body {
 
 #find-button {
   display: none;
-} 
+}
 
 
 
@@ -1811,12 +1829,12 @@ body {
   .cardapio-content {
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
-  
+
   .cardapio-content[style="display: none;"] {
     opacity: 0;
     transform: scale(0.95);
   }
-  
+
   .popup {
     display: none;
     /* Escondido por padrão */
@@ -1828,7 +1846,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
   }
-  
+
   /* Conteúdo do popup */
   .popup-content {
     background-color: rgb(252, 245, 245);
@@ -1847,13 +1865,13 @@ body {
     align-items: center;
     justify-content: center;
   }
-  
+
   #loginc_redes>hr {
     width: 24vw;
     height: 1px;
     margin-top: 23px;
     color: #00000042;
-  
+
   }
 
 }
@@ -1871,7 +1889,7 @@ body {
     z-index: 1;
   }
 
-  
+
   /* Conteúdo do popup */
   .popup-content {
     background-color: rgb(252, 245, 245);
@@ -1884,4 +1902,68 @@ body {
     position: relative;
     border-radius: 15px;
   }
+}
+
+.modal-carrinho-sabores {
+  display: none;
+  /* Escondido por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.modal-sabores{
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px 10px 10px 10px;
+  width: 45%;
+  height: 75%;
+  margin: 10% auto;
+}
+
+.modal-content-sabores {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.sabores-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.sabor-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.sabor-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.sabor-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.sabor-item-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.sabor-item-preco {
+  color: #888;
+}
+
+.sabor-item input[type="radio"] {
+  margin-left: auto;
 }
