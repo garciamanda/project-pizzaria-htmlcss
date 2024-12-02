@@ -450,7 +450,7 @@ if (isset($_POST['submit'])) {
       <div class="cardapio" id="cardapio-principal">
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(8).jpeg" alt="Pizza de Chocolate" class="img-cardapio" />
+          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Chocolate</p>
@@ -466,7 +466,7 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(6).jpg" alt="4 Queijos" class="img-cardapio" />
+          <img src="./images/pizza(6).jpg" alt="Pizza de Calabresa" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Calabresa</p>
@@ -499,7 +499,7 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(5).jpg" alt="Pizza de Sla" class="img-cardapio" />
+          <img src="./images/pizzafrango2.jpg" alt="Pizza de Frango" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Frango</p>
@@ -524,7 +524,7 @@ if (isset($_POST['submit'])) {
       <div class="cardapio" id="cardapio-entradas">
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(8).jpeg" alt="Pizza de Chocolate" class="img-cardapio" />
+          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Chocolate</p>
@@ -573,7 +573,7 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(5).jpg" alt="Pizza de Sla" class="img-cardapio" />
+          <img src="./images/pizzafrango2.jpg" alt="Pizza de Sla" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Frango</p>
@@ -590,7 +590,7 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(8).jpeg" alt="Pizza de Chocolate" class="img-cardapio" />
+          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Chocolate</p>
@@ -639,7 +639,7 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(5).jpg" alt="Pizza de Sla" class="img-cardapio" />
+          <img src="./images/pizzafrango2.jpg" alt="Pizza de Sla" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Frango</p>
@@ -662,7 +662,7 @@ if (isset($_POST['submit'])) {
       <div class="cardapio" id="cardapio-pizzas">
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(8).jpeg" alt="Pizza de Chocolate" class="img-cardapio" />
+          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Chocolate</p>
@@ -703,7 +703,7 @@ if (isset($_POST['submit'])) {
       <div class="cardapio" id="cardapio-pizzas">
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(8).jpeg" alt="Pizza de Chocolate" class="img-cardapio" />
+          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Chocolate</p>
@@ -743,7 +743,7 @@ if (isset($_POST['submit'])) {
       <div class="cardapio" id="cardapio-pizzas">
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(8).jpeg" alt="Pizza de Chocolate" class="img-cardapio" />
+          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Chocolate</p>
@@ -775,7 +775,7 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content">
-          <img src="./images/pizza(8).jpeg" alt="Pizza de Chocolate" class="img-cardapio" />
+          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Chocolate</p>
@@ -810,16 +810,16 @@ if (isset($_POST['submit'])) {
       <div class="cart">
         <div class="cart-container">
           <div class="cart-header">
-            <span>Cart (1 item)</span>
-            <span class="close-btn">&times;</span>
+            <span>Cart (0 items)</span>
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
           </div>
 
           <div id="cart-items">
-            <div class="cart-item">Vazio</div>
+
           </div>
 
           <div class="cart-summary">
-            <button class="CartBtn">
+            <button class="checkout-btn">
               <span class="IconContainer">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="rgb(17, 17, 17)"
                   class="cart">
@@ -830,6 +830,7 @@ if (isset($_POST['submit'])) {
               </span>
               <p class="text">Add to Cart</p>
             </button>
+            <p>Subtotal: <span id="cart-subtotal">R$ 0,00</span></p>
             <p class="secure-checkout">🔒 Secure Checkout</p>
           </div>
         </div>
@@ -841,13 +842,14 @@ if (isset($_POST['submit'])) {
           <div class="modal-content">
             <!-- Imagem da Pizza -->
             <div class="modal-image ">
-              <img class="modal-pizzas" src="./images/pizza(6).jpg" alt="Pizza">
+              <img class="modal-pizzas" src="" alt="Pizza">
             </div>
 
             <!-- Produtos no Modal -->
             <div class="produtos-modal">
-              <div class="Produtos-text-modal">
+              <div class="modal-header">
                 <h2>Produtos</h2>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
               </div>
               <div class="text-modal-top"></div>
               <div class="text-modal">
