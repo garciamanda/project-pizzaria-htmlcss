@@ -1,11 +1,56 @@
 function openMenu() {
-    let subMenu = document.getElementById("subMenu");
-    subMenu.classList.toggle("open-menu");
+  let subMenu = document.getElementById("subMenu");
+  subMenu.classList.toggle("open-menu");
 }
 
-function redirectToLogin() {
-    window.location.href = 'index.php?showLogin=1';
+function setFeedback(tipo) {
+
+  document.getElementById("feedbackType").value = tipo;
+  console.log("Tipo de Feedback Setado: " + tipo); 
 }
+
+
+const stars = document.querySelectorAll('.star');
+let selectedValue = 0;
+
+
+stars.forEach(star => {
+  star.addEventListener('click', function () {
+  
+    stars.forEach(s => s.classList.remove('selected'));
+
+    
+    star.classList.add('selected');
+
+
+    selectedValue = star.getAttribute('data-value');
+    console.log("Valor da Estrela Selecionada: " + selectedValue);
+  });
+});
+
+// Evento de envio do formulário
+document.querySelector('form').addEventListener('submit', function (e) {
+ 
+  if (selectedValue > 0) {
+    document.getElementById('ratingValue').value = selectedValue;
+  } else {
+    e.preventDefault();
+    alert('Por favor, selecione uma estrela!');
+    return; 
+  }
+
+  
+  const feedbackType = document.querySelector('.btn_feedback.btn_active');
+  if (feedbackType) {
+    document.getElementById('feedbackType').value = feedbackType.textContent.trim();
+    console.log("Tipo de Feedback Selecionado: " + feedbackType.textContent.trim());
+  } else {
+
+    e.preventDefault();
+    alert('Por favor, selecione o tipo de feedback (Positiva, Negativa, Sugestão).');
+  }
+});
+
 
 const buttons = document.querySelectorAll('.btn_feedback');
 
@@ -14,13 +59,23 @@ buttons.forEach(button => {
     if (button.classList.contains('btn_active')) {
       button.classList.remove('btn_active');
     } else {
-
       buttons.forEach(btn => btn.classList.remove('btn_active'));
-
       button.classList.add('btn_active');
     }
   });
 });
+
+
+
+
+
+
+
+function redirectToLogin() {
+  window.location.href = 'index.php?showLogin=1';
+}
+
+
 
 
 
@@ -34,25 +89,25 @@ const loginBtn = document.getElementById('btnLogin-popup');
 // para utilizar basta colocar o nome da função la em cima no DomContentLoaded
 
 function openPopupSettings() {
-    const avatar = document.querySelector('.user-info img');
-    const profilePopup = document.getElementById('profile-popup');
-    const closePopup = document.getElementById('close-popup');
+  const avatar = document.querySelector('.user-info img');
+  const profilePopup = document.getElementById('profile-popup');
+  const closePopup = document.getElementById('close-popup');
 
-    if (avatar) {
-        avatar.addEventListener('click', () => {
-            profilePopup.style.display = 'flex';
-        });
-    }
-
-    if (closePopup) {
-        closePopup.addEventListener('click', () => {
-            profilePopup.style.display = 'none';
-        });
-    }
-
-    window.addEventListener('click', (event) => {
-        if (event.target === profilePopup) {
-            profilePopup.style.display = 'none';
-        }
+  if (avatar) {
+    avatar.addEventListener('click', () => {
+      profilePopup.style.display = 'flex';
     });
+  }
+
+  if (closePopup) {
+    closePopup.addEventListener('click', () => {
+      profilePopup.style.display = 'none';
+    });
+  }
+
+  window.addEventListener('click', (event) => {
+    if (event.target === profilePopup) {
+      profilePopup.style.display = 'none';
+    }
+  });
 }

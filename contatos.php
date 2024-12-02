@@ -1,78 +1,52 @@
 <?php
+
+
 session_start();
 
-$mostrarPopup = isset($_SESSION['registro_sucesso']) && $_SESSION['registro_sucesso'];
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Limpa a sessão após exibir o popup
-if ($mostrarPopup) {
-  unset($_SESSION['registro_sucesso']);
-}
+
+
+
+
 
 if (isset($_POST['submit'])) {
   include 'config.php';
 
-  $nome = $_POST['nome'];
-  $email = $_POST['email'];
-  $senha = $_POST['senha'];
-  $confirmSenha = $_POST['confirm-password'];
 
 
-  if (empty($nome) || empty($email) || empty($senha) || empty($confirmSenha)) {
-    die("Preencha todos os campos.");
+  $nome = trim($_POST['nome']);
+  $email = trim($_POST['email']);
+  $comentario = trim($_POST['comentario']);
+
+
+  $starValue = isset($_POST['starValue']) ? $_POST['starValue'] : 'Não avaliado';
+  $feedbackType = isset($_POST['feedbackType']) ? $_POST['feedbackType'] : 'Não especificado';
+
+
+  if (empty($nome) || empty($email) || empty($comentario)) {
+    die("Por favor, preencha todos os campos.");
   }
 
-
-  if ($senha !== $confirmSenha) {
-    die("As senhas não coincidem.");
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die("Email inválido.");
   }
 
-  $avatar = null;
+  $stmt = $conexao->prepare("INSERT INTO avaliacoes (nome, email, comentario, star_value, feedback_type) VALUES (?, ?, ?, ?, ?)");
+  $stmt->bind_param("sssss", $nome, $email, $comentario, $starValue, $feedbackType);
 
-
-  if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
-    $arquivo = $_FILES['avatar'];
-    $pastaAbsoluta = __DIR__ . "/uploads/";
-    $pastaRelativa = "uploads/";
-    $nomeArquivo = $arquivo['name'];
-    $novoNome = uniqid();
-    $extensao = strtolower(pathinfo($nomeArquivo, PATHINFO_EXTENSION));
-
-    if ($extensao !== "jpg" && $extensao !== "png" && $extensao !== "jpeg") {
-      die("Extensão inválida.");
-    }
-
-    $pathAbsoluto = $pastaAbsoluta . $novoNome . "." . $extensao;
-    $pathRelativo = $pastaRelativa . $novoNome . "." . $extensao;
-
-    if (is_uploaded_file($arquivo["tmp_name"])) {
-      if (move_uploaded_file($arquivo["tmp_name"], $pathAbsoluto)) {
-      } else {
-        die("Erro ao salvar arquivo: " . error_get_last()['message']);
-      }
-    } else {
-      die("Arquivo temporário não encontrado.");
-    }
-
-    $avatar = $pathRelativo;
-  }
-
-
-  $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
-
-
-  $stmt = $conexao->prepare("INSERT INTO usuarios (nome, senha, email, avatar) VALUES (?, ?, ?, ?)");
-  $stmt->bind_param("ssss", $nome, $senha_hash, $email, $avatar);
 
   if ($stmt->execute()) {
-    $_SESSION['email'] = $email;
-    $_SESSION['nome'] = $nome;
-    $_SESSION['avatar'] = $avatar; // Salva o avatar na sessão
-    $_SESSION['registro_sucesso'] = true;
-    header("Location: index.php");
+    echo "<script>alert('Feedback enviado com sucesso! Obrigado.');</script>";
+    header("Location: contatos.php");
+    exit();
   } else {
-    die("Erro ao salvar no banco de dados: " . $stmt->error);
+    die("Erro ao salvar feedback no banco de dados. Tente novamente mais tarde.");
   }
-};
+
+}
 
 
 
@@ -120,8 +94,7 @@ if (isset($_POST['submit'])) {
         <div class="user-info">
           <?php if (!empty($_SESSION['avatar']) && file_exists($_SESSION['avatar'])): ?>
             <!-- Exibe o avatar do usuário -->
-            <img height="50" src="<?php echo htmlspecialchars($_SESSION['avatar']); ?>" alt="Avatar"
-              onclick="openMenu()">
+            <img height="50" src="<?php echo htmlspecialchars($_SESSION['avatar']); ?>" alt="Avatar" onclick="openMenu()">
           <?php else: ?>
             <!-- Exibe um ícone padrão caso não tenha avatar -->
             <i class="bx bxs-user-circle" style="font-size: 50px;" onclick="openMenu()"></i>
@@ -133,7 +106,8 @@ if (isset($_POST['submit'])) {
           }
         </style>
       <?php else: ?>
-        <button id="btnLogin-popup" class="btnLogin-popup" onclick="redirectToLogin()"><i class='bx bx-user'></i>Login</button>
+        <button id="btnLogin-popup" class="btnLogin-popup" onclick="redirectToLogin()"><i
+            class='bx bx-user'></i>Login</button>
       <?php endif; ?>
 
 
@@ -214,9 +188,11 @@ if (isset($_POST['submit'])) {
         <div id="caixafeedback">
           <p>Eu quero fazer uma avaliação...</p>
           <div id="btn_feedback">
-            <button class="btn_feedback" id="pos">Positiva</button>
-            <button class="btn_feedback" id="neg">Negativa</button>
-            <button class="btn_feedback" id="sug">Sugestão</button>
+            <button type="button" class="btn_feedback" id="pos" onclick="setFeedback('Positiva')">Positiva</button>
+            <button type="button" class="btn_feedback" id="neg" onclick="setFeedback('Negativa')">Negativa</button>
+            <button type="button" class="btn_feedback" id="sug" onclick="setFeedback('Sugestão')">Sugestão</button>
+
+            
 
             <div class="rating">
               <span class="star" data-value="1">&#9733;</span>
@@ -228,32 +204,40 @@ if (isset($_POST['submit'])) {
 
 
           </div>
-          <form action="" method="post">
+          <form action="contatos.php" method="post">
 
             <label for="nome">
-              <input type="text" id="nome" maxlength="25" placeholder="Seu Nome:"></label><br>
+              <input type="text" name="nome" id="nome" maxlength="25" placeholder="Seu Nome:"></label><br>
 
             <label for="email">
-              <input type="email" id="email" maxlength="40" placeholder="Seu Email:"></label>
+              <input type="email" id="email" name="email" maxlength="40" placeholder="Seu Email:"></label>
 
-            <textarea rows="10" cols="50" id="areatexto" placeholder="Digite sua Avaliação aqui..."></textarea>
+            <textarea rows="10" cols="50" id="areatexto" name="comentario"
+              placeholder="Digite sua Avaliação aqui..."></textarea>
+
+
+            <input type="hidden" id="ratingValue" name="starValue" value="">
+            <input type="hidden" id="feedbackType" name="feedbackType">
+
+
+            <div id="botaoenviar">
+              <button type="submit" name="submit" id="enviar">
+                <div class="svg-wrapper-1">
+                  <div class="svg-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path fill="currentColor"
+                        d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                      </path>
+                    </svg>
+                  </div>
+                </div>
+                <span>Enviar Feedback</span>
+              </button>
+            </div>
           </form>
 
-          <div id="botaoenviar">
-            <button id="enviar">
-              <div class="svg-wrapper-1">
-                <div class="svg-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                    <path fill="currentColor"
-                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
-                    </path>
-                  </svg>
-                </div>
-              </div>
-              <span>Enviar Feedback</span>
-            </button>
-          </div>
+
 
         </div>
       </div>

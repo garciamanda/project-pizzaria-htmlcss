@@ -162,6 +162,7 @@ h1 {
 .btn_active {
   background-color: #a72020;
   color: white;
+  font-size: 18px;
   transform: translateY(0);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -291,6 +292,7 @@ header #logo img {
   object-fit: cover;
   cursor: pointer;
   margin-right: 15px;
+  border: 3px solid #f0eeee;
 
 }
 
@@ -527,7 +529,7 @@ i.fas.fa-user-circle.avatar-icon {
 
 /* Botão Enviar */
 #botaoenviar {
-  height: 20vh;
+  height: 13vh;
   display: flex;
   justify-content: center;
   align-items: center;

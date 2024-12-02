@@ -1,3 +1,22 @@
+// Detecta o scroll e adiciona a classe 'visible' ao footer e aos botões no mobile
+window.addEventListener('scroll', function() {
+  const footer = document.querySelector('footer');
+  const buttonContainer = document.querySelector('.button-container');
+  const scrollPosition = window.scrollY; // Posição atual do scroll
+  
+  // Verifica se a tela está no modo mobile (largura <= 768px)
+  if (window.innerWidth <= 768) {
+    // Se o usuário rolou mais de 100px para baixo, adiciona a classe 'visible'
+    if (scrollPosition > 100) {
+      footer.classList.add('visible');
+      buttonContainer.classList.add('visible');
+    } else {
+      footer.classList.remove('visible');
+      buttonContainer.classList.remove('visible');
+    }
+  }
+});
+
 
 // Scroll
 
@@ -15,6 +34,30 @@ buttons.forEach(button => {
     }
   });
 });
+
+document.getElementById('search-cardapio').addEventListener('input', function () {
+  const searchValue = this.value.toLowerCase(); 
+  const pizzas = document.querySelectorAll('#reme .cardapio-content'); 
+
+  if (searchValue === '') {
+    pizzas.forEach(pizza => {
+      pizza.style.display = 'block';
+    });
+    return;
+  }
+
+
+  pizzas.forEach(pizza => {
+    const pizzaName = pizza.querySelector('.nome-cardapio').textContent.toLowerCase(); 
+    if (pizzaName.includes(searchValue)) {
+      pizza.style.display = 'block'; 
+    } else {
+      pizza.style.display = 'none'; 
+    }
+  });
+});
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const addNowButton = document.getElementById("addNow");
@@ -94,9 +137,14 @@ const registerPopup = document.getElementById('registerPopup');
 const showRegisterFormBtn = document.getElementById('showRegisterForm');
 const showLoginFormBtn = document.getElementById('showLoginForm');
 const closeButtons = document.querySelectorAll('.close');
+const iconePerfilBtn = document.getElementById('iconePerfil');
 
 // Função para abrir o popup de login
 loginBtn.addEventListener('click', function () {
+  loginPopup.style.display = 'block';
+});
+
+iconePerfilBtn.addEventListener('click', function () {
   loginPopup.style.display = 'block';
 });
 

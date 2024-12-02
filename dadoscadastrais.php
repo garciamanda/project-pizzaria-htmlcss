@@ -154,19 +154,9 @@ if ($result->num_rows > 0) {
             <form class="" action="php/edit.php" method="post" enctype="multipart/form-data">
 
                 <h2 class="">Editar Perfil</h2><br>
-                <!-- error -->
-                <?php if (isset($_GET['error'])) { ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $_GET['error']; ?>
-                    </div>
-                <?php } ?>
+                
 
-                <!-- success -->
-                <?php if (isset($_GET['success'])) { ?>
-                    <div class="alert alert-success" role="alert">
-                        <?php echo $_GET['success']; ?>
-                    </div>
-                <?php } ?>
+                
                 <div class="mb-3">
                     <div class="avatar-div">
                         <input id="avatar-input" type="file" name="avatar" style="display: none;">
@@ -187,6 +177,20 @@ if ($result->num_rows > 0) {
 
                     </div>
                     <input type="hidden" name="old_avatar" value="<?= $user['avatar'] ?>">
+                        
+                    <!-- success -->
+                    <?php if (isset($_GET['success'])) { ?>
+                        <div class="alert alert-success" role="alert">
+                            <?php echo $_GET['success']; ?>
+                        </div>
+                    <?php } ?>
+
+                    <!-- error -->
+                    <?php if (isset($_GET['error'])) { ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $_GET['error']; ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Usuário</label>
