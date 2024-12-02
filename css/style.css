@@ -24,11 +24,11 @@
   --red: #e50914;
   --yellow: #ebe711;
   --black: #141414;
-  --red2: #890000;
+  --red2: #a50c0c;
   --light-gray: #5a4747;
   --dark-gray: #333;
   --gray: #959595;
-  --blue: #56c5db;
+  --tw-text-opacity: 1;
   --inst: linear-gradient(45deg, #f9a8d4, #d32f2f, #ffb74d, #25D366);
 }
 
@@ -1038,26 +1038,25 @@ body {
   color: darkblue;
 }
 
-/* by paulista :eu sou gay
-by Adr: somos dois*/
+/* Modal Carrinho */
 .modal-carrinho {
-  width: 100%;
-  height: 100%;
+  display: none;
+  /* Escondido por padrão */
   position: fixed;
   top: 0;
-  z-index: 1;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
+  z-index: 1;
 }
 
 .modal {
-  background-color: white;
-  padding: 8rem;
-  border-radius: 10px;
-  width: 50vw;
-  height: 70vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px 10px 10px 10px;
+  width: 45%;
+  height: 75%;
   margin: 10% auto;
-  position: relative;
 }
 
 .active {
@@ -1065,66 +1064,179 @@ by Adr: somos dois*/
 }
 
 .modal-content {
+  position: relative;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
 }
 
-/* lado direito produtos */
-
+/* Lado Direito - Produtos */
 .produtos-modal {
-  flex: 2;
-  padding: 10px;
-  border-left: 2.5px solid #ddd;
-  display: flex;
-  flex-direction: column;
+  flex: 0.8;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+  overflow: auto;
+}
+
+.Produtos-text-modal {
+  border-radius: 0 10px 0 0 !important;
   align-items: center;
-  flex-grow: 1;
-  height: 56rem;
-  margin-top: -6rem;
-  margin-right: -8rem;
+  background-color: #f3f4f6;
+  width: 100%;
+  height: 55px;
+  z-index: -1;
+}
+
+
+
+.text-modal-top {
+  height: 20px;
+  background-color: var(--white);
+  z-index: 10;
+  border-top: 1px solid #d1d5db;
+  border-radius: 20px 20px 0 0;
+  margin-top: -10px;
+}
+
+.number-modal p {
+  margin-top: 1.5rem;
+  color: #000000DE;
+  font-size: 16px !important;
+  font-family: rubik, sans-serif;
+}
+
+.text-modal {
+  text-align: left;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.button-compra {
+  height: rem;
+  border-top: 1px solid #d1d5db;
+
+}
+
+.P-0 {
+  border-top: 1px solid #d1d5db;
+  height: 8rem;
+  background-color: #f3f4f6;
+}
+
+.P-0 p {
+  font-size: 12px;
+  font-family: rubik, robot, sans-serif;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+  margin: 0 10px 10px;
+}
+
+.P-0 h2 {
+  margin-top: 1rem !important;
+  color: black !important;
 }
 
 .produtos-modal h2 {
   margin: 0 10px 10px;
-  height: 10rem;
   font-size: 1.5rem;
   color: #666;
 }
 
-.spacer {
-  height: 20px;
+.Produtos-text-modal h2 {
+  font-size: 2rem;
+}
+
+.pizza-descricao {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+  margin-top: 0.73rem;
 }
 
 
-.bts-carrinho {
-  margin-top: auto;
-}
-
+/* Lado Esquerdo - Imagem */
 .modal-image {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+
 }
 
 .modal-pizzas {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  margin-left: -8rem;
-  margin-top: -5rem;
+  border-radius: 5px 5px 20px 20px;
 }
 
-.FecharModal {
-  padding: 9px 50px;
-  font-size: 1.5rem;
-  margin-top: 30rem;
-  margin-left: 7rem;
+/* Controle de Quantidade */
+
+.button-compra {
+  display: flex;
+  flex-direction: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 6.7rem;
 }
 
+.counter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.counter-container button {
+  background-color: #f3f4f6;
+  color: rgb(0, 0, 0) !important;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Botão Universal */
+.button-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  background-color: #181717;
+  outline: 3px #181717 solid;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.button-modal .text {
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  transition: 400ms;
+}
+
+.button-modal svg path {
+  transition: 400ms;
+}
+
+.button-modal:hover {
+  background-color: transparent;
+}
+
+.button-modal:hover .text {
+  color: #181717;
+}
+
+.button-modal:hover svg path {
+  fill: #181717;
+}
+
+/* Responsividade */
 @media (max-width: 500px) {
   .modal {
     width: 90vw;
@@ -1136,7 +1248,7 @@ by Adr: somos dois*/
   }
 }
 
-/*fim dos gays*/
+
 
 /*Carrinho modelo*/
 

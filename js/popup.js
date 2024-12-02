@@ -17,3 +17,4 @@ function openModal() {
 function closeModal() {
   modal.classList.remove('active');
 }
+

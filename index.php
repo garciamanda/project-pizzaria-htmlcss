@@ -114,7 +114,7 @@ if (isset($_POST['submit'])) {
             </path>
           </svg>
         </div>
-        <input id="search-cardapio" class="search_input"  placeholder="search" type="text">
+        <input id="search-cardapio" class="search_input" placeholder="search" type="text">
       </div>
     </div>
 
@@ -835,40 +835,71 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
 
-      <!-- pop up carrinho-->
+      <!-- Pop-up Carrinho -->
       <div class="modal-carrinho">
         <div class="modal">
           <div class="modal-content">
-            <div class="modal-image">
-              <img class="modal-pizzas" src="./images/pizza(8).jpeg" alt="Pizza">
+            <!-- Imagem da Pizza -->
+            <div class="modal-image ">
+              <img class="modal-pizzas" src="./images/pizza(6).jpg" alt="Pizza">
             </div>
 
+            <!-- Produtos no Modal -->
             <div class="produtos-modal">
-              <h2>produtos</h2>
-              <hr>
-              <p>adicione itens ao carrinho</p>
-              <div class="spacer"></div>
-              <div class="bts-carinho">
-                <button class="FecharModal" onclick="closeModal()">enviar para o carrinho</button>
+              <div class="Produtos-text-modal">
+                <h2>Produtos</h2>
+              </div>
+              <div class="text-modal-top"></div>
+              <div class="text-modal">
+                <h1 class="pizza-nome">Pizza</h1>
+                <p class="pizza-descricao">Descrição da pizza</p>
+                <span>
+                  <div class="number-modal">
+                    <p class="pizza-preco">R$ 129,99</p>
+                  </div>
+                </span>
+              </div>
+              <div class="P-0">
+                <h2>ingredientes adicionais</h2>
+                <p>escolha até 10 opções</p>
+              </div>
+              <div class="button-compra">
+                <!-- Controle de Quantidade -->
+                <div class="counter-container">
+                  <button id="decrement">-</button>
+                  <span id="counter">1</span>
+                  <button id="increment">+</button>
+                </div>
+                <button class="button-modal">
+                  <svg viewBox="0 0 16 16" class="bi bi-cart-check" height="24" width="24"
+                    xmlns="http://www.w3.org/2000/svg" fill="#fff">
+                    <path
+                      d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z">
+                    </path>
+                    <path
+                      d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z">
+                    </path>
+                  </svg>
+                  <p class="text">Buy Now</p>
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!--fim pop up-->
+        <!-- Fim Pop-up -->
 
-      <!-- Popup  Opcional-->
-      <div id="popup" class="popup-overlay <?php echo $mostrarPopup ? 'active' : ''; ?>">
-        <div class="popup-contents">
-          <h2>Deseja adicionar um avatar?</h2>
-          <p>Você pode adicionar um avatar agora ou fazer isso mais tarde.</p>
-          <div class="popup-buttons">
-            <button id="addNow">Adicionar Agora</button>
-            <button id="addLater">Fazer Depois</button>
+        <!-- Popup  Opcional-->
+        <div id="popup" class="popup-overlay <?php echo $mostrarPopup ? 'active' : ''; ?>">
+          <div class="popup-contents">
+            <h2>Deseja adicionar um avatar?</h2>
+            <p>Você pode adicionar um avatar agora ou fazer isso mais tarde.</p>
+            <div class="popup-buttons">
+              <button id="addNow">Adicionar Agora</button>
+              <button id="addLater">Fazer Depois</button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Fim popup -->
+        <!-- Fim popup -->
 
 
     </section>
