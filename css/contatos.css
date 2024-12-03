@@ -298,8 +298,8 @@ header #logo img {
 
 .sub-menu-wrap {
   position: absolute;
-  top: 100%;
-  right: 10%;
+  top: 80%;
+  right: 7%;
   width: 350px;
   max-height: 0px;
   overflow: hidden;
@@ -307,18 +307,23 @@ header #logo img {
 }
 
 .sub-menu-wrap.open-menu {
-  max-height: 500px;
+  max-height: 400px;
 }
 
 .sub-menu {
   background: #fff;
   padding: 20px;
   margin: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
 }
 
 .user-info {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .user-info h3 {
@@ -332,7 +337,6 @@ header #logo img {
   background: #ccc;
   margin: 15px 0 10px;
 }
-
 
 
 .sub-menu-link {
@@ -371,6 +375,7 @@ header #logo img {
   font-weight: 600;
 
 }
+
 
 #check {
   display: none;

@@ -47,10 +47,10 @@ body {
     height: 100vh;
     background: linear-gradient(to bottom, #890000, #cd121c);
 
-    
+
 }
 
-main{
+main {
     height: 86.5vh;
     display: flex;
 }
@@ -64,12 +64,13 @@ main{
     width: 400px;
     height: 67vh;
 }
-h2{
+
+h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-form label{
+form label {
     display: block;
     font-size: 18px;
     margin-bottom: 5px;
@@ -78,7 +79,7 @@ form label{
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
-form input[type="file"]{
+form input[type="file"] {
     width: 100%;
     padding: 8px;
     margin-bottom: 18px;
@@ -104,7 +105,7 @@ form input[type="file"]{
     border: 2px solid #ccc;
 }
 
-.alert.alert-success{
+.alert.alert-success {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -113,7 +114,7 @@ form input[type="file"]{
     color: green;
 }
 
-.alert.alert-danger{
+.alert.alert-danger {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -165,7 +166,7 @@ form input[type="file"]{
 }
 
 
-.btn{
+.btn {
     width: 100%;
     padding: 10px;
     background-color: #c00e0e;
@@ -177,11 +178,11 @@ form input[type="file"]{
     transition: background-color 0.3s ease;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #a50c0c;
 }
 
-.link-home{
+.link-home {
     display: block;
     text-align: center;
     margin-top: 10px;
@@ -191,14 +192,16 @@ form input[type="file"]{
     transition: color 0.3s ease;
 }
 
-.link-home:hover{
+.link-home:hover {
     text-decoration: underline;
 }
 
 .user-info i.bx.bxs-user-circle {
     cursor: pointer;
-    border-radius: 50%; /* Borda semelhante à imagem */
-    background: #f0f0f0; /* Fundo para parecer com a ausência de imagem */
+    border-radius: 50%;
+    /* Borda semelhante à imagem */
+    background: #f0f0f0;
+    /* Fundo para parecer com a ausência de imagem */
 }
 
 
@@ -241,8 +244,8 @@ header #logo img {
 
 .sub-menu-wrap {
     position: absolute;
-    top: 100%;
-    right: 10%;
+    top: 80%;
+    right: 7%;
     width: 350px;
     max-height: 0px;
     overflow: hidden;
@@ -250,18 +253,23 @@ header #logo img {
 }
 
 .sub-menu-wrap.open-menu {
-    max-height: 500px;
+    max-height: 400px;
 }
 
 .sub-menu {
     background: #fff;
     padding: 20px;
     margin: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
 }
 
 .user-info {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .user-info h3 {
@@ -315,6 +323,7 @@ header #logo img {
 
 }
 
+
 #check {
     display: none;
 }
@@ -358,15 +367,18 @@ header #logo img {
 }
 
 i.fas.fa-user-circle.avatar-icon {
-    font-size: 120px; /* Tamanho do ícone */
+    font-size: 120px;
+    /* Tamanho do ícone */
     width: 120px;
     height: 120px;
     display: block;
     margin: 0 auto;
     border-radius: 50%;
-    border: 2px solid #ccc; /* Borda semelhante à imagem */
-    background: #f0f0f0; /* Fundo para parecer com a ausência de imagem */
+    border: 2px solid #ccc;
+    /* Borda semelhante à imagem */
+    background: #f0f0f0;
+    /* Fundo para parecer com a ausência de imagem */
     text-align: center;
-    line-height: 120px; /* Alinha o ícone verticalmente */
+    line-height: 120px;
+    /* Alinha o ícone verticalmente */
 }
-

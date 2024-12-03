@@ -113,11 +113,6 @@ if ($result->num_rows > 0) {
                         <span>></span>
                     </a>
                     <a href="#" class="sub-menu-link">
-                        <i class='bx bx-lock-alt' style='color:#020202'></i>
-                        <p>Segurança</p>
-                        <span>></span>
-                    </a>
-                    <a href="#" class="sub-menu-link">
                         <i class='bx bxs-help-circle' style='color:#020202'></i>
                         <p>Ajuda</p>
                         <span>></span>

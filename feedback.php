@@ -139,11 +139,6 @@ if (isset($_POST['submit'])) {
             <span>></span>
           </a>
           <a href="#" class="sub-menu-link">
-            <i class='bx bx-lock-alt' style='color:#020202'></i>
-            <p>Segurança</p>
-            <span>></span>
-          </a>
-          <a href="#" class="sub-menu-link">
             <i class='bx bxs-help-circle' style='color:#020202'></i>
             <p>Ajuda</p>
             <span>></span>
@@ -204,7 +199,7 @@ if (isset($_POST['submit'])) {
 
 
           </div>
-          <form action="contatos.php" method="post">
+          <form action="feedback.php" method="post">
 
             <label for="nome">
               <input type="text" name="nome" id="nome" maxlength="25" placeholder="Seu Nome:"></label><br>

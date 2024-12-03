@@ -128,7 +128,7 @@ if (isset($_POST['submit'])) {
 
     <nav class="navbar">
       <a href="#home" style="--i:0">Home</a>
-      <a href="contatos.php" style="--i:4">Feedback</a>
+      <a href="feedback.php" style="--i:4">Feedback</a>
 
 
       <?php if (isset($_SESSION['email'])): ?>
@@ -178,11 +178,6 @@ if (isset($_POST['submit'])) {
           <a href="dadoscadastrais.php" class="sub-menu-link">
             <i class='bx bx-cog' style='color:#020202'></i>
             <p>Meus dados</p>
-            <span>></span>
-          </a>
-          <a href="#" class="sub-menu-link">
-            <i class='bx bx-lock-alt' style='color:#020202'></i>
-            <p>Segurança</p>
             <span>></span>
           </a>
           <a href="#" class="sub-menu-link">
@@ -245,7 +240,7 @@ if (isset($_POST['submit'])) {
                 <h1 class="food-price">R$25</h1>
                 <div class="tranding-slide-content-bottom">
                   <h2 class="food-name">
-                    Special Pizza
+                    Pizza Especial
                   </h2>
                   <h3 class="food-rating">
                     <span>5</span>
@@ -270,7 +265,7 @@ if (isset($_POST['submit'])) {
                 <h1 class="food-price">R$36</h1>
                 <div class="tranding-slide-content-bottom">
                   <h2 class="food-name">
-                    Meat Ball
+                    Pizza Calabresa
                   </h2>
                   <h3 class="food-rating">
                     <span>5</span>
@@ -295,7 +290,7 @@ if (isset($_POST['submit'])) {
                 <h1 class="food-price">R$40</h1>
                 <div class="tranding-slide-content-bottom">
                   <h2 class="food-name">
-                    Burger
+                    Pizza de Folha
                   </h2>
                   <h3 class="food-rating">
                     <span>5</span>
@@ -320,7 +315,7 @@ if (isset($_POST['submit'])) {
                 <h1 class="food-price">R$15</h1>
                 <div class="tranding-slide-content-bottom">
                   <h2 class="food-name">
-                    Frish Curry
+                    Pizza de Carne
                   </h2>
                   <h3 class="food-rating">
                     <span>5</span>
@@ -345,7 +340,7 @@ if (isset($_POST['submit'])) {
                 <h1 class="food-price">$15</h1>
                 <div class="tranding-slide-content-bottom">
                   <h2 class="food-name">
-                    Pane Cake
+                    Pizza de Ovo
                   </h2>
                   <h3 class="food-rating">
                     <span>5</span>
@@ -370,7 +365,7 @@ if (isset($_POST['submit'])) {
                 <h1 class="food-price">R$42</h1>
                 <div class="tranding-slide-content-bottom">
                   <h2 class="food-name">
-                    Vanilla cake
+                    Pizza de Verdura
                   </h2>
                   <h3 class="food-rating">
                     <span>5</span>
@@ -396,7 +391,7 @@ if (isset($_POST['submit'])) {
                 <h1 class="food-price">R$38</h1>
                 <div class="tranding-slide-content-bottom">
                   <h2 class="food-name">
-                    Straw Cake
+                    Pizza de Morango
                   </h2>
                   <h3 class="food-rating">
                     <span>5</span>

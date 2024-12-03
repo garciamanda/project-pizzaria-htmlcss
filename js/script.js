@@ -35,6 +35,8 @@ buttons.forEach(button => {
   });
 });
 
+// popup de pesquisa no mobile
+
 document.getElementById('search-cardapio').addEventListener('input', function () {
   const searchValue = this.value.toLowerCase(); 
   const pizzas = document.querySelectorAll('#reme .cardapio-content'); 
@@ -57,6 +59,7 @@ document.getElementById('search-cardapio').addEventListener('input', function ()
   });
 });
 
+// popup do avatar opcional
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -110,25 +113,25 @@ var TrandingSlider = new Swiper('.tranding-slider', {
 
 
 
+// adicionar o carrosel como pedido ao carrinho 
+
+const trendingSlides = document.querySelectorAll('.tranding-slide');
 
 
-// const trendingSlides = document.querySelectorAll('.tranding-slide');
+trendingSlides.forEach((slide) => {
+  slide.addEventListener('click', () => {
+
+    const foodPrice = slide.querySelector('.food-price').textContent;
+    const foodName = slide.querySelector('.food-name').textContent;
 
 
-// trendingSlides.forEach((slide) => {
-//   slide.addEventListener('click', () => {
-
-//     const foodPrice = slide.querySelector('.food-price').textContent;
-//     const foodName = slide.querySelector('.food-name').textContent;
+    const cartItem = document.createElement('li');
+    cartItem.textContent = `${foodName} - ${foodPrice}`;
 
 
-//     const cartItem = document.createElement('li');
-//     cartItem.textContent = `${foodName} - ${foodPrice}`;
-
-
-//     document.getElementById('cart-items').appendChild(cartItem);
-//   });
-// });
+    document.getElementById('cart-items').appendChild(cartItem);
+  });
+});
 
 // Selecionando os elementos do DOM
 const loginBtn = document.getElementById('btnLogin-popup');
@@ -219,7 +222,7 @@ if (getURLParameter('showLogin') === '1') {
 }
 
 
-// sla
+// scroll do carrinho
 
 
 document.addEventListener("scroll", function () {
@@ -238,6 +241,8 @@ document.addEventListener("scroll", function () {
 
   if (ScrollPosition >= remePosition) cartContainer.style += fixed(ScrollPosition + 150)
 });
+
+
 
 function openMenu() {
   let subMenu = document.getElementById("subMenu");
