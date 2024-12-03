@@ -666,7 +666,9 @@ if (isset($_POST['submit'])) {
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza Clássica Individuais</p>
-            <p class="descricao-cardapio">Experimente nossas deliciosas Pizzas Clássicas Individuais com massa artesanal fermentada por 48h, crocante por fora e bem recheadas por dentro. Uma explosão de sabor em cada mordida!</p>
+            <p class="descricao-cardapio">Experimente nossas deliciosas Pizzas Clássicas Individuais com massa artesanal
+              fermentada por 48h, crocante por fora e bem recheadas por dentro. Uma explosão de sabor em cada mordida!
+            </p>
 
             <div class="preco">
               <p class="preco-cardapio">R$ 30.25</p>
@@ -874,7 +876,7 @@ if (isset($_POST['submit'])) {
                   <span id="counter">1</span>
                   <button id="increment">+</button>
                 </div>
-                <button class="button-modal">
+                <button class="button-modal add-to-cart">
                   <svg viewBox="0 0 16 16" class="bi bi-cart-check" height="24" width="24"
                     xmlns="http://www.w3.org/2000/svg" fill="#fff">
                     <path
@@ -885,6 +887,18 @@ if (isset($_POST['submit'])) {
                     </path>
                   </svg>
                   <p class="text">Buy Now</p>
+                </button>
+                <button class="button-modal confirmar-alteracoes" style="display: none;">
+                  <svg viewBox="0 0 16 16" class="bi bi-cart-check" height="24" width="24"
+                    xmlns="http://www.w3.org/2000/svg" fill="#fff">
+                    <path
+                      d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z">
+                    </path>
+                    <path
+                      d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z">
+                    </path>
+                  </svg>
+                  <p class="text">Confirmar Alterações</p>
                 </button>
               </div>
             </div>
@@ -923,7 +937,7 @@ if (isset($_POST['submit'])) {
             <div class="produtos-modal">
               <div class="modal-header">
                 <h2>Produtos</h2>
-                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <span class="close-btn" onclick="closeModalCarrinhoSabores()">&times;</span>
               </div>
               <div class="text-modal-top"></div>
               <div class="text-modal">
@@ -940,7 +954,7 @@ if (isset($_POST['submit'])) {
                 <p>escolha até 10 opções</p>
 
               </div>
-              <div class="sabores-list" style="max-height: 200px; overflow-y: auto;">
+              <div class="sabores-list" style="max-height: 200px;">
                 <!-- Sabores dinâmicos serão inseridos aqui -->
               </div>
               <div class="button-compra">

@@ -1077,9 +1077,7 @@ body {
   margin: 10% auto;
 }
 
-.active {
-  display: block;
-}
+
 
 .modal-content {
   position: relative;
@@ -1933,6 +1931,7 @@ body {
 .sabores-list {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .sabor-item {
@@ -1966,4 +1965,30 @@ body {
 
 .sabor-item input[type="radio"] {
   margin-left: auto;
+}
+
+.modal-carrinho.active,
+.modal-carrinho-sabores.active {
+  display: block;
+}
+
+.modal-carrinho-sabores .produtos-modal{
+  flex: 1;
+  overflow-y: auto;
+  min-height: 77.5rem;
+}
+
+.modal-carrinho-sabores .button-compra{
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.body-no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
