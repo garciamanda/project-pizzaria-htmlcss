@@ -62,7 +62,7 @@ if ($result->num_rows > 0) {
 
         <nav class="navbar">
             <a href="index.php" style="--i:0">Home</a>
-            <a href="contatos.php" style="--i:4">Feedback</a>
+            <a href="feedback.php" style="--i:4">Feedback</a>
 
             <?php if (isset($_SESSION['email'])): ?>
                 <div class="user-info">

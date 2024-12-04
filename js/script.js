@@ -142,9 +142,13 @@ const showLoginFormBtn = document.getElementById('showLoginForm');
 const closeButtons = document.querySelectorAll('.close');
 const iconePerfilBtn = document.getElementById('iconePerfil');
 
+let scrollPositions = 0;
+
 // Função para abrir o popup de login
 loginBtn.addEventListener('click', function () {
   loginPopup.style.display = 'block';
+  scrollPositions = window.scrollY;
+  document.body.style.overflow = 'hidden';
 });
 
 iconePerfilBtn.addEventListener('click', function () {
@@ -168,8 +172,12 @@ closeButtons.forEach(button => {
     const popupToClose = event.target.getAttribute('data-close');
     if (popupToClose === 'login') {
       loginPopup.style.display = 'none';
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollPositions);
     } else if (popupToClose === 'register') {
       registerPopup.style.display = 'none';
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollPositions);
     }
   });
 });
@@ -178,8 +186,12 @@ closeButtons.forEach(button => {
 window.addEventListener('click', function (event) {
   if (event.target == loginPopup) {
     loginPopup.style.display = 'none';
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollPositions);
   } else if (event.target == registerPopup) {
     registerPopup.style.display = 'none';
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollPositions);
   }
 });
 
@@ -224,17 +236,17 @@ if (getURLParameter('showLogin') === '1') {
 
 // scroll do carrinho
 
-
-document.addEventListener("scroll", function () {
-  const fixed = (y) =>
-    `
+document.addEventListener("scroll", function RolarPagina() {   
+  const fixed = (y) => 
+  `
     position: fixed;
     top: ${y}px;
   `
 
+  window.addEventListener("scroll", RolarPagina);
+
   const cartContainer = document.querySelector(".cart-container");
   const reme = document.querySelector(".reme");
-
 
   const remePosition = reme.offsetTop;
   const ScrollPosition = window.scrollY;

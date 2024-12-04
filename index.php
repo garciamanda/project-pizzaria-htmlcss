@@ -1,12 +1,14 @@
 <?php
 session_start();
 
-$mostrarPopup = isset($_SESSION['registro_sucesso']) && $_SESSION['registro_sucesso'];
 
-// Limpa a sessão após exibir o popup
+
+$mostrarPopup = isset($_SESSION['registro_sucesso']) && $_SESSION['registro_sucesso'];
 if ($mostrarPopup) {
   unset($_SESSION['registro_sucesso']);
 }
+
+
 
 if (isset($_POST['submit'])) {
   include 'config.php';
@@ -66,7 +68,7 @@ if (isset($_POST['submit'])) {
   if ($stmt->execute()) {
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $nome;
-    $_SESSION['avatar'] = $avatar; // Salva o avatar na sessão
+    $_SESSION['avatar'] = $avatar; 
     $_SESSION['registro_sucesso'] = true;
     header("Location: index.php");
   } else {
@@ -95,6 +97,7 @@ if (isset($_POST['submit'])) {
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link rel="icon" type="image/png" href="images/icon.png">
   <link rel="icon" href="images/icon.ico">
+  <script type="text/javascript" src="./js/script.js" defer></script>
 </head>
 
 <body>
@@ -903,18 +906,7 @@ if (isset($_POST['submit'])) {
 
         <!-- Popup Escolha o Sabor -->
 
-        <!-- Popup  Opcional-->
-        <div id="popup" class="popup-overlay <?php echo $mostrarPopup ? 'active' : ''; ?>">
-          <div class="popup-contents">
-            <h2>Deseja adicionar um avatar?</h2>
-            <p>Você pode adicionar um avatar agora ou fazer isso mais tarde.</p>
-            <div class="popup-buttons">
-              <button id="addNow">Adicionar Agora</button>
-              <button id="addLater">Fazer Depois</button>
-            </div>
-          </div>
-        </div>
-        <!-- Fim popup -->
+
 
       </div>
 
@@ -959,7 +951,7 @@ if (isset($_POST['submit'])) {
                   <span id="counter">1</span>
                   <button id="increment">+</button>
                 </div>
-                <button class="button-modal">
+                <button class="button-modal add-to-cart-sabores">
                   <svg viewBox="0 0 16 16" class="bi bi-cart-check" height="24" width="24"
                     xmlns="http://www.w3.org/2000/svg" fill="#fff">
                     <path
@@ -1088,6 +1080,30 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
 
+  <!-- Popup  Opcional-->
+  <div id="popup" class="popup-overlay <?php echo $mostrarPopup ? 'active' : ''; ?>">
+    <div class="popup-contents">
+      <h2>Deseja adicionar um avatar?</h2><br>
+      <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Você pode adicionar um avatar agora ou fazer isso mais tarde.</p>
+
+      <ion-icon id="iconprofile" name="person-circle-outline"></ion-icon>
+
+      <div class="btao">
+        <button class="butao1" id="addNow">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adicionar agora&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </button>
+        <button class="butao2" id="addLater">Talvez mais tarde</button>
+      </div>
+
+
+
+      <!-- <div class="popup-buttons">
+            <button id="addNow">Adicionar Agora</button>
+            <button id="addLater">Fazer Depois</button>
+          </div> -->
+    </div>
+  </div>
+  <!-- Fim popup -->
 
 
   <!-- Login popup end -->
@@ -1097,7 +1113,7 @@ if (isset($_POST['submit'])) {
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-  <script type="text/javascript" src="./js/script.js"></script>
+
   <script type="text/javascript" src="./js/cep.js"></script>
 </body>
 

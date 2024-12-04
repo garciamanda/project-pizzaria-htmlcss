@@ -138,6 +138,7 @@ const sabores = [
 
 
 
+
 const cardapioSeparadas = document.querySelectorAll('#cardapio-pizzas-separadas #cardapio-separadas');
 
 
@@ -200,22 +201,19 @@ sabores.forEach(sabor => {
 function addToCartSabores(saborNome) {
   const sabor = sabores.find(s => s.nome === saborNome);
 
-    const totalPrice = sabor.preco;
+  const totalPrice = sabor.preco;
 
   cart.push({
     nome: sabor.nome,
-    ingredientes: [],     imagem: sabor.imagem,
+    ingredientes: [],
+    imagem: sabor.imagem,
     totalPrice,
   });
 
   renderCartItems();
 }
 
-document.querySelectorAll('.sabor-item input[type="radio"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    const saborNome = this.value;
-    addToCartSabores(saborNome);     closeModalCarrinhoSabores();   });
-});
+
 
 function renderCartItems() {
   cartItemsContainer.innerHTML = "";
@@ -342,6 +340,8 @@ function addToCart(pizzaNome, ingredientesSelecionados) {
 
 
 
+
+
 function editCartItem(index) {
   const item = cart[index];
   const pizza = pizzas[item.nome];
@@ -412,4 +412,35 @@ document.querySelector(".add-to-cart").addEventListener("click", () => {
   addToCart(pizzaNome, ingredientesSelecionados);
   closeModal(modalCarrinho);
 });
+
+
+let saborSelecionado = null; 
+
+document.querySelectorAll('.sabor-item input[type="radio"]').forEach(radio => {
+  radio.addEventListener('change', function () {
+    saborSelecionado = this.value; 
+    console.log(`Sabor selecionado: ${saborSelecionado}`);
+  });
+});
+
+
+document.querySelector('.add-to-cart-sabores').addEventListener('click', function () {
+  if (saborSelecionado) {
+    addToCartSabores(saborSelecionado); 
+    closeModalCarrinhoSabores(); 
+  }
+});
+
+
+
+
+
+
+// document.querySelectorAll('.sabor-item input[type="radio"]').forEach(radio => {
+//   radio.addEventListener('change', function () {
+//     const saborNome = this.value;
+//     addToCartSabores(saborNome);
+//     closeModalCarrinhoSabores();
+//   });
+// });
 
