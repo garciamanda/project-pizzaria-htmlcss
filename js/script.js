@@ -1,3 +1,4 @@
+
 // Detecta o scroll e adiciona a classe 'visible' ao footer e aos botões no mobile
 window.addEventListener('scroll', function() {
   const footer = document.querySelector('footer');
@@ -16,6 +17,9 @@ window.addEventListener('scroll', function() {
     }
   }
 });
+
+
+
 
 
 // Scroll
@@ -75,6 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
   addLaterButton.addEventListener("click", function () {
     popup.style.display = "none";
   });
+
+  
 });
 
 

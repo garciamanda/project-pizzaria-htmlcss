@@ -27,6 +27,15 @@ const pizzas = {
 
 };
 
+const entradas = {
+  "Pão de alho recheado com queijo": {
+    descricao: "O Pão de Alho Recheado com Queijo combina pão crocante, queijos derretidos e manteiga de alho, assados até dourar. Simples e irresistível!",
+    preco: 15.00,
+    imagem: "./images/entrada(1).jpg",
+    ingredientes: ["Pão", "Manteiga de alho", "Queijo"]
+  }
+}
+
 
 const modalCarrinho = document.querySelector('.modal-carrinho');
 
@@ -141,6 +150,8 @@ const sabores = [
 
 const cardapioSeparadas = document.querySelectorAll('#cardapio-pizzas-separadas #cardapio-separadas');
 
+const cardapioSeparadasEntradas = document.querySelectorAll('#cardapio-entradas #cardapio-content-entradas');
+
 
 
 const modalCarrinhoSabores = document.querySelector('.modal-carrinho-sabores');
@@ -203,15 +214,27 @@ function addToCartSabores(saborNome) {
 
   const totalPrice = sabor.preco;
 
-  cart.push({
-    nome: sabor.nome,
-    ingredientes: [],
-    imagem: sabor.imagem,
-    totalPrice,
-  });
+  
+  const existingItem = cart.find(item => item.nome === sabor.nome);
 
-  renderCartItems();
+  if (existingItem) {
+    
+    existingItem.quantidade++;
+    existingItem.totalPrice = existingItem.quantidade * totalPrice;
+  } else {
+    
+    cart.push({
+      nome: sabor.nome,
+      ingredientes: [],
+      imagem: sabor.imagem,
+      totalPrice: totalPrice,
+      quantidade: 1, 
+    });
+  }
+
+  renderCartItems(); 
 }
+
 
 
 
@@ -310,33 +333,45 @@ function renderCartItems() {
         </div>
       </div>
       <div class="cart-item-right">
+        <!-- Exibe a quantidade ao lado dos botões -->
+        <span class="quantity">Quantidade: ${item.quantidade}</span>
         <button class="edit-btn" onclick="editCartItem(${index})">Editar</button>
         <button class="remove-btn" onclick="removeCartItem(${index})">Remover</button>
       </div>
     `;
     cartItemsContainer.appendChild(cartItem);
   });
-
-  updateCartSubtotal();
 }
+
 
 
 function addToCart(pizzaNome, ingredientesSelecionados) {
   const pizza = pizzas[pizzaNome];
 
-
   const totalPrice = pizza.preco + ingredientesSelecionados.length * 5;
 
+  // Verifica se a pizza já está no carrinho
+  const existingItem = cart.find(item => item.nome === pizzaNome && 
+                                          JSON.stringify(item.ingredientes) === JSON.stringify(ingredientesSelecionados));
 
-  cart.push({
-    nome: pizzaNome,
-    ingredientes: ingredientesSelecionados,
-    imagem: pizza.imagem,
-    totalPrice,
-  });
+  if (existingItem) {
+    // Se já estiver no carrinho, incrementa a quantidade
+    existingItem.quantidade++;
+    existingItem.totalPrice = existingItem.quantidade * totalPrice;
+  } else {
+    // Se não estiver no carrinho, adiciona o item com quantidade 1
+    cart.push({
+      nome: pizzaNome,
+      ingredientes: ingredientesSelecionados,
+      imagem: pizza.imagem,
+      totalPrice: totalPrice,
+      quantidade: 1, // Inicializa a quantidade como 1
+    });
+  }
 
-  renderCartItems();
+  renderCartItems(); // Re-renderiza o carrinho após adicionar ou atualizar o item
 }
+
 
 
 

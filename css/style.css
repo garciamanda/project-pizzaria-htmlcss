@@ -649,9 +649,11 @@ body {
   }
 
   .descricao-cardapio {
+
     font-size: 14px;
     color: #666;
     margin: 0 0 12px;
+    
   }
 
   .preco-cardapio {
@@ -1145,7 +1147,6 @@ body {
 .produtos-modal {
   flex: 0.8;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
-  overflow: auto;
 }
 
 .Produtos-text-modal {
@@ -1182,9 +1183,9 @@ body {
 }
 
 .button-compra {
-  height: rem;
+  height: 5.7rem !important;
   border-top: 1px solid #d1d5db;
-
+  border-radius: 0 0 20px 20px;
 }
 
 .P-0 {
@@ -1224,6 +1225,11 @@ body {
 }
 
 
+
+
+
+
+
 /* Lado Esquerdo - Imagem */
 .modal-image {
   flex: 1;
@@ -1245,11 +1251,15 @@ body {
   background-color: #f3f4f6;
   width: 100%;
   height: 55px;
+  
 }
 
+
+
+
 .modal-image img {
-  width: 70%;
-  height: 80%;
+  width: 80%;
+  height: 35rem;
 }
 
 .modal-pizzas {
@@ -1380,7 +1390,15 @@ body {
 
 .close-btn {
   cursor: pointer;
+  background: none;
+  border: 1px solid #6c7483;
+  width: 3rem;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
   transition: color 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Item do Carrinho */
@@ -1389,6 +1407,31 @@ body {
   padding: 15px;
   border-bottom: 1px solid #e0e0e0;
 }
+
+.cart-item-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.edit-btn, .remove-btn {
+  padding: 5px 10px;
+  margin-left: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background-color: #FF5733;
+}
+
 
 .cart-item img {
   width: 60px;
@@ -1971,7 +2014,7 @@ body {
   z-index: 1;
 }
 
-.modal-sabores{
+.modal-sabores {
   background-color: rgb(255, 255, 255);
   border-radius: 10px 10px 10px 10px;
   width: 45%;
@@ -1988,7 +2031,8 @@ body {
 .sabores-list {
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  height: 20rem;
 }
 
 .sabor-item {
@@ -2029,23 +2073,285 @@ body {
   display: block;
 }
 
-.modal-carrinho-sabores .produtos-modal{
+.modal-carrinho-sabores .scroll-modal {
   flex: 1;
+  height: 70rem;
   overflow-y: auto;
-  min-height: 77.5rem;
+  position: relative;
 }
 
-.modal-carrinho-sabores .button-compra{
+.modal-carrinho-sabores .button-compra {
   position: sticky;
   bottom: 0;
   background-color: #fff;
   padding: 10px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   z-index: 2;
+  margin-top: 1.8rem;
 }
+
+html ::-webkit-scrollbar {
+  width: 10px;
+}
+
+html ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgb(114, 30, 30);
+}
+
+html ::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #ededed;
+}
+
+html ::-webkit-scrollbar-thumb:hover {
+  background: rgb(71, 21, 21);
+  transition: all 0.5s ease-in-out;
+}
+
 
 .body-no-scroll {
   overflow: hidden;
   position: fixed;
   width: 100%;
+}
+
+
+.modal-carrinho-entradas {
+  display: none;
+  /* Escondido por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+
+
+.ingredientes-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+
+.ingrediente-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-entradas {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px 10px 10px 10px;
+  width: 45%;
+  height: 75%;
+  margin: 10% auto;
+}
+
+
+
+.modal-content-entradas {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Lado Direito - Produtos */
+.produtos-modal {
+  flex: 0.8;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+}
+
+.Produtos-text-modal {
+  border-radius: 0 10px 0 0 !important;
+  align-items: center;
+  background-color: #f3f4f6;
+  width: 100%;
+  height: 55px;
+  z-index: -1;
+}
+
+
+
+.text-modal-top {
+  height: 20px;
+  background-color: var(--white);
+  z-index: 10;
+  border-top: 1px solid #d1d5db;
+  border-radius: 20px 20px 0 0;
+  margin-top: -10px;
+}
+
+.number-modal p {
+  margin-top: 1.5rem;
+  color: #000000DE;
+  font-size: 16px !important;
+  font-family: rubik, sans-serif;
+}
+
+.text-modal {
+  text-align: left;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.button-compra {
+  height: 5.7rem !important;
+  border-top: 1px solid #d1d5db;
+  border-radius: 0 0 20px 20px;
+}
+
+.P-0 {
+  border-top: 1px solid #d1d5db;
+  height: 8rem;
+  background-color: #f3f4f6;
+}
+
+.P-0 p {
+  font-size: 12px;
+  font-family: rubik, robot, sans-serif;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+  margin: 0 10px 10px;
+}
+
+.P-0 h2 {
+  margin-top: 1rem !important;
+  color: black !important;
+}
+
+.produtos-modal h2 {
+  margin: 0 10px 10px;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.Produtos-text-modal h2 {
+  font-size: 2rem;
+}
+
+.pizza-descricao {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+  margin-top: 0.73rem;
+}
+
+
+
+
+
+
+
+/* Lado Esquerdo - Imagem */
+.modal-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  border-radius: 0 10px 0 0 !important;
+  align-items: center;
+  background-color: #f3f4f6;
+  width: 100%;
+  height: 55px;
+  
+}
+
+
+
+
+.modal-image img {
+  width: 80%;
+  height: 35rem;
+}
+
+.modal-pizzas {
+  border-radius: 5px 5px 20px 20px;
+}
+
+/* Controle de Quantidade */
+
+.button-compra {
+  display: flex;
+  flex-direction: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 6.7rem;
+}
+
+.counter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.counter-container button {
+  background-color: #f3f4f6;
+  color: rgb(0, 0, 0) !important;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Botão Universal */
+.button-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  background-color: #181717;
+  outline: 3px #181717 solid;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.button-modal .text {
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+  transition: 400ms;
+}
+
+.button-modal svg path {
+  transition: 400ms;
+}
+
+.button-modal:hover {
+  background-color: transparent;
+}
+
+.button-modal:hover .text {
+  color: #181717;
+}
+
+.button-modal:hover svg path {
+  fill: #181717;
 }

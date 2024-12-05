@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
   if ($stmt->execute()) {
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $nome;
-    $_SESSION['avatar'] = $avatar; 
+    $_SESSION['avatar'] = $avatar;
     $_SESSION['registro_sucesso'] = true;
     header("Location: index.php");
   } else {
@@ -387,7 +387,7 @@ if (isset($_POST['submit'])) {
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide">
               <div class="tranding-slide-img">
-                <img src="images/107608847.avif" alt="Tranding">
+                <img src="images/pizza(18).jpg" alt="Tranding">
 
               </div>
               <div class="tranding-slide-content">
@@ -521,11 +521,11 @@ if (isset($_POST['submit'])) {
 
       <div class="cardapio" id="cardapio-entradas">
         <!-- Começo do produto -->
-        <div class="cardapio-content">
-          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(1).jpg" alt="Pão de alho recheado com queijo" class="img-cardapio" />
 
           <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Chocolate</p>
+            <p class="nome-cardapio">Pão de alho recheado com queijo</p>
             <p class="descricao-cardapio">Uma deliciosa explosão de sabor doce, coberta com uma generosa camada de
               chocolate derretido e finalizada com um toque especial para os apaixonados por sobremesas.</p>
 
@@ -537,8 +537,8 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
-          <img src="./images/pizza(6).jpg" alt="4 Queijos" class="img-cardapio" />
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(2).jpg" alt="4 Queijos" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Calabresa</p>
@@ -553,8 +553,8 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
-          <img src="./images/pizza(1).jpg" alt="Pizza de Carne" class="img-cardapio" />
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(3).jpg" alt="Pizza de Carne" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Carne</p>
@@ -570,8 +570,8 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
-          <img src="./images/pizza(5).jpeg" alt="Pizza de Sla" class="img-cardapio" />
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(4).jpg" alt="Pizza de Sla" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Frango</p>
@@ -587,8 +587,8 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
-          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(5).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Chocolate</p>
@@ -603,8 +603,8 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
-          <img src="./images/pizza(6).jpg" alt="4 Queijos" class="img-cardapio" />
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(6).jpg" alt="4 Queijos" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Calabresa</p>
@@ -619,8 +619,8 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
-          <img src="./images/pizza(1).jpg" alt="Pizza de Carne" class="img-cardapio" />
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(7).webp" alt="Pizza de Carne" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Carne</p>
@@ -636,8 +636,8 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
-          <img src="./images/pizzafrango2.jpg" alt="Pizza de Sla" class="img-cardapio" />
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(8).webp" alt="Pizza de Sla" class="img-cardapio" />
 
           <div class="detalhes">
             <p class="nome-cardapio">Pizza de Frango</p>
@@ -903,11 +903,6 @@ if (isset($_POST['submit'])) {
           </div>
         </div>
         <!-- Fim Pop-up -->
-
-        <!-- Popup Escolha o Sabor -->
-
-
-
       </div>
 
       <!-- Popup Escolha Sabores -->
@@ -922,27 +917,28 @@ if (isset($_POST['submit'])) {
 
             <!-- Produtos no Modal -->
             <div class="produtos-modal">
-              <div class="modal-header">
-                <h2>Produtos</h2>
-                <span class="close-btn" onclick="closeModalCarrinhoSabores()">&times;</span>
-              </div>
-              <div class="text-modal-top"></div>
-              <div class="text-modal">
-                <h1 class="pizza-nome">Pizza</h1>
-                <p class="pizza-descricao">Descrição da pizza</p>
-                <span>
-                  <div class="number-modal">
-                    <p class="pizza-preco">R$ 129,99</p>
-                  </div>
-                </span>
-              </div>
-              <div class="P-0">
-                <h2>ingredientes adicionais</h2>
-                <p>escolha até 10 opções</p>
-
-              </div>
-              <div class="sabores-list" style="max-height: 200px;">
-                <!-- Sabores dinâmicos serão inseridos aqui -->
+              <div class="scroll-modal">
+                <div class="modal-header">
+                  <h2>Produtos</h2>
+                  <button class="close-btn" onclick="closeModalCarrinhoSabores()">X</button>
+                </div>
+                <div class="text-modal-top"></div>
+                <div class="text-modal">
+                  <h1 class="pizza-nome">Pizza</h1>
+                  <p class="pizza-descricao">Descrição da pizza</p>
+                  <span>
+                    <div class="number-modal">
+                      <p class="pizza-preco">R$ 129,99</>
+                    </div>
+                  </span>
+                </div>
+                <div class="P-0">
+                  <h2>Nossas pizzas</h2>
+                  <p>escolha 2 opções</p>
+                </div>
+                <div class="sabores-list" style="max-height: 200px;">
+                  <!-- Sabores dinâmicos serão inseridos aqui -->
+                </div>
               </div>
               <div class="button-compra">
                 <!-- Controle de Quantidade -->
@@ -967,6 +963,80 @@ if (isset($_POST['submit'])) {
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Fim Popup -->
+
+      <!-- Popup Entradas -->
+      <!-- Pop-up Carrinho -->
+      <div class="modal-carrinho-entradas">
+        <div class="modal-entradas">
+          <div class="modal-content-entradas">
+            <!-- Imagem da Pizza -->
+            <div class="modal-image ">
+              <img class="modal-pizzas" src="" alt="Pizza">
+            </div>
+
+            <!-- Produtos no Modal -->
+            <div class="produtos-modal">
+              <div class="modal-header">
+                <h2>Produtos</h2>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+              </div>
+              <div class="text-modal-top"></div>
+              <div class="text-modal">
+                <h1 class="pizza-nome">Pizza</h1>
+                <p class="pizza-descricao">Descrição da pizza</p>
+                <span>
+                  <div class="number-modal">
+                    <p class="pizza-preco">R$ 129,99</p>
+                  </div>
+                </span>
+              </div>
+              <div class="P-0">
+                <h2>ingredientes adicionais</h2>
+                <p>escolha até 10 opções</p>
+
+              </div>
+              <div class="ingredientes-list" style="max-height: 200px; overflow-y: auto;">
+                <!-- Ingredientes dinâmicos aqui -->
+              </div>
+              <div class="button-compra">
+                <!-- Controle de Quantidade -->
+                <div class="counter-container">
+                  <button id="decrement">-</button>
+                  <span id="counter">1</span>
+                  <button id="increment">+</button>
+                </div>
+                <button class="button-modal add-to-cart">
+                  <svg viewBox="0 0 16 16" class="bi bi-cart-check" height="24" width="24"
+                    xmlns="http://www.w3.org/2000/svg" fill="#fff">
+                    <path
+                      d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z">
+                    </path>
+                    <path
+                      d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z">
+                    </path>
+                  </svg>
+                  <p class="text">Buy Now</p>
+                </button>
+                <button class="button-modal confirmar-alteracoes" style="display: none;">
+                  <svg viewBox="0 0 16 16" class="bi bi-cart-check" height="24" width="24"
+                    xmlns="http://www.w3.org/2000/svg" fill="#fff">
+                    <path
+                      d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z">
+                    </path>
+                    <path
+                      d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z">
+                    </path>
+                  </svg>
+                  <p class="text">Confirmar Alterações</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fim Pop-up -->
       </div>
     </section>
   </main>
@@ -1084,7 +1154,8 @@ if (isset($_POST['submit'])) {
   <div id="popup" class="popup-overlay <?php echo $mostrarPopup ? 'active' : ''; ?>">
     <div class="popup-contents">
       <h2>Deseja adicionar um avatar?</h2><br>
-      <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Você pode adicionar um avatar agora ou fazer isso mais tarde.</p>
+      <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Você pode adicionar um avatar agora ou
+        fazer isso mais tarde.</p>
 
       <ion-icon id="iconprofile" name="person-circle-outline"></ion-icon>
 
