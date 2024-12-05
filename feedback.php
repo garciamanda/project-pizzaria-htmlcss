@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
   $comentario = trim($_POST['comentario']);
 
 
-  $starValue = isset($_POST['starValue']) ? $_POST['starValue'] : 'Não avaliado';
+  $starValue = isset($_POST['starValue']) ? $_POST['starValue'] : NULL ;
   $feedbackType = isset($_POST['feedbackType']) ? $_POST['feedbackType'] : 'Não especificado';
 
 
@@ -39,8 +39,7 @@ if (isset($_POST['submit'])) {
 
 
   if ($stmt->execute()) {
-    echo "<script>alert('Feedback enviado com sucesso! Obrigado.');</script>";
-    header("Location: contatos.php");
+    header("Location: feedback.php");
     exit();
   } else {
     die("Erro ao salvar feedback no banco de dados. Tente novamente mais tarde.");
@@ -48,9 +47,8 @@ if (isset($_POST['submit'])) {
 
 }
 
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="">
 
@@ -88,7 +86,7 @@ if (isset($_POST['submit'])) {
 
     <nav class="navbar">
       <a href="index.php" style="--i:0">Home</a>
-      <a href="contatos.php" style="--i:4">Feedback</a>
+      <a href="feedback.php" style="--i:4">Feedback</a>
 
       <?php if (isset($_SESSION['email'])): ?>
         <div class="user-info">
