@@ -1,45 +1,105 @@
-const cep = document.querySelector('#cep');
-const endereço = document.querySelector('#endereço');
-const bairro = document.querySelector('#bairro');
-const cidade = document.querySelector('#cidade');
-const message = document.querySelector('#message');
+const cepInput = document.querySelector('#cep');
+const enderecoInput = document.querySelector('#endereço');
+const bairroInput = document.querySelector('#bairro');
+const cidadeInput = document.querySelector('#cidade');
+const messageContainer = document.querySelector('#message');
 
-localStorage.setItem("cep", cep.value);
-localStorage.setItem("endereço", endereço.value);
-localStorage.setItem("bairro", bairro.value);
-localStorage.setItem("cidade", cidade.value);
+function saveToLocalStorage() {
+  const data = {
+    cep: cepInput.value,
+    endereco: enderecoInput.value,
+    bairro: bairroInput.value,
+    cidade: cidadeInput.value,
+  };
 
+  localStorage.setItem('addressData', JSON.stringify(data));
+  logMessage('Dados salvos no Local Storage.');
+}
 
-cep.addEventListener('focusout', async() => {
+function isCepValid(cep) {
+  const onlyNumbers = /^[0-9]+$/;
+  const cepPattern = /^[0-9]{8}$/;
+  const isValid = onlyNumbers.test(cep) && cepPattern.test(cep);
+  logMessage(isValid ? 'CEP válido.' : 'CEP inválido.');
+  return isValid;
+}
 
-    try {
-    const onlynumbers = /^[0-9]+$/;
-    const CepValido = /^[0-9]{8}+$/;
-    
-    if(!onlynumbers.test(cep.value) || !CepValido.test(cep.value)) {
-        throw {cep_error:'Cep Invalido' };
-    }
+function showError(message) {
+  messageContainer.textContent = message;
+  messageContainer.style.color = 'red';
+  setTimeout(() => {
+    messageContainer.textContent = '';
+  }, 5000);
+}
 
-    const response = await fetch(`https://viacep.com.br/ws/${cep.value}/json/`);
+function showSuccess(message) {
+  messageContainer.textContent = message;
+  messageContainer.style.color = 'green';
+  setTimeout(() => {
+    messageContainer.textContent = '';
+  }, 5000);
+}
 
-    if(!response.ok) {
-        throw await response.jsonl();
-    }
+function logMessage(message) {
+  console.log(`[Log] ${message}`);
+}
 
-    const responseCep = await response.json();
+async function fetchAddress(cep) {
+  const url = `https://viacep.com.br/ws/${cep}/json/`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Falha na conexão com a API.');
 
-    endereço.value = responseCep.logradouro;
-    bairro.value = responseCep.bairro;
-    cidade = responseCep.localidade;
-        
-    } catch (error) {
-        if(error?.cep_error) {
-            message.textContent = error.cep_error;
-            setTimeout(() => {
-                message.textContent = '';
-            }, 5000);
-        }
-        console.log(error);
-    }
+    const data = await response.json();
+    if (data.erro) throw new Error('CEP não encontrado.');
 
-})
+    logMessage('Endereço encontrado com sucesso.');
+    return data;
+  } catch (error) {
+    logMessage(`Erro ao buscar o endereço: ${error.message}`);
+    throw error;
+  }
+}
+
+async function handleCepBlur() {
+  const cep = cepInput.value.trim();
+
+  if (!isCepValid(cep)) {
+    showError('Formato de CEP inválido. Use apenas 8 dígitos.');
+    return;
+  }
+
+  try {
+    const addressData = await fetchAddress(cep);
+    const { logradouro, bairro, localidade } = addressData;
+
+    enderecoInput.value = logradouro || 'N/A';
+    bairroInput.value = bairro || 'N/A';
+    cidadeInput.value = localidade || 'N/A';
+
+    showSuccess('Endereço preenchido com sucesso!');
+    saveToLocalStorage();
+  } catch (error) {
+    showError('Erro ao buscar o CEP. Tente novamente.');
+  }
+}
+
+function loadFromLocalStorage() {
+  const storedData = localStorage.getItem('addressData');
+  if (storedData) {
+    const { cep, endereco, bairro, cidade } = JSON.parse(storedData);
+    cepInput.value = cep;
+    enderecoInput.value = endereco;
+    bairroInput.value = bairro;
+    cidadeInput.value = cidade;
+    showSuccess('Dados carregados do Local Storage.');
+  }
+}
+
+function init() {
+  loadFromLocalStorage();
+  cepInput.addEventListener('focusout', handleCepBlur);
+  logMessage('Inicialização concluída.');
+}
+
+document.addEventListener('DOMContentLoaded', init);

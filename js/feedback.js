@@ -14,19 +14,34 @@ const stars = document.querySelectorAll('.star');
 let selectedValue = 0;
 
 
-stars.forEach(star => {
-  star.addEventListener('click', function () {
-  
-    stars.forEach(s => s.classList.remove('selected'));
+document.addEventListener('DOMContentLoaded', () => {
+  const stars = document.querySelectorAll('.star');
 
-    
-    star.classList.add('selected');
+  let selectedRating = 0;
 
+  function highlightStars(rating) {
+    stars.forEach(star => {
+      star.style.color = star.dataset.value <= rating ? 'gold' : 'gray';
+    });
+  }
 
-    selectedValue = star.getAttribute('data-value');
-    console.log("Valor da Estrela Selecionada: " + selectedValue);
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+      highlightStars(star.dataset.value);
+    });
+
+    star.addEventListener('click', () => {
+      selectedRating = star.dataset.value;
+      highlightStars(selectedRating);
+      console.log(`Avaliação selecionada: ${selectedRating} estrelas`);
+    });
+
+    star.addEventListener('mouseout', () => {
+      highlightStars(selectedRating);
+    });
   });
 });
+
 
 // Evento de envio do formulário
 document.querySelector('form').addEventListener('submit', function (e) {
