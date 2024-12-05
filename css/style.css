@@ -2068,8 +2068,42 @@ body {
   margin-left: auto;
 }
 
+.doce-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.doce-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.doce-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.doce-item-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.doce-item-preco {
+  color: #888;
+}
+
+.doce-item input[type="radio"] {
+  margin-left: auto;
+}
+
 .modal-carrinho.active,
-.modal-carrinho-sabores.active {
+.modal-carrinho-sabores.active,
+.modal-carrinho-entradas.active {
   display: block;
 }
 
@@ -2129,6 +2163,19 @@ html ::-webkit-scrollbar-thumb:hover {
   z-index: 1;
 }
 
+.modal-entradas {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px 10px 10px 10px;
+  width: 45%;
+  height: 75%;
+  margin: 10% auto;
+}
+
+.modal-content-entradas {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
 
 
 .ingredientes-list {
@@ -2147,21 +2194,9 @@ html ::-webkit-scrollbar-thumb:hover {
   margin-bottom: 10px;
 }
 
-.modal-entradas {
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px 10px 10px 10px;
-  width: 45%;
-  height: 75%;
-  margin: 10% auto;
-}
 
 
 
-.modal-content-entradas {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-}
 
 /* Lado Direito - Produtos */
 .produtos-modal {

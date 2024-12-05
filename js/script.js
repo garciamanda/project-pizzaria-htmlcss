@@ -1,3 +1,21 @@
+document.addEventListener("scroll", function RolarPagina() {   
+  const fixed = (y) => 
+  `
+    position: fixed;
+    top: ${y}px;
+  `
+
+  window.addEventListener("scroll", RolarPagina);
+
+  const cartContainer = document.querySelector(".cart-container");
+  const reme = document.querySelector(".reme");
+
+  const remePosition = reme.offsetTop;
+  const ScrollPosition = window.scrollY;
+
+  if (ScrollPosition >= remePosition) cartContainer.style += fixed(ScrollPosition + 150)
+});
+
 
 // Detecta o scroll e adiciona a classe 'visible' ao footer e aos botões no mobile
 window.addEventListener('scroll', function() {
@@ -242,23 +260,7 @@ if (getURLParameter('showLogin') === '1') {
 
 // scroll do carrinho
 
-document.addEventListener("scroll", function RolarPagina() {   
-  const fixed = (y) => 
-  `
-    position: fixed;
-    top: ${y}px;
-  `
 
-  window.addEventListener("scroll", RolarPagina);
-
-  const cartContainer = document.querySelector(".cart-container");
-  const reme = document.querySelector(".reme");
-
-  const remePosition = reme.offsetTop;
-  const ScrollPosition = window.scrollY;
-
-  if (ScrollPosition >= remePosition) cartContainer.style += fixed(ScrollPosition + 150)
-});
 
 
 

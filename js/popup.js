@@ -23,6 +23,18 @@ const pizzas = {
     preco: 30.25,
     imagem: "./images/pizza(5).jpeg",
     ingredientes: ["Frango", "Cebola", "Orégano", "Molho de tomate"]
+  },
+  "Pizza de Morango": {
+    descricao: "Delicioso molho de tomates italianos rústicos coberto com camadas de mozzarella cremosa, burrata e pesto de manjericão fresco.",
+    preco: 30.25,
+    imagem: "./images/pizza(8).jpg",
+    ingredientes: ["Mozzarella", "Burrata", "Pesto", "Molho de tomate", "Chocolate", "Frango", "Cebola", "Orégano", "Molho de tomate"]
+  },
+  "Pizza de MM": {
+    descricao: "Delicioso molho de tomates italianos rústicos coberto com camadas de mozzarella cremosa, burrata e pesto de manjericão fresco.",
+    preco: 30.25,
+    imagem: "./images/pizza(8).jpg",
+    ingredientes: ["Mozzarella", "Burrata", "Pesto", "Molho de tomate", "Chocolate", "Frango", "Cebola", "Orégano", "Molho de tomate"]
   }
 
 };
@@ -32,12 +44,14 @@ const entradas = {
     descricao: "O Pão de Alho Recheado com Queijo combina pão crocante, queijos derretidos e manteiga de alho, assados até dourar. Simples e irresistível!",
     preco: 15.00,
     imagem: "./images/entrada(1).jpg",
-    ingredientes: ["Pão", "Manteiga de alho", "Queijo"]
   }
 }
 
 
+
+
 const modalCarrinho = document.querySelector('.modal-carrinho');
+
 
 const modalImage = modalCarrinho.querySelector('.modal-pizzas');
 const modalNome = modalCarrinho.querySelector('.pizza-nome');
@@ -79,7 +93,7 @@ window.addEventListener('click', function (event) {
 
 
 
-document.querySelectorAll('.cardapio-content:not(#cardapio-separadas)').forEach((box) => {
+document.querySelectorAll('#cardapio-principal .cardapio-content').forEach((box) => {
   box.addEventListener('click', function () {
     const pizzaNome = box.querySelector('.nome-cardapio').innerText;
     const pizza = pizzas[pizzaNome];
@@ -141,6 +155,18 @@ const sabores = [
     descricao: "Molho de tomate italiano artesanal, filés de anchova importado e parmesão",
     preco: 90.00,
     imagem: "aliche.jpg"
+  },
+  {
+    nome: "Pizza de Morango",
+    descricao: "Delicioso molho de tomates italianos rústicos coberto com camadas de mozzarella cremosa, burrata e pesto de manjericão fresco.",
+    preco: 30.25,
+    imagem: "./images/pizza(8).jpg",
+  },
+  {
+    nome: "Pizza de MM",
+    descricao: "Delicioso molho de tomates italianos rústicos coberto com camadas de mozzarella cremosa, burrata e pesto de manjericão fresco.",
+    preco: 30.25,
+    imagem: "./images/pizza(8).jpg",
   }
 ];
 
@@ -152,9 +178,11 @@ const cardapioSeparadas = document.querySelectorAll('#cardapio-pizzas-separadas 
 
 const cardapioSeparadasEntradas = document.querySelectorAll('#cardapio-entradas #cardapio-content-entradas');
 
+const cardapioSeparadasDoces = document.querySelectorAll('#cardapio-pizzas-doces #cardapio-content-doces');
 
 
 const modalCarrinhoSabores = document.querySelector('.modal-carrinho-sabores');
+
 
 let scrollPosition = 0;
 
@@ -175,6 +203,41 @@ cardapioSeparadas.forEach((cardapio) => {
     openModalCarrinhoSabores();
   });
 });
+
+
+cardapioSeparadasDoces.forEach((cardapio) => {
+  cardapio.addEventListener('click', () => {
+    const pizzaDoceNome = cardapio.querySelector('.nome-cardapio').innerText;
+    const pizzaDoceDescricao = cardapio.querySelector('.descricao-cardapio').innerText;
+    const pizzaDocePreco = cardapio.querySelector('.preco-cardapio').innerText;
+    const pizzaDoceImagem = cardapio.querySelector('img').getAttribute('src');
+
+
+    modalCarrinhoSabores.querySelector('.pizza-nome').innerText = pizzaDoceNome;
+    modalCarrinhoSabores.querySelector('.pizza-descricao').innerText = pizzaDoceDescricao;
+    modalCarrinhoSabores.querySelector('.pizza-preco').innerText = pizzaDocePreco;
+    modalCarrinhoSabores.querySelector('.modal-pizzas').setAttribute('src', pizzaDoceImagem);
+
+
+    openModalCarrinhoSabores();
+  });
+});
+
+// const docesLista = document.querySelector('.sabores-list');
+// pizzasdoces.forEach(doce => {
+//   const div = document.createElement('div');
+//   div.className = 'doce-item';
+//   div.innerHTML = `
+//     <img src="${doce.imagem}" alt="${doce.nome}">
+//     <div class="doce-item-content">
+//       <span class="doce-item-title">${doce.nome}</span>
+//       <span class="doce-item-descricao">${doce.descricao}</span>
+//       <span class="doce-item-preco">+ R$ ${doce.preco.toFixed(2)}</span>
+//     </div>
+//     <input type="radio" name="sabor" value="${doce.nome}">
+//   `;
+//   docesLista.appendChild(div);
+// });
 
 
 function openModalCarrinhoSabores() {
@@ -214,26 +277,27 @@ function addToCartSabores(saborNome) {
 
   const totalPrice = sabor.preco;
 
-  
+
   const existingItem = cart.find(item => item.nome === sabor.nome);
 
   if (existingItem) {
-    
+
     existingItem.quantidade++;
     existingItem.totalPrice = existingItem.quantidade * totalPrice;
   } else {
-    
+
     cart.push({
       nome: sabor.nome,
       ingredientes: [],
       imagem: sabor.imagem,
       totalPrice: totalPrice,
-      quantidade: 1, 
+      quantidade: 1,
     });
   }
 
-  renderCartItems(); 
+  renderCartItems();
 }
+
 
 
 
@@ -351,8 +415,8 @@ function addToCart(pizzaNome, ingredientesSelecionados) {
   const totalPrice = pizza.preco + ingredientesSelecionados.length * 5;
 
   // Verifica se a pizza já está no carrinho
-  const existingItem = cart.find(item => item.nome === pizzaNome && 
-                                          JSON.stringify(item.ingredientes) === JSON.stringify(ingredientesSelecionados));
+  const existingItem = cart.find(item => item.nome === pizzaNome &&
+    JSON.stringify(item.ingredientes) === JSON.stringify(ingredientesSelecionados));
 
   if (existingItem) {
     // Se já estiver no carrinho, incrementa a quantidade
@@ -383,7 +447,7 @@ function editCartItem(index) {
 
   modalNome.innerText = item.nome;
   modalDescricao.innerText = pizza.descricao;
-  modalPreco.innerText = 'R$ ${pizza.preco.toFixed(2)}';
+  modalPreco.innerText = `R$ ${item.totalPrice.toFixed(2)}`;
   modalImage.setAttribute("src", pizza.imagem);
 
   ingredientesList.innerHTML = "";
@@ -449,11 +513,11 @@ document.querySelector(".add-to-cart").addEventListener("click", () => {
 });
 
 
-let saborSelecionado = null; 
+let saborSelecionado = null;
 
 document.querySelectorAll('.sabor-item input[type="radio"]').forEach(radio => {
   radio.addEventListener('change', function () {
-    saborSelecionado = this.value; 
+    saborSelecionado = this.value;
     console.log(`Sabor selecionado: ${saborSelecionado}`);
   });
 });
@@ -461,8 +525,8 @@ document.querySelectorAll('.sabor-item input[type="radio"]').forEach(radio => {
 
 document.querySelector('.add-to-cart-sabores').addEventListener('click', function () {
   if (saborSelecionado) {
-    addToCartSabores(saborSelecionado); 
-    closeModalCarrinhoSabores(); 
+    addToCartSabores(saborSelecionado);
+    closeModalCarrinhoSabores();
   }
 });
 
@@ -478,4 +542,34 @@ document.querySelector('.add-to-cart-sabores').addEventListener('click', functio
 //     closeModalCarrinhoSabores();
 //   });
 // });
+
+const modalCarrinhoEntradas = document.querySelector('.modal-carrinho-entradas');
+
+document.querySelectorAll('#cardapio-content-entradas').forEach((box) => {
+  box.addEventListener('click', function () {
+    const entradaNome = box.querySelector('.nome-cardapio').innerText;
+    const entrada = entradas[entradaNome];
+
+    if (entrada) {
+
+      modalCarrinhoEntradas.querySelector('.pizza-nome').innerText = entradaNome;
+      modalCarrinhoEntradas.querySelector('.pizza-descricao').innerText = entrada.descricao;
+      modalCarrinhoEntradas.querySelector('.pizza-preco').innerText = `R$ ${entrada.preco.toFixed(2)}`;
+      modalCarrinhoEntradas.querySelector('.modal-pizzas').setAttribute('src', entrada.imagem);
+
+
+      openModal(modalCarrinhoEntradas);
+    }
+  });
+});
+
+
+
+window.addEventListener('click', function (event) {
+  if (event.target === modalCarrinhoEntradas) {
+    closeModal(modalCarrinhoEntradas);
+  }
+});
+
+
 

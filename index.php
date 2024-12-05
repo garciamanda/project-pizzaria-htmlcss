@@ -447,7 +447,7 @@ if (isset($_POST['submit'])) {
 
       <div class="cardapio" id="cardapio-principal">
         <!-- Começo do produto -->
-        <div class="cardapio-content">
+        <div class="cardapio-content" id="cardapio-content-principal">
           <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
@@ -701,11 +701,11 @@ if (isset($_POST['submit'])) {
 
       <div class="cardapio" id="cardapio-pizzas-doces">
         <!-- Começo do produto -->
-        <div class="cardapio-content">
-          <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
+        <div class="cardapio-content" id="cardapio-content-doces">
+          <img src="./images/pizza(18).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Chocolate</p>
+            <p class="nome-cardapio">Pizzas Doces Individuais</p>
             <p class="descricao-cardapio">Uma deliciosa explosão de sabor doce, coberta com uma generosa camada de
               chocolate derretido e finalizada com um toque especial para os apaixonados por sobremesas.</p>
 
@@ -717,11 +717,11 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
+        <div class="cardapio-content" id="cardapio-content-doces">
           <img src="./images/pizza(6).jpg" alt="4 Queijos" class="img-cardapio" />
 
           <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Calabresa</p>
+            <p class="nome-cardapio">Pizza Doces Grandes</p>
             <p class="descricao-cardapio">A clássica pizza de calabresa, com fatias suculentas, cebolas fresquinhas e
               uma pitada de orégano, perfeita para os amantes de sabores intensos.</p>
 
@@ -741,7 +741,7 @@ if (isset($_POST['submit'])) {
 
       <div class="cardapio" id="cardapio-pizzas-diversos">
         <!-- Começo do produto -->
-        <div class="cardapio-content">
+        <div class="cardapio-content" id="cardapio-content-diversos">
           <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
@@ -757,7 +757,7 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
+        <div class="cardapio-content" id="cardapio-content-diversos">
           <img src="./images/pizza(6).jpg" alt="4 Queijos" class="img-cardapio" />
 
           <div class="detalhes">
@@ -773,7 +773,7 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
+        <div class="cardapio-content" id="cardapio-content-diversos">
           <img src="./images/pizza(8).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
 
           <div class="detalhes">
@@ -789,7 +789,7 @@ if (isset($_POST['submit'])) {
         <!-- Fim do produto -->
 
         <!-- Começo do produto -->
-        <div class="cardapio-content">
+        <div class="cardapio-content" id="cardapio-content-diversos">
           <img src="./images/pizza(6).jpg" alt="4 Queijos" class="img-cardapio" />
 
           <div class="detalhes">
@@ -981,7 +981,7 @@ if (isset($_POST['submit'])) {
             <div class="produtos-modal">
               <div class="modal-header">
                 <h2>Produtos</h2>
-                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <span class="close-btn" onclick="closeModal(modalCarrinhoEntradas)">&times;</span>
               </div>
               <div class="text-modal-top"></div>
               <div class="text-modal">
