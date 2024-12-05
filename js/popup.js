@@ -82,6 +82,27 @@ const entradas = {
   }
 }
 
+const diversos = {
+  "Fanta Laranja": {
+    preco: 4.50,
+    imagem: "./images/diversos(1).jpeg",
+  },
+  "Fanta Uva" : {
+    preco: 4.50,
+    imagem: "./images/diversos(2).jpeg",
+  },
+  "Sprite": {
+    preco: 5.00,
+    imagem: "./images/diversos(3).jpeg",
+  },
+  "Coca": {
+    preco: 6.00,
+    imagem: "./images/diversos(5).webp",
+  }
+
+}
+
+
 
 
 
@@ -212,6 +233,8 @@ const sabores = [
 const cardapioSeparadas = document.querySelectorAll('#cardapio-pizzas-separadas #cardapio-separadas');
 
 const cardapioSeparadasEntradas = document.querySelectorAll('#cardapio-entradas #cardapio-content-entradas');
+
+const cardapioSeparadasDiversos = document.querySelectorAll('#cardapio-diversos #cardapio-content-diversos');
 
 const cardapioSeparadasDoces = document.querySelectorAll('#cardapio-pizzas-doces #cardapio-content-doces');
 
@@ -609,6 +632,28 @@ window.addEventListener('click', function (event) {
     closeModal(modalCarrinhoEntradas);
   }
 });
+
+
+
+
+
+cardapioSeparadasDiversos.forEach((cardapio) => {
+  cardapio.addEventListener('click', () => {
+    const diversosNome = cardapio.querySelector('.nome-cardapio').innerText;
+    const diversosPreco = cardapio.querySelector('.preco-cardapio').innerText;
+    const diversosImagem = cardapio.querySelector('img').getAttribute('src');
+
+
+    modalCarrinhoEntradas.querySelector('.pizza-nome').innerText = diversosNome;
+    modalCarrinhoEntradas.querySelector('.pizza-preco').innerText = diversosPreco;
+    modalCarrinhoEntradas.querySelector('.modal-pizzas').setAttribute('src', diversosImagem);
+
+
+    openModal(modalCarrinhoEntradas);
+  });
+});
+
+
 
 
 

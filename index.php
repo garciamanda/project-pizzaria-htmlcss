@@ -744,7 +744,7 @@ if (isset($_POST['submit'])) {
         <h2>Diversos</h2>
       </div>
 
-      <div class="cardapio" id="cardapio-pizzas-diversos">
+      <div class="cardapio" id="cardapio-diversos">
         <!-- Começo do produto -->
         <div class="cardapio-content" id="cardapio-content-diversos">
           <img src="./images/bebida(1).jpeg" alt="fanta" class="img-cardapio" />
