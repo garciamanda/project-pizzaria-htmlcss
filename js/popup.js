@@ -251,6 +251,13 @@ function closeModalCarrinhoSabores() {
 
 
 
+function updateCartSubtotal() {
+  const subtotal = cart.reduce((total, item) => total + item.totalPrice, 0);
+  cartSubtotalElement.innerText = `R$ ${subtotal.toFixed(2)}`;
+
+  cartHeader.innerText = `Cart (${cart.length} items)`;
+
+}
 
 
 
@@ -328,12 +335,7 @@ function renderCartItems() {
   updateCartSubtotal();
 }
 
-function updateCartSubtotal() {
-  const subtotal = cart.reduce((total, item) => total + item.totalPrice, 0);
-  cartSubtotalElement.innerText = `R$ ${subtotal.toFixed(2)}`;
 
-  cartHeader.innerText = `Cart (${cart.length} items)`;
-}
 
 function editCartItem(index) {
   const item = cart[index];
@@ -405,6 +407,8 @@ function renderCartItems() {
     `;
     cartItemsContainer.appendChild(cartItem);
   });
+
+  updateCartSubtotal();
 }
 
 

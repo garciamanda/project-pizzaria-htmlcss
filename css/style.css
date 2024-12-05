@@ -2155,7 +2155,7 @@ body {
 
 /* Modal Carrinho entradas */
 .modal-carrinho-entradas {
-  display: block;
+  display: none;
   /* Escondido por padrão */
   position: fixed;
   top: 0;
