@@ -1153,7 +1153,7 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 10px 10px 10px 10px;
   width: 45%;
-  height: 75%;
+  height: 58.2%;
   margin: 10% auto;
 }
 
@@ -2196,7 +2196,7 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 10px 10px 10px 10px;
   width: 45%;
-  height: 44.3%;
+  height: 51.7%;
   margin: 15% auto;
 }
 
@@ -2213,6 +2213,22 @@ body {
   flex: 0.8;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
 }
+
+.modal-carrinho-entradas .close-btn2 {
+  cursor: pointer;
+  background: none;
+  width: 3rem;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease;;
+}
+
+.modal-carrinho-entradas .close-btn2:hover {
+  color: #ff0000;
+}
+
 
 .Produtos-text-modal {
   border-radius: 0 10px 0 0 !important;
@@ -2249,6 +2265,7 @@ body {
   border-top: 1px solid #d1d5db;
   border-radius: 0 0 20px 20px;
   margin-top: 47.9%;
+  border: none !important;
 }
 
 .produtos-modal h2 {

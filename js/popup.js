@@ -4,37 +4,37 @@ const pizzas = {
     descricao: "Delicioso molho de tomates italianos rústicos coberto com camadas de mozzarella cremosa, burrata e pesto de manjericão fresco.",
     preco: 30.25,
     imagem: "./images/pizza(8).jpg",
-    ingredientes: ["Mozzarella", "Burrata", "Pesto", "Molho de tomate", "Chocolate", "Frango", "Cebola", "Orégano", "Molho de tomate"]
+    ingredientes: ["Chocolate ao leite", "Chocolate branco", "Chocolate meio amargo", "Nutella", "Morangos frescos", "Banana", "Granulado de Chocolate", "Caspas de Chocolate", "Marshmallows", "Amêndoas Laminadas", "Nozes Caramelizadas", "Coco Ralado", "Leite Condesado", "Caramelo", "Sorvete de Creme ou Baunilha"]
   },
   "Pizza de Calabresa": {
     descricao: "A clássica pizza de calabresa, com fatias suculentas, cebolas fresquinhas e uma pitada de orégano, perfeita para os amantes de sabores intensos.",
     preco: 30.25,
-    imagem: "./images/pizza(6).jpg",
-    ingredientes: ["Calabresa", "Cebola", "Orégano", "Molho de tomate"]
+    imagem: "./images/pizza(13).jpg",
+    ingredientes: ["Calabresa Fatiada", "Molho de Tomate", "Mussarela", "Cebola em Rodelas", "Azeitona Preta", "Azeite de Olivia", "Pimentão", "Parmesão Ralado", "Pimenta Calabresa", "Tomate fatiado", "Cheiro-Verde", "Alho Picado", "Manjericão Fresco", "Requeijão Cremoso"]
   },
   "Pizza de Carne": {
     descricao: "Recheada com carne moída temperada, pimentões coloridos e uma camada irresistível de queijo derretido, essa é a escolha certa para quem adora um toque caseiro.",
     preco: 30.25,
-    imagem: "./images/pizza(1).jpg",
-    ingredientes: ["Frango", "Cebola", "Orégano", "Molho de tomate"]
+    imagem: "./images/pizza(16).jpg",
+    ingredientes: ["Calabresa Fatiada", "Molho de Tomate", "Mussarela", "Cebola em Rodelas", "Azeitona Preta", "Azeite de Olivia", "Pimentão", "Parmesão Ralado", "Pimenta Calabresa", "Tomate fatiado", "Cheiro-Verde", "Alho Picado", "Manjericão Fresco", "Requeijão Cremoso"]
   },
   "Pizza de Frango": {
     descricao: "Frango desfiado suculento, combinado com requeijão cremoso e um toque especial de temperos, trazendo leveza e sabor em cada fatia.",
     preco: 30.25,
     imagem: "./images/pizza(5).jpeg",
-    ingredientes: ["Frango", "Cebola", "Orégano", "Molho de tomate"]
+    ingredientes: ["Calabresa Fatiada", "Molho de Tomate", "Mussarela", "Cebola em Rodelas", "Azeitona Preta", "Azeite de Olivia", "Pimentão", "Parmesão Ralado", "Pimenta Calabresa", "Tomate fatiado", "Cheiro-Verde", "Alho Picado", "Manjericão Fresco", "Requeijão Cremoso"]
   },
   "Pizza de Morango": {
     descricao: "Delicioso molho de tomates italianos rústicos coberto com camadas de mozzarella cremosa, burrata e pesto de manjericão fresco.",
     preco: 30.25,
     imagem: "./images/pizza(8).jpg",
-    ingredientes: ["Mozzarella", "Burrata", "Pesto", "Molho de tomate", "Chocolate", "Frango", "Cebola", "Orégano", "Molho de tomate"]
+    ingredientes: ["Calabresa Fatiada", "Molho de Tomate", "Mussarela", "Cebola em Rodelas", "Azeitona Preta", "Azeite de Olivia", "Pimentão", "Parmesão Ralado", "Pimenta Calabresa", "Tomate fatiado", "Cheiro-Verde", "Alho Picado", "Manjericão Fresco", "Requeijão Cremoso"]
   },
   "Pizza de MM": {
     descricao: "Delicioso molho de tomates italianos rústicos coberto com camadas de mozzarella cremosa, burrata e pesto de manjericão fresco.",
     preco: 30.25,
     imagem: "./images/pizza(8).jpg",
-    ingredientes: ["Mozzarella", "Burrata", "Pesto", "Molho de tomate", "Chocolate", "Frango", "Cebola", "Orégano", "Molho de tomate"]
+    ingredientes: ["Calabresa Fatiada", "Molho de Tomate", "Mussarela", "Cebola em Rodelas", "Azeitona Preta", "Azeite de Olivia", "Pimentão", "Parmesão Ralado", "Pimenta Calabresa", "Tomate fatiado", "Cheiro-Verde", "Alho Picado", "Manjericão Fresco", "Requeijão Cremoso"]
   }
 
 };
@@ -44,6 +44,41 @@ const entradas = {
     descricao: "O Pão de Alho Recheado com Queijo combina pão crocante, queijos derretidos e manteiga de alho, assados até dourar. Simples e irresistível!",
     preco: 15.00,
     imagem: "./images/entrada(1).jpg",
+  },
+  "Bruschetta Tradicional": {
+    descricao: "A Bruschetta Tradicional é uma entrada italiana clássica, feita com pão tostado, tomate fresco, manjericão e azeite de oliva, finalizada com um toque de balsâmico. Simples e Gostoso!",
+    preco: 10.50,
+    imagem: "./images/entrada(2).jpg",
+  },
+  "Provolone à Milanesa": {
+    descricao: "Os Mini Calzones são pequenos pastéis italianos assados, recheados com queijo derretido, presunto e ervas. Servidos com molho marinara, são uma entrada deliciosa e cheia de sabor!",
+    preco: 10.50,
+    imagem: "./images/entrada(3).jpg",
+  },
+  "Anéis de Cebola Artesanais": {
+    descricao: "Os Anéis de Cebola Artesanais são uma entrada irresistível, feitos com cebolas frescas empanadas em uma massa temperada e fritas até ficarem douradas. Crocantes e perfeitos para acompanhar com molhos!",
+    preco: 10.50,
+    imagem: "./images/entrada(4).jpg",
+  },
+  "Mini Calzones": {
+    descricao: "Os Mini Calzones são pequenos pastéis italianos assados, recheados com queijo derretido, presunto e ervas. Servidos com molho marinara, são uma entrada deliciosa e cheia de sabor!",
+    preco: 10.50,
+    imagem: "./images/entrada(5).jpg",
+  },
+  "Bolinho de Risoto": {
+    descricao: "O Bolinho de Risoto , ou arancini, é uma entrada italiana deliciosa, feita com risoto moldado em bolinhos, recheados com queijo e fritos até ficarem dourados. Crocante por fora e cremoso por dentro!",
+    preco: 10.50,
+    imagem: "./images/entrada(6).jpg",
+  },
+  "Carpaccio de Abobrinha": {
+    descricao: "O Carpaccio de Abobrinha é uma entrada leve e refrescante, feito com finas fatias de abobrinha temperadas com limão, azeite, parmesão e amêndoas tostadas. Simples e sofisticado!",
+    preco: 10.50,
+    imagem: "./images/entrada(7).webp",
+  },
+  "Tabua de Antepastos": {
+    descricao: "A Tábua de Antepastos é uma entrada perfeita para compartilhar, com uma seleção de queijos, salames italianos, azeitonas, tomate seco e pães artesanais. Variedade e sabor em cada mordida!",
+    preco: 10.50,
+    imagem: "./images/entrada(8).webp", 
   }
 }
 
