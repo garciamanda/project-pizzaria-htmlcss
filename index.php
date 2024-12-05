@@ -530,7 +530,7 @@ if (isset($_POST['submit'])) {
               chocolate derretido e finalizada com um toque especial para os apaixonados por sobremesas.</p>
 
             <div class="preco">
-              <p class="preco-cardapio">R$ 30.25</p>
+              <p class="preco-cardapio">R$ 15.00</p>
             </div>
           </div>
         </div>
@@ -538,15 +538,16 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content" id="cardapio-content-entradas">
-          <img src="./images/entrada(2).jpg" alt="4 Queijos" class="img-cardapio" />
+          <img src="./images/entrada(2).jpg" alt="Bruschetta Tradicional" class="img-cardapio" />
 
           <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Calabresa</p>
-            <p class="descricao-cardapio">A clássica pizza de calabresa, com fatias suculentas, cebolas fresquinhas e
-              uma pitada de orégano, perfeita para os amantes de sabores intensos.</p>
+            <p class="nome-cardapio">Bruschetta Tradicional</p>
+            <p class="descricao-cardapio">A Bruschetta Tradicional é uma entrada clássica italiana, feita com pão
+              tostado, tomate fresco, manjericão e azeite de oliva, finalizada com um toque de balsâmico. Simples e
+              saborosa!</p>
 
             <div class="preco">
-              <p class="preco-cardapio">R$ 30.25</p>
+              <p class="preco-cardapio">R$ 10.50</p>
             </div>
           </div>
         </div>
@@ -554,32 +555,16 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content" id="cardapio-content-entradas">
-          <img src="./images/entrada(3).jpg" alt="Pizza de Carne" class="img-cardapio" />
+          <img src="./images/entrada(3).jpg" alt="Provolone à Milanesa" class="img-cardapio" />
 
           <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Carne</p>
-            <p class="descricao-cardapio">Recheada com carne moída temperada, pimentões coloridos e uma camada
-              irresistível de queijo derretido, essa é a escolha certa para quem adora um toque caseiro.</p>
+            <p class="nome-cardapio">Provolone à Milanesa</p>
+            <p class="descricao-cardapio">O Provolone à Milanesa é uma entrada deliciosa, com cubos de queijo provolone
+              empanados e fritos até ficarem dourados, servidos com molho de tomate artesanal. Crocante por fora e
+              cremoso por dentro!</p>
 
             <div class="preco">
-              <p class="preco-cardapio">R$ 30.25</p>
-
-            </div>
-          </div>
-        </div>
-        <!-- Fim do produto -->
-
-        <!-- Começo do produto -->
-        <div class="cardapio-content" id="cardapio-content-entradas">
-          <img src="./images/entrada(4).jpg" alt="Pizza de Sla" class="img-cardapio" />
-
-          <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Frango</p>
-            <p class="descricao-cardapio">Frango desfiado suculento, combinado com requeijão cremoso e um toque especial
-              de temperos, trazendo leveza e sabor em cada fatia.</p>
-
-            <div class="preco">
-              <p class="preco-cardapio">R$ 30.25</p>
+              <p class="preco-cardapio">R$ 10.50</p>
 
             </div>
           </div>
@@ -588,47 +573,16 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content" id="cardapio-content-entradas">
-          <img src="./images/entrada(5).jpg" alt="Pizza de Chocolate" class="img-cardapio" />
+          <img src="./images/entrada(4).jpg" alt="Anéis de Cebola Artesanais" class="img-cardapio" />
 
           <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Chocolate</p>
-            <p class="descricao-cardapio">Uma deliciosa explosão de sabor doce, coberta com uma generosa camada de
-              chocolate derretido e finalizada com um toque especial para os apaixonados por sobremesas.</p>
+            <p class="nome-cardapio">Anéis de Cebola Artesanais</p>
+            <p class="descricao-cardapio">Os Anéis de Cebola Artesanais são uma entrada irresistível, feitos com cebolas
+              frescas empanadas em uma massa temperada e fritas até ficarem douradas. Crocantes e perfeitos para
+              acompanhar com molhos!</p>
 
             <div class="preco">
-              <p class="preco-cardapio">R$ 30.25</p>
-            </div>
-          </div>
-        </div>
-        <!-- Fim do produto -->
-
-        <!-- Começo do produto -->
-        <div class="cardapio-content" id="cardapio-content-entradas">
-          <img src="./images/entrada(6).jpg" alt="4 Queijos" class="img-cardapio" />
-
-          <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Calabresa</p>
-            <p class="descricao-cardapio">A clássica pizza de calabresa, com fatias suculentas, cebolas fresquinhas e
-              uma pitada de orégano, perfeita para os amantes de sabores intensos.</p>
-
-            <div class="preco">
-              <p class="preco-cardapio">R$ 30.25</p>
-            </div>
-          </div>
-        </div>
-        <!-- Fim do produto -->
-
-        <!-- Começo do produto -->
-        <div class="cardapio-content" id="cardapio-content-entradas">
-          <img src="./images/entrada(7).webp" alt="Pizza de Carne" class="img-cardapio" />
-
-          <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Carne</p>
-            <p class="descricao-cardapio">Recheada com carne moída temperada, pimentões coloridos e uma camada
-              irresistível de queijo derretido, essa é a escolha certa para quem adora um toque caseiro.</p>
-
-            <div class="preco">
-              <p class="preco-cardapio">R$ 30.25</p>
+              <p class="preco-cardapio">R$ 10.50</p>
 
             </div>
           </div>
@@ -637,15 +591,66 @@ if (isset($_POST['submit'])) {
 
         <!-- Começo do produto -->
         <div class="cardapio-content" id="cardapio-content-entradas">
-          <img src="./images/entrada(8).webp" alt="Pizza de Sla" class="img-cardapio" />
+          <img src="./images/entrada(5).jpg" alt="Mini Calzones" class="img-cardapio" />
 
           <div class="detalhes">
-            <p class="nome-cardapio">Pizza de Frango</p>
-            <p class="descricao-cardapio">Frango desfiado suculento, combinado com requeijão cremoso e um toque especial
-              de temperos, trazendo leveza e sabor em cada fatia.</p>
+            <p class="nome-cardapio">Mini Calzones</p>
+            <p class="descricao-cardapio">Os Mini Calzones são pequenos pastéis italianos assados, recheados com queijo
+              derretido, presunto e ervas. Servidos com molho marinara, são uma entrada deliciosa e cheia de sabor!</p>
 
             <div class="preco">
-              <p class="preco-cardapio">R$ 30.25</p>
+              <p class="preco-cardapio">R$ 10.50</p>
+            </div>
+          </div>
+        </div>
+        <!-- Fim do produto -->
+
+        <!-- Começo do produto -->
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(6).jpg" alt="Bolinho de Risoto" class="img-cardapio" />
+
+          <div class="detalhes">
+            <p class="nome-cardapio">Bolinho de Risoto</p>
+            <p class="descricao-cardapio">
+              O Bolinho de Risoto, ou arancini, é uma entrada italiana deliciosa, feita com risoto moldado em bolinhos,
+              recheados com queijo e fritos até ficarem dourados. Crocante por fora e cremoso por dentro!</p>
+
+            <div class="preco">
+              <p class="preco-cardapio">R$ 10.50</p>
+            </div>
+          </div>
+        </div>
+        <!-- Fim do produto -->
+
+        <!-- Começo do produto -->
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(7).webp" alt="Carpaccio de Abobrinha" class="img-cardapio" />
+
+          <div class="detalhes">
+            <p class="nome-cardapio">Carpaccio de Abobrinha</p>
+            <p class="descricao-cardapio">O Carpaccio de Abobrinha é uma entrada leve e refrescante, feita com finas
+              fatias de abobrinha temperadas com limão, azeite, parmesão e amêndoas tostadas. Simples e sofisticado!</p>
+
+            <div class="preco">
+              <p class="preco-cardapio">R$ 10.50</p>
+
+            </div>
+          </div>
+        </div>
+        <!-- Fim do produto -->
+
+        <!-- Começo do produto -->
+        <div class="cardapio-content" id="cardapio-content-entradas">
+          <img src="./images/entrada(8).webp" alt="Tabua de Antipasti" class="img-cardapio" />
+
+          <div class="detalhes">
+            <p class="nome-cardapio">Tabua de Antipasti</p>
+            <p class="descricao-cardapio">A Tábua de Antipasti é uma entrada perfeita para compartilhar, com uma seleção
+              de queijos, salames italianos, azeitonas, tomate seco e pães artesanais. Variedade e sabor em cada
+              mordida!</p>
+
+            <div class="preco">
+              <p class="preco-cardapio">R$ 10.50</p>
 
             </div>
           </div>
@@ -967,13 +972,12 @@ if (isset($_POST['submit'])) {
 
       <!-- Fim Popup -->
 
-      <!-- Popup Entradas -->
-      <!-- Pop-up Carrinho -->
+      <!-- Pop-up Carrinho entradas -->
       <div class="modal-carrinho-entradas">
         <div class="modal-entradas">
           <div class="modal-content-entradas">
             <!-- Imagem da Pizza -->
-            <div class="modal-image ">
+            <div class="modal-image">
               <img class="modal-pizzas" src="" alt="Pizza">
             </div>
 
@@ -981,25 +985,21 @@ if (isset($_POST['submit'])) {
             <div class="produtos-modal">
               <div class="modal-header">
                 <h2>Produtos</h2>
-                <span class="close-btn" onclick="closeModal(modalCarrinhoEntradas)">&times;</span>
+                <span class="close-btn" onclick="closeModal()">X</span>
               </div>
               <div class="text-modal-top"></div>
               <div class="text-modal">
                 <h1 class="pizza-nome">Pizza</h1>
-                <p class="pizza-descricao">Descrição da pizza</p>
+                <p class="pizza-descricao">Descrição pizza</p>
                 <span>
                   <div class="number-modal">
                     <p class="pizza-preco">R$ 129,99</p>
                   </div>
                 </span>
               </div>
-              <div class="P-0">
-                <h2>ingredientes adicionais</h2>
-                <p>escolha até 10 opções</p>
-
-              </div>
-              <div class="ingredientes-list" style="max-height: 200px; overflow-y: auto;">
-                <!-- Ingredientes dinâmicos aqui -->
+              <div class="input-observações">
+                <p>alguma observação?</p>
+                <input type="text">
               </div>
               <div class="button-compra">
                 <!-- Controle de Quantidade -->
@@ -1038,154 +1038,155 @@ if (isset($_POST['submit'])) {
         </div>
         <!-- Fim Pop-up -->
       </div>
-    </section>
-  </main>
 
 
 
-  <footer>
-    <div class="button-container">
-      <button class="button">
-        <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
-          height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z">
-          </path>
-        </svg>
-      </button>
-      <button id="iconePerfil" class="button">
-        <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em"
-          width="1em" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z">
-          </path>
-        </svg>
-      </button>
-      <button class="button">
-        <svg class="icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-          stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="9" cy="21" r="1"></circle>
-          <circle cx="20" cy="21" r="1"></circle>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-        </svg>
-      </button>
-    </div>
-
-
-    <p>© 2024 Pizzaria Al Volo. Todos os direitos reservados.</p>
-
-
-  </footer>
-
-  <!-- Login popup -->
-
-  <!-- Popup Login -->
-  <div id="loginPopup" class="popup">
-    <div class="popup-content">
-      <span class="close" data-close="login">&times;</span>
-      <div class="logo" id="logo-login">
-        <img src="images/logo.png" alt="">
-      </div>
-      <h2 id="loginup">Login</h2>
-
-      <form id="form_login" action="testLogin.php" method="POST">
-        <label for="email"></label>
-        <input type="text" id="username" name="email" placeholder="   Endereço de e-mail" required><br><br>
-
-        <label for="senha"></label>
-        <input type="password" id="password" name="senha" placeholder="   Senha" required><br><br>
-
-        <div id="btn_login1">
-          <input type="submit" value="Login" name="submit" id="btn_login2"></input>
-          <p id="easter-egg">.</p>
-          <p>Não tem uma conta? <button type="button" id="showRegisterForm">Registrar-se</button></p>
+      <footer>
+        <div class="button-container">
+          <button class="button">
+            <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
+              height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z">
+              </path>
+            </svg>
+          </button>
+          <button id="iconePerfil" class="button">
+            <svg class="icon" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+              height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 1 1-1.499.044 7.5 7.5 0 0 0-14.993 0 .75.75 0 0 1-1.5-.045 9.005 9.005 0 0 1 5.9-8.18A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z">
+              </path>
+            </svg>
+          </button>
+          <button class="button">
+            <svg class="icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+              stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+          </button>
         </div>
 
-        <div id="loginc_redes">
-          <hr>
-          <p style="margin: 15px;">OU</p>
-          <hr>
+
+        <p>© 2024 Pizzaria Al Volo. Todos os direitos reservados.</p>
+
+
+      </footer>
+
+      <!-- Login popup -->
+
+      <!-- Popup Login -->
+      <div id="loginPopup" class="popup">
+        <div class="popup-content">
+          <span class="close" data-close="login">&times;</span>
+          <div class="logo" id="logo-login">
+            <img src="images/logo.png" alt="">
+          </div>
+          <h2 id="loginup">Login</h2>
+
+          <form id="form_login" action="testLogin.php" method="POST">
+            <label for="email"></label>
+            <input type="text" id="username" name="email" placeholder="   Endereço de e-mail" required><br><br>
+
+            <label for="senha"></label>
+            <input type="password" id="password" name="senha" placeholder="   Senha" required><br><br>
+
+            <div id="btn_login1">
+              <input type="submit" value="Login" name="submit" id="btn_login2"></input>
+              <p id="easter-egg">.</p>
+              <p>Não tem uma conta? <button type="button" id="showRegisterForm">Registrar-se</button></p>
+            </div>
+
+            <div id="loginc_redes">
+              <hr>
+              <p style="margin: 15px;">OU</p>
+              <hr>
+            </div>
+            <div class="login-icon">
+              <button class="login-btn google">
+                <img src="images/google-icon.png" alt="Google Icon">
+                Login com Google</button>
+
+              <button class="login-btn facebook">
+                <img src="images/face-icon.png" alt="Facebook Icon">
+                Login com Facebook</button>
+            </div>
+          </form>
         </div>
-        <div class="login-icon">
-          <button class="login-btn google">
-            <img src="images/google-icon.png" alt="Google Icon">
-            Login com Google</button>
-
-          <button class="login-btn facebook">
-            <img src="images/face-icon.png" alt="Facebook Icon">
-            Login com Facebook</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Popup Register -->
-
-  <div id="registerPopup" class="popup">
-    <div class="popup-content">
-      <span class="close" data-close="register">&times;</span>
-      <div class="logo" id="logo-registro">
-        <img src="images/logo.png" alt="">
-      </div>
-      <h2 id="registro">Registro</h2>
-      <form id="registroform" action="index.php" method="POST">
-        <label for="nome"></label>
-        <input type="text" id="usuario-reg" name="nome" placeholder="Usuario" required><br><br>
-
-        <label for="email"></label>
-        <input type="email" id="email-reg" name="email" placeholder="Email" required><br><br>
-
-        <label for="senha"></label>
-        <input type="password" id="senha-reg" name="senha" placeholder="Senha"><br><br>
-
-        <label for="conf-reg"></label>
-        <input type="password" id="conf-reg" name="confirm-password" placeholder="Confirme sua senha" required><br><br>
-
-        <div id="btn_login1">
-          <button type="submit" id="btn_login2" name="submit">Registrar-se</button>
-          <p id="easter-egg">.</p>
-          <p>Já tem uma conta? <button type="button" id="showLoginForm">Login</button></p>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Popup  Opcional-->
-  <div id="popup" class="popup-overlay <?php echo $mostrarPopup ? 'active' : ''; ?>">
-    <div class="popup-contents">
-      <h2>Deseja adicionar um avatar?</h2><br>
-      <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Você pode adicionar um avatar agora ou
-        fazer isso mais tarde.</p>
-
-      <ion-icon id="iconprofile" name="person-circle-outline"></ion-icon>
-
-      <div class="btao">
-        <button class="butao1" id="addNow">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adicionar agora&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </button>
-        <button class="butao2" id="addLater">Talvez mais tarde</button>
       </div>
 
+      <!-- Popup Register -->
+
+      <div id="registerPopup" class="popup">
+        <div class="popup-content">
+          <span class="close" data-close="register">&times;</span>
+          <div class="logo" id="logo-registro">
+            <img src="images/logo.png" alt="">
+          </div>
+          <h2 id="registro">Registro</h2>
+          <form id="registroform" action="index.php" method="POST">
+            <label for="nome"></label>
+            <input type="text" id="usuario-reg" name="nome" placeholder="Usuario" required><br><br>
+
+            <label for="email"></label>
+            <input type="email" id="email-reg" name="email" placeholder="Email" required><br><br>
+
+            <label for="senha"></label>
+            <input type="password" id="senha-reg" name="senha" placeholder="Senha"><br><br>
+
+            <label for="conf-reg"></label>
+            <input type="password" id="conf-reg" name="confirm-password" placeholder="Confirme sua senha"
+              required><br><br>
+
+            <div id="btn_login1">
+              <button type="submit" id="btn_login2" name="submit">Registrar-se</button>
+              <p id="easter-egg">.</p>
+              <p>Já tem uma conta? <button type="button" id="showLoginForm">Login</button></p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Popup  Opcional-->
+      <div id="popup" class="popup-overlay <?php echo $mostrarPopup ? 'active' : ''; ?>">
+        <div class="popup-contents">
+          <h2>Deseja adicionar um avatar?</h2><br>
+          <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Você pode adicionar um avatar agora
+            ou
+            fazer isso mais tarde.</p>
+
+          <ion-icon id="iconprofile" name="person-circle-outline"></ion-icon>
+
+          <div class="btao">
+            <button class="butao1" id="addNow">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adicionar agora&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </button>
+            <button class="butao2" id="addLater">Talvez mais tarde</button>
+          </div>
 
 
-      <!-- <div class="popup-buttons">
+
+          <!-- <div class="popup-buttons">
             <button id="addNow">Adicionar Agora</button>
             <button id="addLater">Fazer Depois</button>
           </div> -->
-    </div>
-  </div>
-  <!-- Fim popup -->
+        </div>
+      </div>
+      <!-- Fim popup -->
 
 
-  <!-- Login popup end -->
+      <!-- Login popup end -->
 
 
-  <script type="text/javascript" src="./js/popup.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+      <script type="text/javascript" src="./js/popup.js"></script>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-  <script type="text/javascript" src="./js/cep.js"></script>
+      <script type="text/javascript" src="./js/cep.js"></script>
 </body>
 
 
