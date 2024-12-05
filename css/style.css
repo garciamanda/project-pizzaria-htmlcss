@@ -701,6 +701,8 @@ body {
     /* 4px */
   }
 
+  
+
   .cardapio-title h2 {
     margin-top: 3rem;
     margin-left: 5rem;
@@ -1551,6 +1553,8 @@ body {
   background-color: #4b0082;
   color: white;
 }
+
+
 
 .CartBtn {
   width: 140px;

@@ -17,6 +17,13 @@ document.addEventListener("scroll", function RolarPagina() {
 });
 
 
+const checkoutBtn = document.querySelector('.checkout-btn');
+
+checkoutBtn.addEventListener('click', () => {
+  window.location.href = 'telapagamento.php';
+});
+
+
 // Detecta o scroll e adiciona a classe 'visible' ao footer e aos botões no mobile
 window.addEventListener('scroll', function() {
   const footer = document.querySelector('footer');
