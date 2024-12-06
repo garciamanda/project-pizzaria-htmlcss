@@ -2,6 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&family=Rock+Salt&display=swap');
 
+.qrcode-img{
+  margin-top: 6rem;
+}
 
 header {
   position: fixed;
@@ -165,20 +168,16 @@ header #logo img {
 
 i.fas.fa-user-circle.avatar-icon {
   font-size: 120px;
-  /* Tamanho do ícone */
-  width: 120px;
+    width: 120px;
   height: 120px;
   display: block;
   margin: 0 auto;
   border-radius: 50%;
   border: 2px solid #ccc;
-  /* Borda semelhante à imagem */
-  background: #f0f0f0;
-  /* Fundo para parecer com a ausência de imagem */
-  text-align: center;
+    background: #f0f0f0;
+    text-align: center;
   line-height: 120px;
-  /* Alinha o ícone verticalmente */
-}
+  }
 
 
 *,
@@ -234,8 +233,7 @@ main{
 
   display: flex;
   background: linear-gradient(to bottom, #890000, #cd121c);
-  /* Gradiente do vermelho claro para o vermelho escuro */
-}
+  }
 
 .sessao {
   display: flex;
@@ -243,7 +241,6 @@ main{
 
 }
 
-/* Sessão Feedback */
 
 #btn_opcoes {
   height: 76vh;
@@ -304,11 +301,9 @@ main{
 }
 
 
-/*=========*/
 
 #tela_pay {
-  display: flex; /* display flex após escolher outro metodo de pagamento */
-  flex-flow: column wrap;
+  display: flex;   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   height: 76vh;
@@ -317,7 +312,7 @@ main{
 }
 
 .sel_met {
-  display: none;
+  display: flex;
   justify-content: center;
   flex-flow: column wrap;
   align-items: center;
@@ -326,11 +321,11 @@ main{
   height: 79%;
   background-color: white;
   border-radius: 50px;
+  margin-left: 25rem;
 }
 
 #tela_pix {
-  display: flex; /* display flex após escolher outro metodo de pagamento */
-  flex-flow: column wrap;
+  display: flex;   flex-flow: column wrap;
   align-items: center;
   margin-top: 68px;
   width: 60%;
@@ -341,14 +336,14 @@ main{
 }
 
 #tela_cartdeb {
-  display: none; /* display flex após escolher outro metodo de pagamento */
-  flex-flow: column wrap;
+  display: flex;   flex-flow: column wrap;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 68px;
   width: 60%;
   height: 80%;
   background-color: white;
   border-radius: 50px;
+  margin-left: 25rem;
 }
 
 h2 {
@@ -389,14 +384,14 @@ h2 {
 
 
 #tela_cartcred {
-  display: none; /* display flex após escolher outro metodo de pagamento */
-  flex-flow: column wrap;
+  display: flex;   flex-flow: column wrap;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 68px;
   width: 60%;
   height: 80%;
   background-color: white;
   border-radius: 50px;
+  margin-left: 25rem;
 }
 
 h2 {
@@ -432,18 +427,17 @@ h2 {
 
 
 #tela_dinheiro {
-  display: none; /* display flex após escolher outro metodo de pagamento */
-  flex-flow: column wrap;
+  display: flex;   flex-flow: column wrap;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 68px;
   width: 60%;
   height: 80%;
   background-color: white;
   border-radius: 50px;
+  margin-left: 25rem;
 }
 
 
-/*Retirar adição e subtração dos inputs*/
 
 input[type=number] {
   -moz-appearance: textfield;
@@ -455,7 +449,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-/* From Uiverse.io by iZOXVL */
 .boton-elegante {
   padding: 15px 30px;
   border: 2px solid #2c2c2c;
@@ -493,8 +486,130 @@ input[type=number]::-webkit-outer-spin-button {
   background: #7f1818;
 }
 
+#confirmar{
+  margin-top: 10rem;
+}
 
-/* From Uiverse.io by kamehame-ha */
+.popup-overlay {
+  display: none;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.popup-overlay-final {
+  display: none;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.popup-contents-final {
+  background-color: rgb(252, 245, 245);
+  margin: 10% auto;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #b1afaf;
+  width: 35vw;
+  height: 48vh;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 15px;
+}
+
+.popup-conteudo-final{
+  margin-top: 20rem;
+}
+
+.popup-conteudo-final img {
+  max-width: 100px;
+  margin-top: 20px;
+}
+
+.popup-conteudo-final h2 {
+  margin: 10px 0;
+  color: #28a745; }
+
+.btnend-final {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnend-final:hover {
+  background-color: #218838;
+}
+
+
+.popup-overlay.hidden {
+  display: none;
+}
+
+.popup-contents {
+  background-color: rgb(252, 245, 245);
+  margin: 10% auto;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #b1afaf;
+  width: 35vw;
+  height: 48vh;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 15px;
+}
+
+
+
+#localizacao {
+  width: 60px;
+  height: 60px;
+}
+#popup2  {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+#bairroenum {
+  display: flex;
+}
+#rua {
+  width: 26vw;
+  height: 5vh;
+  text-indent: 5px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  margin: 10px 0px 10px 0px;
+}
+.endereço2 {
+  width: 10vw;
+  height: 5vh;
+  margin: 12px 0px 12px 0px;
+  text-indent: 5px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  margin: 0px 20px 0px 20px;
+}
+#bairro{
+  margin-left: 40px;
+}
+
 #qrcode,
 #dinheiro {
   display: flex;
@@ -571,7 +686,6 @@ h1 {
 }
 
 
-/* caixa feedback */
 
 #caixafeedback {
   width: 30vw;
@@ -608,10 +722,8 @@ h1 {
   word-wrap: break-word;
 
   white-space: normal;
-  /* Permite quebra de linha dentro do botão, se necessário */
-  font-size: 1.2rem;
-  /* Ajuste de tamanho de fonte, pode ser aumentado ou diminuído */
-}
+    font-size: 1.2rem;
+  }
 
 .btn_feedback:hover {
   color: white;
@@ -662,23 +774,18 @@ form {
   border: 3px solid brown;
 }
 
-/* Responsividade: para telas menores */
 @media (max-width: 768px) {
   .btn_feedback {
     width: 48%;
-    /* Reduz a largura dos botões em telas menores */
-    font-size: 1rem;
-    /* Ajusta o tamanho da fonte */
-  }
+        font-size: 1rem;
+      }
 }
 
 @media (max-width: 480px) {
   .btn_feedback {
     width: 100%;
-    /* Faz os botões ocuparem toda a largura disponível em telas muito pequenas */
-    font-size: 0.9rem;
-    /* Ajuste do tamanho da fonte */
-  }
+        font-size: 0.9rem;
+      }
 }
 
 footer {
@@ -691,12 +798,9 @@ footer {
 #creditos {
   display: flex;
   flex-wrap: wrap;
-  /* Faz os itens quebrarem para a próxima linha */
-  justify-content: center;
-  /* Opcional, para centralizar os itens */
-  align-items: center;
-  /* Opcional, para garantir alinhamento vertical */
-}
+    justify-content: center;
+    align-items: center;
+  }
 
 #creditos>p {
   margin: 0 150px 0px 150px;
@@ -727,6 +831,182 @@ footer {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+header #logo img {
+  width: 110px;
+  border-radius: 50%;
+  margin-left: -4rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+
+
+.user-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  margin-right: 15px;
+  border: 3px solid #f0eeee;
+
+}
+
+.sub-menu-wrap {
+  position: absolute;
+  top: 80%;
+  right: 7%;
+  width: 350px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+  max-height: 400px;
+}
+
+.sub-menu {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info h3 {
+  font-weight: 500;
+}
+
+.sub-menu hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  padding-right: 23px;
+  margin: 12px 0;
+}
+
+.sub-menu-link p {
+  width: 100%;
+  color: #525252;
+}
+
+.sub-menu-link i {
+  width: 40px;
+  background: #e5e5e5;
+  border-radius: 50%;
+  padding: 8px;
+  margin-right: 15px;
+}
+
+.sub-menu-link span {
+  font-size: 22px;
+  transition: transform 0.5s;
+  color: #525252;
+}
+
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+  font-weight: 600;
+
+}
+
+
+#check {
+  display: none;
+}
+
+.menu {
+  position: absolute;
+  right: 5%;
+  font-size: 2.8rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+
+.navbar a {
+  position: relative;
+  font-size: 1.1em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+
+.navbar a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+i.fas.fa-user-circle.avatar-icon {
+  font-size: 120px;
+    width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+    background: #f0f0f0;
+    text-align: center;
+  line-height: 120px;
+  }
+
+.user-info i.bx.bxs-user-circle {
+  cursor: pointer;
+  border-radius: 50%;   background: #f0f0f0; }
 
 .home {
   background-image: linear-gradient(rgba(29, 29, 29, 0.9), rgba(29, 29, 29, 0.9)), url(/images/bg.jpeg);
@@ -840,7 +1120,6 @@ footer {
   color: #fff;
 }
 
-/* Botão Enviar */
 #botaoenviar {
   height: 13vh;
   display: flex;
@@ -848,7 +1127,6 @@ footer {
   align-items: center;
 }
 
-/* From Uiverse.io by adamgiebl */
 #enviar {
   font-size: 20px;
   background: brown;
@@ -918,3 +1196,12 @@ footer {
   margin-top: 20px;
   font-size: 18px;
 }
+
+.hidden {
+  display: none;
+}
+
+#tela_pix, #tela_cartdeb, #tela_cartcred, #tela_dinheiro {
+  display: none;
+}
+

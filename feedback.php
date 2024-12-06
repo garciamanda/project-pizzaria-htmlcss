@@ -136,21 +136,6 @@ if (isset($_POST['submit'])) {
             <p>Meus dados</p>
             <span>></span>
           </a>
-          <a href="#" class="sub-menu-link">
-            <i class='bx bxs-help-circle' style='color:#020202'></i>
-            <p>Ajuda</p>
-            <span>></span>
-          </a>
-          <a href="#" class="sub-menu-link">
-            <i class='bx bx-notepad' style='color:#020202'></i>
-            <p>Pedidos</p>
-            <span>></span>
-          </a>
-          <a href="#" class="sub-menu-link">
-            <i class='bx bx-credit-card' style='color:#020202'></i>
-            <p>Pagamentos</p>
-            <span>></span>
-          </a>
           <a href="sair.php" class="sub-menu-link">
             <i class='bx bx-log-out' style='color:#020202'></i>
             <p>Sair</p>

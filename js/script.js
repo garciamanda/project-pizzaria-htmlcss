@@ -17,11 +17,7 @@ document.addEventListener("scroll", function RolarPagina() {
 });
 
 
-const checkoutBtn = document.querySelector('.checkout-btn');
 
-checkoutBtn.addEventListener('click', () => {
-  window.location.href = 'telapagamento.php';
-});
 
 
 // Detecta o scroll e adiciona a classe 'visible' ao footer e aos botões no mobile
@@ -146,23 +142,23 @@ var TrandingSlider = new Swiper('.tranding-slider', {
 
 // adicionar o carrosel como pedido ao carrinho 
 
-const trendingSlides = document.querySelectorAll('.tranding-slide');
+// const trendingSlides = document.querySelectorAll('.tranding-slide');
 
 
-trendingSlides.forEach((slide) => {
-  slide.addEventListener('click', () => {
+// trendingSlides.forEach((slide) => {
+//   slide.addEventListener('click', () => {
 
-    const foodPrice = slide.querySelector('.food-price').textContent;
-    const foodName = slide.querySelector('.food-name').textContent;
-
-
-    const cartItem = document.createElement('li');
-    cartItem.textContent = `${foodName} - ${foodPrice}`;
+//     const foodPrice = slide.querySelector('.food-price').textContent;
+//     const foodName = slide.querySelector('.food-name').textContent;
 
 
-    document.getElementById('cart-items').appendChild(cartItem);
-  });
-});
+//     const cartItem = document.createElement('li');
+//     cartItem.textContent = `${foodName} - ${foodPrice}`;
+
+
+//     document.getElementById('cart-items').appendChild(cartItem);
+//   });
+// });
 
 // Selecionando os elementos do DOM
 const loginBtn = document.getElementById('btnLogin-popup');

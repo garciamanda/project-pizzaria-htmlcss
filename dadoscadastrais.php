@@ -206,6 +206,7 @@ if ($result->num_rows > 0) {
                     <input type="password" class="form-control" name="confirm_password"
                         placeholder="Confirme a nova senha">
                 </div>
+                
 
 
 
