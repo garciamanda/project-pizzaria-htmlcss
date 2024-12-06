@@ -313,7 +313,7 @@ function updateCartSubtotal() {
   const subtotal = cart.reduce((total, item) => total + item.totalPrice, 0);
   cartSubtotalElement.innerText = `R$ ${subtotal.toFixed(2)}`;
 
-  cartHeader.innerText = `Cart (${cart.length} items)`;
+  cartHeader.innerText = `Cart itens:${cart.length} `;
 
 }
 
@@ -436,7 +436,7 @@ function updateCartSubtotal() {
   const subtotal = cart.reduce((total, item) => total + item.totalPrice, 0);
   cartSubtotalElement.innerText = `R$ ${subtotal.toFixed(2)}`;
 
-  cartHeader.innerText = `Cart (${cart.length} items)`;
+  cartHeader.innerText = `Cart itens:${cart.length}`;
 
 }
 
